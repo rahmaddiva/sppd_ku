@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cetak SPPD - Kertas A4</title>
+    <style>
+        :root {
+            --sidebar-width: 380px;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            background: #525659;
+            font-family: "Bookman Old Style", serif;
+        }
+
+        /* UI Layout */
+        #preview-panel {
+            flex: 1;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #editor-panel {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #f8f9fa;
+            border-left: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+        }
+
+        textarea {
+            flex: 1;
+            font-family: 'Consolas', monospace;
+            padding: 10px;
+            font-size: 11px;
+            border: 1px solid #bdc3c7;
+            resize: none;
+            border-radius: 4px;
+        }
+
+        .btn-print {
+            margin-top: 15px;
+            padding: 15px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* UKURAN KERTAS A4 */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm 15mm;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            position: relative;
+            color: black;
+            page-break-after: always;
+        }
+
+        /* HALAMAN DEPAN */
+        .header-table {
+            width: 100%;
+            border-bottom: 3px double black;
+            margin-bottom: 8px;
+            border-collapse: collapse;
+        }
+
+        .kop-title {
+            font-family: Tahoma, sans-serif;
+            font-size: 14pt;
+            text-align: center;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .kop-dinas {
+            font-family: Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 10.5pt;
+            text-align: center;
+            margin: 3px 0;
+        }
+
+        .kop-alamat {
+            font-family: "Calibri Light", sans-serif;
+            font-size: 8.5pt;
+            text-align: center;
+            margin: 0;
+        }
+
+        table.main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 9.5pt;
+        }
+
+        table.main-table td {
+            border: 1px solid black;
+            padding: 7px 5px;
+            vertical-align: top;
+        }
+
+        /* HALAMAN BELAKANG (OPTIMASI A4) */
+        .sppd-table-back {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            table-layout: fixed;
+            font-size: 9pt;
+        }
+
+        .sppd-table-back td {
+            border: 1px solid black;
+            padding: 4px;
+            vertical-align: top;
+            line-height: 1.2;
+        }
+
+        .col-num {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .row-space {
+            height: 65px;
+        }
+
+        .perhatian-box {
+            border: 1px solid black;
+            border-top: none;
+            padding: 8px;
+            font-size: 8pt;
+            line-height: 1.2;
+            text-align: justify;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            #editor-panel {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            #preview-panel {
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                border: none;
+                width: 210mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preview-panel">
+        <div class="page">
+            <table class="header-table">
+                <tr>
+                    <td width="70" align="center">
+                        <img src="logo_tanah_laut.png" alt="Logo Tanah Laut" height="65" width="65">
+                    </td>
+                    <td>
+                        <p class="kop-title">PEMERINTAH KABUPATEN TANAH LAUT</p>
+                        <p class="kop-dinas">DINAS PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK,<br>PENGENDALIAN
+                            PENDUDUK DAN KELUARGA BERENCANA</p>
+                        <p class="kop-alamat">Jalan. A. Syairani Komplek Perkantoran Gagas Pelaihari 70814<br>Email:
+                            dp3ap2kb@tanahlautkab.go.id</p>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin-left: 65%; font-size: 9.5pt; margin-top: 10px;">
+                <p style="margin:0">Lembar ke : </p>
+                <p style="margin:0">Kode No. : 000.1.2.3</p>
+                <p style="margin:0">Nomor : <span id="v-no_spd"></span></p>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 15px; font-size: 11pt; font-weight: bold;">SURAT PERINTAH
+                PERJALANAN DINAS (SPD)</h3>
+
+            <table class="main-table">
+                <tr>
+                    <td width="25" align="center">1.</td>
+                    <td width="200">Pengguna Anggaran</td>
+                    <td colspan="3">MARIA ULFAH, S.Psi.,MM.<br>NIP. 19791113 200501 2 008</td>
+                </tr>
+                <tr>
+                    <td align="center">2.</td>
+                    <td>Nama pejabat yang melaksanakan perjalanan dinas</td>
+                    <td colspan="3"><span id="v-nama"></span><br>NIP. <span id="v-nip"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">3.</td>
+                    <td>a. Jabatan<br>b. Tingkat perjalanan dinas</td>
+                    <td colspan="3">a. <span id="v-jabatan"></span><br>b. -</td>
+                </tr>
+                <tr>
+                    <td align="center">4.</td>
+                    <td>Maksud Perjalanan dinas</td>
+                    <td colspan="3"><span id="v-maksud"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">5.</td>
+                    <td>Alat angkut yang digunakan</td>
+                    <td colspan="3">Kendaraan Roda Empat</td>
+                </tr>
+                <tr>
+                    <td align="center">6.</td>
+                    <td>a. Tempat berangkat<br>b. Tempat tujuan</td>
+                    <td colspan="3">a. Pelaihari<br>b. <span id="v-tujuan"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">7.</td>
+                    <td>a. Lamanya perjalanan<br>b. Tanggal berangkat<br>c. Tanggal harus kembali</td>
+                    <td colspan="3">a. 1 (satu) Hari<br>b. <span id="v-tgl-brkt"></span><br>c. <span
+                            id="v-tgl-kmbli"></span></td>
+                </tr>
+
+                <tr style="height:17pt">
+                    <td align="center" style="width:25pt; vertical-align: top;">8.</td>
+                    <td style="width:252pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Nama Pengikut :</p>
+                        <div style="padding-left: 10px; margin-top: 5px; font-size: 9pt; line-height: 1.5;">
+                            <div id="v-p1-nama">1</div>
+                            <div id="v-p2-nama">2</div>
+                            <div id="v-p3-nama">3</div>
+                        </div>
+                    </td>
+                    <td style="width:139pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Tanggal lahir</p>
+
+                        <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5;">
+
+                        </div>
+                    </td>
+                    <td style="width:133pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Keterangan</p>
+                        <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5;">
+
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center">9.</td>
+                    <td>Pembebanan Anggaran<br>a. SKPD<br>b. Kode Rekening</td>
+                    <td colspan="3"><br>a. Dinas P3AP2KB Kab. Tanah Laut<br>b. 5.1.02.04.001.0003</td>
+                </tr>
+                <tr>
+                    <td align="center">10.</td>
+                    <td>Keterangan lain-lain</td>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 30px; margin-left: 60%; font-size: 9.5pt;">
+                <p style="margin:0">Dikeluarkan di: Pelaihari</p>
+                <p style="margin:0">Pada Tanggal: <span id="v-tgl-cetak"></span></p>
+                <div style="margin-top: 15px; font-weight: bold;">
+                    Pengguna Anggaran,<br><br><br><br>
+                    <u>MARIA ULFAH, S.Psi.,MM.</u><br>
+                    NIP. 19791113 200501 2 008
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <table class="sppd-table-back">
+                <tr>
+                    <td class="col-num" style="border-bottom: none;"></td>
+                    <td style="width: 48%; border-right: none; border-bottom: none;"></td>
+                    <td style="width: 48%;">
+                        I. Berangkat dari : <br>
+                        &nbsp;&nbsp;&nbsp;Ke : <br>
+                        &nbsp;&nbsp;&nbsp;Pada Tanggal : <br>
+
+                        <div style="margin-top: 8px;">
+                            <span style="font-size: 8pt;">Penata Kelola Sistem dan Teknologi Informasi<br>
+                                Selaku Pejabat Pelaksana Teknis Kegiatan</span><br><br><br>
+                            <span class="bold underline">Zulyani Agustina, S. ST, M.M</span><br>
+                            <span style="font-size: 8pt;">NIP. 19860803 200903 2 006</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">II.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">III.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">IV.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">V.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">VI.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td rowspan="3" style="font-size: 8pt; text-align: justify; padding-top: 5px;">
+                        Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas dilakukan atas perintahnya
+                        dan
+                        semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td style="height: 75px; vertical-align: bottom;">
+                        Kepala : Pengguna anggaran<br><br><br>
+                        <span class="bold underline">MARIA ULFAH, S.Psi.,MM.</span><br>
+                        <span style="font-size: 8pt;">NIP. 19791113 200501 2 008</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num">VII.</td>
+                    <td colspan="2" style="height: 12px;">Catatan lain-lain</td>
+                </tr>
+            </table>
+
+            <div class="perhatian-box">
+                <span class="bold">VIII. PERHATIAN :</span><br>
+                Pengguna Anggaran/Kuasa Pengguna Anggaran yang menerbitkan SPD, pejabat/pegawai/pihak lain yang
+                melakukan
+                perjalanan dinas, para pejabat yang mengesahkan tanggal berangkat/tiba, serta bendahara pengeluaran
+                bertanggung jawab berdasarkan peraturan-peraturan Keuangan Daerah apabila negara menderita rugi akibat
+                kesalahan, kelalaian, dan kealpaannya.
+            </div>
+        </div>
+    </div>
+
+    <div id="editor-panel">
+        <h3 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 14px;">Editor Data</h3>
+        <textarea id="json-input"></textarea>
+        <button class="btn-print" onclick="window.print()">CETAK PDF (A4)</button>
+        <p style="font-size: 11px; color: #666; margin-top: 10px; font-family: sans-serif;">
+            <b>Setting Printer:</b><br>
+            - Ukuran Kertas: <b>A4</b><br>
+            - Margin: <b>None</b> atau <b>Default</b>
+        </p>
+    </div>
+
+    <script>
+        const dataAwal = {
+            "no_spd": "000/045/P3AP2KB/2026",
+            "nama": "ZULYANI AGUSTINA, S.ST, M.M",
+            "nip": "19860803 200903 2 006",
+            "jabatan": "Penata Kelola Sistem dan Teknologi Informasi",
+            "maksud": "Pembinaan, monitoring dan evaluasi Sekolah Siaga Kependudukan (SSK) melalui Penyuluh KB di kecamatan",
+            "tempat_tujuan": "Kecamatan Takisung",
+            "tanggal": "12 Februari 2026",
+            "tgl_cetak": "10 Februari 2026",
+
+        };
+
+        const input = document.getElementById('json-input');
+
+        function update() {
+            try {
+                const d = JSON.parse(input.value);
+                document.getElementById('v-no_spd').innerText = d.no_spd;
+                document.getElementById('v-nama').innerText = d.nama;
+                document.getElementById('v-nip').innerText = d.nip;
+                document.getElementById('v-jabatan').innerText = d.jabatan;
+                document.getElementById('v-maksud').innerText = d.maksud;
+                document.getElementById('v-tujuan').innerText = d.tempat_tujuan;
+                document.getElementById('v-tgl-brkt').innerText = d.tanggal;
+                document.getElementById('v-tgl-kmbli').innerText = d.tanggal;
+                document.getElementById('v-tgl-cetak').innerText = d.tgl_cetak;
+
+
+
+                input.style.borderColor = "#bdc3c7";
+            } catch (e) {
+                input.style.borderColor = "red";
+            }
+        }
+
+        input.value = JSON.stringify(dataAwal, null, 2);
+        input.addEventListener('input', update);
+        update();
+    </script>
+
+</body>
+
+</html>
