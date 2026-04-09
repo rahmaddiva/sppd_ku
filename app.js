@@ -16,6 +16,29 @@ const kecamatanList = [
 ];
 
 // ===========================
+// KONFIGURASI NOMOR SPPD PER KECAMATAN (APRIL 2026)
+// ===========================
+const noSpdConfig = {
+    bajuin:        { start: 1,   end: 37  },
+    bati_bati:     { start: 38,  end: 88  },
+    batu_ampar:    { start: 89,  end: 122 },
+    bumi_makmur:   { start: 123, end: 167 },
+    jorong:        { start: 168, end: 193 },
+    kintap:        { start: 194, end: 245 },
+    kurau:        { start: 246, end: 274 },
+    panyipatan:    { start: 275, end: 295 },
+    pelaihari:     { start: 296, end: 376 },
+    takisung:      { start: 377, end: 440 },
+    tambang_ulang: { start: 441, end: 471 }
+};
+
+// Bulan & tahun untuk format nomor SPPD
+const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+const currentDate = new Date();
+const BULAN_SPPD = BULAN_ROMAWI[currentDate.getMonth()]; // Otomatis bulan sekarang dalam angka Romawi
+const TAHUN_SPPD = String(currentDate.getFullYear());
+
+// ===========================
 // DATA MASTER - PEGAWAI
 // ===========================
 const pegawaiData = {
@@ -3838,6 +3861,7 @@ function renderPegawaiList(kecId, searchQuery) {
 
         item.innerHTML = `
             <h4>${displayNama}</h4>
+            <p>No SPPD: <strong>${escapeHtml(pegawai.no_spd)}</strong></p>
             <p>NIP: ${escapeHtml(pegawai.nip)}</p>
             <p>Jabatan: ${escapeHtml(pegawai.jabatan)}</p>
             <p style="color: #667eea; font-weight: bold; margin-top: 5px;">Klik untuk cetak SPPD</p>
@@ -3897,7 +3921,7 @@ function showCetakPage(pegawai) {
     const tanggalCetak = today.toLocaleDateString('id-ID', options);
 
     // Update data di halaman cetak
-    
+    document.getElementById('v-nomor').textContent = pegawai.no_spd;
     document.getElementById('v-nama').textContent = pegawai.nama;
     document.getElementById('v-nip').textContent = pegawai.nip;
     document.getElementById('v-jabatan').textContent = pegawai.jabatan;
@@ -3931,6 +3955,24 @@ function backToKecamatan() {
 // ===========================
 // INISIALISASI APLIKASI
 // ===========================
+// ===========================
+// FUNGSI GENERATE NOMOR SPPD OTOMATIS
+// ===========================
+function generateNoSpdForAllPegawai() {
+    for (const kecId in pegawaiData) {
+        const config = noSpdConfig[kecId];
+        if (!config) continue;
+
+        const pegawaiList = pegawaiData[kecId];
+        pegawaiList.forEach((pegawai, index) => {
+            const nomorUrut = config.start + index;
+            const nomorFormatted = String(nomorUrut).padStart(2, '0');
+            pegawai.no_spd = `${nomorFormatted}/DP3AP2KB/${BULAN_SPPD}/${TAHUN_SPPD}`;
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    generateNoSpdForAllPegawai();
     renderKecamatan();
 });
