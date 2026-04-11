@@ -49,7 +49,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -57,7 +57,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -65,7 +65,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -73,7 +73,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -81,7 +81,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -89,7 +89,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -97,7 +97,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -105,7 +105,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -113,7 +113,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -121,7 +121,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -129,7 +129,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -137,7 +137,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -145,7 +145,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -153,7 +153,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -161,7 +161,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -169,7 +169,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -177,7 +177,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -185,7 +185,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -193,7 +193,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -201,7 +201,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -209,7 +209,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -217,7 +217,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -225,7 +225,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -233,7 +233,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -241,7 +241,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -249,7 +249,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -257,7 +257,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -265,7 +265,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -273,7 +273,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -281,7 +281,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -289,7 +289,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -297,7 +297,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -305,7 +305,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -313,7 +313,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -321,7 +321,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -329,7 +329,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -337,7 +337,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bajuin",
             tempat_tujuan: "Kecamatan Bajuin",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     bati_bati: [
@@ -347,7 +347,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -355,7 +355,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -363,7 +363,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -371,7 +371,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -379,7 +379,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -387,7 +387,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -395,7 +395,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -403,7 +403,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -411,7 +411,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -419,7 +419,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -427,7 +427,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -435,7 +435,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -443,7 +443,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -451,7 +451,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -459,7 +459,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -467,7 +467,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -475,7 +475,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -483,7 +483,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -491,7 +491,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -499,7 +499,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -507,7 +507,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -515,7 +515,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -523,7 +523,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -531,7 +531,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -539,7 +539,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -547,7 +547,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -555,7 +555,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -563,7 +563,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -571,7 +571,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -579,7 +579,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -587,7 +587,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -595,7 +595,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -603,7 +603,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -611,7 +611,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -619,7 +619,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -627,7 +627,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -635,7 +635,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -643,7 +643,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -651,7 +651,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -659,7 +659,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -667,7 +667,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -675,7 +675,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -683,7 +683,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -691,7 +691,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -699,7 +699,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -707,7 +707,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -715,7 +715,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -723,7 +723,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -731,7 +731,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -739,7 +739,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bati-Bati",
             tempat_tujuan: "Kecamatan Bati-Bati",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     batu_ampar: [
@@ -749,7 +749,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -757,7 +757,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -765,7 +765,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -773,7 +773,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -781,7 +781,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -789,7 +789,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -797,7 +797,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -805,7 +805,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -813,7 +813,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -821,7 +821,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -829,7 +829,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -837,7 +837,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -845,7 +845,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -853,7 +853,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -861,7 +861,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -869,7 +869,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -877,7 +877,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -885,7 +885,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -893,7 +893,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -901,7 +901,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -909,7 +909,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -917,7 +917,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -925,7 +925,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -933,7 +933,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -941,7 +941,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -949,7 +949,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -957,7 +957,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -965,7 +965,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -973,7 +973,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -981,7 +981,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -989,7 +989,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -997,7 +997,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1005,7 +1005,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Batu Ampar",
             tempat_tujuan: "Kecamatan Batu Ampar",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     bumi_makmur: [
@@ -1015,7 +1015,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1023,7 +1023,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1031,7 +1031,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1039,7 +1039,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1047,7 +1047,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1055,7 +1055,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1063,7 +1063,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1071,7 +1071,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1079,7 +1079,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1087,7 +1087,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1095,7 +1095,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1103,7 +1103,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1111,7 +1111,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1119,7 +1119,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1127,7 +1127,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1135,7 +1135,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1143,7 +1143,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1151,7 +1151,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1159,7 +1159,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1167,7 +1167,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1175,7 +1175,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1183,7 +1183,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1191,7 +1191,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1199,7 +1199,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1207,7 +1207,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1215,7 +1215,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1223,7 +1223,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1231,7 +1231,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1239,7 +1239,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1247,7 +1247,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1255,7 +1255,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1263,7 +1263,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1271,7 +1271,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1279,7 +1279,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1287,7 +1287,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1295,7 +1295,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1303,7 +1303,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1311,7 +1311,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1319,7 +1319,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1327,7 +1327,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1335,7 +1335,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1343,7 +1343,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1351,7 +1351,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1359,7 +1359,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Bumi Makmur",
             tempat_tujuan: "Kecamatan Bumi Makmur",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     jorong: [
@@ -1369,7 +1369,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1377,7 +1377,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1385,7 +1385,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1393,7 +1393,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1401,7 +1401,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1409,7 +1409,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1417,7 +1417,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1425,7 +1425,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1433,7 +1433,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1441,7 +1441,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1449,7 +1449,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1457,7 +1457,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1465,7 +1465,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1473,7 +1473,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1481,7 +1481,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1489,7 +1489,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1497,7 +1497,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1505,7 +1505,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1513,7 +1513,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1521,7 +1521,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1529,7 +1529,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1537,7 +1537,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1545,7 +1545,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1553,7 +1553,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1561,7 +1561,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Jorong",
             tempat_tujuan: "Kecamatan Jorong",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     kintap: [
@@ -1571,7 +1571,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1579,7 +1579,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1587,7 +1587,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1595,7 +1595,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1603,7 +1603,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1611,7 +1611,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1619,7 +1619,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1627,7 +1627,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1635,7 +1635,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1643,7 +1643,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1651,7 +1651,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1659,7 +1659,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1667,7 +1667,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1675,7 +1675,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1683,7 +1683,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1691,7 +1691,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1699,7 +1699,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1707,7 +1707,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1715,7 +1715,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1723,7 +1723,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1731,7 +1731,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1739,7 +1739,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1747,7 +1747,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1755,7 +1755,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1763,7 +1763,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1771,7 +1771,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1779,7 +1779,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1787,7 +1787,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1795,7 +1795,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1803,7 +1803,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1811,7 +1811,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1819,7 +1819,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1827,7 +1827,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1835,7 +1835,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1843,7 +1843,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1851,7 +1851,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1859,7 +1859,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1867,7 +1867,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1875,7 +1875,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1883,7 +1883,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1891,7 +1891,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1899,7 +1899,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1907,7 +1907,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1915,7 +1915,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1923,7 +1923,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1931,7 +1931,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1939,7 +1939,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1947,7 +1947,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1955,7 +1955,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1963,7 +1963,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1971,7 +1971,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kintap",
             tempat_tujuan: "Kecamatan Kintap",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     kurau: [
@@ -1981,7 +1981,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1989,7 +1989,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -1997,7 +1997,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2005,7 +2005,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2013,7 +2013,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2021,7 +2021,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2029,7 +2029,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2037,7 +2037,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2045,7 +2045,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2053,7 +2053,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2061,7 +2061,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2069,7 +2069,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2077,7 +2077,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2085,7 +2085,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2093,7 +2093,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2101,7 +2101,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2109,7 +2109,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2117,7 +2117,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2125,7 +2125,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2133,7 +2133,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2141,7 +2141,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2149,7 +2149,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2157,7 +2157,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2165,7 +2165,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2173,7 +2173,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2181,7 +2181,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2189,7 +2189,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2197,7 +2197,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Kurau",
             tempat_tujuan: "Kecamatan Kurau",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     panyipatan: [
@@ -2207,7 +2207,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2215,7 +2215,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2223,7 +2223,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2231,7 +2231,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2239,7 +2239,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2247,7 +2247,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2255,7 +2255,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2263,7 +2263,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2271,7 +2271,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2279,7 +2279,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2287,7 +2287,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2295,7 +2295,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2303,7 +2303,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2311,7 +2311,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2319,7 +2319,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2327,7 +2327,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2335,7 +2335,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2343,7 +2343,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2351,7 +2351,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2359,7 +2359,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Panyipatan",
             tempat_tujuan: "Kecamatan Panyipatan",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     pelaihari: [
@@ -2369,7 +2369,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2377,7 +2377,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2385,7 +2385,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2393,7 +2393,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2401,7 +2401,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2409,7 +2409,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2417,7 +2417,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2425,7 +2425,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2433,7 +2433,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2441,7 +2441,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2449,7 +2449,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2457,7 +2457,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2465,7 +2465,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2473,7 +2473,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2481,7 +2481,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2489,7 +2489,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2497,7 +2497,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2505,7 +2505,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2513,7 +2513,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2521,7 +2521,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2529,7 +2529,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2537,7 +2537,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2545,7 +2545,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2553,7 +2553,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2561,7 +2561,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2569,7 +2569,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2577,7 +2577,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2585,7 +2585,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2593,7 +2593,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2601,7 +2601,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2609,7 +2609,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2617,7 +2617,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2625,7 +2625,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2633,7 +2633,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2641,7 +2641,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2649,7 +2649,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2657,7 +2657,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2665,7 +2665,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2673,7 +2673,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2681,7 +2681,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2689,7 +2689,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2697,7 +2697,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2705,7 +2705,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2713,7 +2713,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2721,7 +2721,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2729,7 +2729,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2737,7 +2737,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2745,7 +2745,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2753,7 +2753,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2761,7 +2761,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2769,7 +2769,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2777,7 +2777,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2785,7 +2785,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2793,7 +2793,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2801,7 +2801,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2809,7 +2809,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2817,7 +2817,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2825,7 +2825,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2833,7 +2833,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2841,7 +2841,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2849,7 +2849,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2857,7 +2857,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2865,7 +2865,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2873,7 +2873,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2881,7 +2881,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2889,7 +2889,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2897,7 +2897,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2905,7 +2905,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2913,7 +2913,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2921,7 +2921,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2929,7 +2929,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2937,7 +2937,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2945,7 +2945,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2953,7 +2953,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2961,7 +2961,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2969,7 +2969,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2977,7 +2977,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2985,7 +2985,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -2993,7 +2993,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3001,7 +3001,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Pelaihari",
             tempat_tujuan: "Kecamatan Pelaihari",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     takisung: [
@@ -3011,7 +3011,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3019,7 +3019,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3027,7 +3027,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3035,7 +3035,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3043,7 +3043,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3051,7 +3051,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3059,7 +3059,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3067,7 +3067,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3075,7 +3075,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3083,7 +3083,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3091,7 +3091,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3099,7 +3099,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3107,7 +3107,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3115,7 +3115,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3123,7 +3123,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3131,7 +3131,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3139,7 +3139,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3147,7 +3147,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3155,7 +3155,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3163,7 +3163,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3171,7 +3171,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3179,7 +3179,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3187,7 +3187,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3195,7 +3195,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3203,7 +3203,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3211,7 +3211,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3219,7 +3219,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3227,7 +3227,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3235,7 +3235,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3243,7 +3243,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3251,7 +3251,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3259,7 +3259,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3267,7 +3267,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3275,7 +3275,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3283,7 +3283,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3291,7 +3291,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3299,7 +3299,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3307,7 +3307,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3315,7 +3315,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3323,7 +3323,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3331,7 +3331,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3339,7 +3339,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3347,7 +3347,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3355,7 +3355,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3363,7 +3363,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3371,7 +3371,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3379,7 +3379,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3387,7 +3387,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3395,7 +3395,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3403,7 +3403,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3411,7 +3411,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3419,7 +3419,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3427,7 +3427,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3435,7 +3435,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3443,7 +3443,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3451,7 +3451,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3459,7 +3459,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3467,7 +3467,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3475,7 +3475,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3483,7 +3483,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3491,7 +3491,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3499,7 +3499,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3507,7 +3507,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Takisung",
             tempat_tujuan: "Kecamatan Takisung",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ],
     tambang_ulang: [
@@ -3517,7 +3517,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3525,7 +3525,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3533,7 +3533,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3541,7 +3541,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3549,7 +3549,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3557,7 +3557,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3565,7 +3565,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3573,7 +3573,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3581,7 +3581,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Kader IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3589,7 +3589,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3597,7 +3597,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3605,7 +3605,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3613,7 +3613,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3621,7 +3621,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3629,7 +3629,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3637,7 +3637,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3645,7 +3645,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3653,7 +3653,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3661,7 +3661,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3669,7 +3669,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3677,7 +3677,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3685,7 +3685,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3693,7 +3693,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3701,7 +3701,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3709,7 +3709,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3717,7 +3717,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3725,7 +3725,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3733,7 +3733,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3741,7 +3741,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3749,7 +3749,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         },
         {
             no_spd: "..../DP3AP2KB/..../2026",
@@ -3757,7 +3757,7 @@ const pegawaiData = {
             nip: "",
             jabatan: "Sub IMP Kecamatan Tambang Ulang",
             tempat_tujuan: "Kecamatan Tambang Ulang",
-            maksud: "Melaksanakan Tugas di wilayah masing-masing penugasan, sebagaimana terlampir"
+            maksud: "Melaksanakan tugas masing-masing seperti terlampir di surat tugas"
         }
     ]
 };
@@ -3920,6 +3920,32 @@ function showCetakPage(pegawai) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const tanggalCetak = today.toLocaleDateString('id-ID', options);
 
+    // Tentukan lama perjalanan berdasarkan jabatan
+    // Kader IMP = 4 hari, Sub IMP = 3 hari
+    let lamaHari = 1; // default
+    const jabatanLower = (pegawai.jabatan || '').toLowerCase();
+
+    if (jabatanLower.includes('kader imp')) {
+        lamaHari = 4;
+    } else if (jabatanLower.includes('sub imp')) {
+        lamaHari = 3;
+    }
+
+    // Konversi angka ke teks Indonesia
+    const angkaTeks = {
+        1: 'satu', 2: 'dua', 3: 'tiga', 4: 'empat', 5: 'lima',
+        6: 'enam', 7: 'tujuh', 8: 'delapan', 9: 'sembilan', 10: 'sepuluh'
+    };
+    const lamaText = `${lamaHari} (${angkaTeks[lamaHari] || lamaHari}) Hari`;
+
+    // Hitung tanggal berangkat (hari ini) dan tanggal kembali
+    const tglBerangkat = new Date(today);
+    const tglKembali = new Date(today);
+    tglKembali.setDate(tglKembali.getDate() + (lamaHari - 1));
+
+    const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
+    const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
     // Update data di halaman cetak
     document.getElementById('v-nomor').textContent = pegawai.no_spd;
     document.getElementById('v-nama').textContent = pegawai.nama;
@@ -3927,8 +3953,9 @@ function showCetakPage(pegawai) {
     document.getElementById('v-jabatan').textContent = pegawai.jabatan;
     document.getElementById('v-maksud').textContent = pegawai.maksud;
     document.getElementById('v-tujuan').textContent = pegawai.tempat_tujuan;
-    document.getElementById('v-tgl-brkt').textContent = tanggalCetak;
-    document.getElementById('v-tgl-kmbli').textContent = tanggalCetak;
+    document.getElementById('v-lama-perjalanan').textContent = lamaText;
+    document.getElementById('v-tgl-brkt').textContent = tglBerangkatStr;
+    document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('v-tgl-cetak').textContent = tanggalCetak;
 
     // Tampilkan halaman cetak
