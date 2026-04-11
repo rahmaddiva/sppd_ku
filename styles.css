@@ -336,6 +336,15 @@ body {
     background: #c82333;
 }
 
+.btn-kie {
+    background: #007bff;
+    color: white;
+}
+
+.btn-kie:hover {
+    background: #0069d9;
+}
+
 .preview-panel {
     padding: 20px;
     display: flex;
@@ -488,6 +497,12 @@ table.main-table td {
 
     /* Sembunyikan tombol kontrol */
     .cetak-controls {
+        display: none !important;
+    }
+
+    /* Sembunyikan input kalender saat cetak */
+    #v-input-tgl-brkt,
+    #v-input-tgl-kmbli {
         display: none !important;
     }
 

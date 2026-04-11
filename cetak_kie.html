@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cetak SPD KIE - Kabupaten Tanah Laut</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Override base styles for standalone cetak page */
+        body {
+            background: #525659;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .cetak-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .preview-panel {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 80px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            /* Override styles.css yang menyembunyikan semua kecuali #cetak-page */
+            body *,
+            .preview-panel,
+            .preview-panel * {
+                visibility: visible !important;
+            }
+
+            .cetak-controls {
+                display: none !important;
+            }
+
+            .preview-panel {
+                padding: 0;
+                margin: 0;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                border: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Controls -->
+    <div class="cetak-controls">
+        <button class="btn btn-print" onclick="window.print()">🖨️ Cetak PDF</button>
+        <button class="btn btn-close" onclick="window.close(); window.history.back();">✖ Tutup</button>
+    </div>
+
+    <div class="preview-panel">
+        <!-- Halaman 1 -->
+        <div class="page">
+            <table class="header-table">
+                <tr>
+                    <td width="70" align="center">
+                        <img src="logo_tanah_laut.png" alt="Logo Tanah Laut" height="65" width="65">
+                    </td>
+                    <td>
+                        <p class="kop-title">PEMERINTAH KABUPATEN TANAH LAUT</p>
+                        <p class="kop-dinas">DINAS PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK,<br>PENGENDALIAN
+                            PENDUDUK DAN KELUARGA BERENCANA</p>
+                        <p class="kop-alamat">Jalan. A. Syairani Komplek Perkantoran Gagas Pelaihari 70814<br>Email:
+                            dp3ap2kb@tanahlautkab.go.id</p>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin-left: 65%; font-size: 9.5pt; margin-top: 10px; font-family: 'Bookman Old Style', serif;">
+                <p style="margin:0">Lembar ke : </p>
+                <p style="margin:0">Kode No. : 000.1.2.3</p>
+                <p style="margin:0">Nomor : ...........</span></p>
+            </div>
+
+            <h3
+                style="text-align: center; margin-top: 15px; font-size: 11pt; font-weight: bold; font-family: 'Bookman Old Style', serif;">
+                SURAT PERINTAH PERJALANAN DINAS (SPD)</h3>
+
+            <table class="main-table">
+                <tr>
+                    <td width="25" align="center">1.</td>
+                    <td width="200">Pengguna Anggaran</td>
+                    <td colspan="3">MARIA ULFAH, S.Psi.,MM.<br>NIP. 19791113 200501 2 008</td>
+                </tr>
+                <tr>
+                    <td align="center">2.</td>
+                    <td>Nama pejabat yang melaksanakan perjalanan dinas</td>
+                    <td colspan="3"><span id="kie-nama"></span><br>NIP. <span id="kie-nip"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">3.</td>
+                    <td>a. Jabatan<br>b. Tingkat perjalanan dinas</td>
+                    <td colspan="3">a. <span id="kie-jabatan"></span><br>b. -</td>
+                </tr>
+                <tr>
+                    <td align="center">4.</td>
+                    <td>Maksud Perjalanan dinas</td>
+                    <td colspan="3"><span id="kie-maksud">Melaksanakan tugas masing-masing seperti terlampir di surat
+                            tugas</span></td>
+                </tr>
+                <tr>
+                    <td align="center">5.</td>
+                    <td>Alat angkut yang digunakan</td>
+                    <td colspan="3">Kendaraan Roda Empat</td>
+                </tr>
+                <tr>
+                    <td align="center">6.</td>
+                    <td>a. Tempat berangkat<br>b. Tempat tujuan</td>
+                    <td colspan="3">a. Pelaihari<br>b. <span id="kie-tujuan"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">7.</td>
+                    <td>a. Lamanya perjalanan<br>b. Tanggal berangkat<br>c. Tanggal harus kembali</td>
+                    <td colspan="3">a. <span id="kie-lama-perjalanan">1 (satu) Hari</span><br>b. <span
+                            id="kie-tgl-brkt"></span><br>c. <span id="kie-tgl-kmbli"></span></td>
+                </tr>
+                <tr style="height:17pt">
+                    <td align="center" style="width:25pt; vertical-align: top;">8.</td>
+                    <td style="width:252pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Nama Pengikut :</p>
+                        <div style="padding-left: 10px; margin-top: 5px; font-size: 9pt; line-height: 1.5;">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                    </td>
+                    <td style="width:139pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Tanggal lahir</p>
+                        <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5;"></div>
+                    </td>
+                    <td style="width:133pt; vertical-align: top;">
+                        <p style="margin:0; border-bottom: 1px solid black;">Keterangan</p>
+                        <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">9.</td>
+                    <td>Pembebanan Anggaran<br>a. SKPD<br>b. Kode Rekening</td>
+                    <td colspan="3"><br>a. Dinas P3AP2KB Kab. Tanah Laut<br>b. <span
+                            id="kie-kode-rekening">5.1.02.04.001.0003</span></td>
+                </tr>
+                <tr>
+                    <td align="center">10.</td>
+                    <td>Keterangan lain-lain</td>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 30px; margin-left: 60%; font-size: 9.5pt; font-family: 'Bookman Old Style', serif;">
+                <p style="margin:0">Dikeluarkan di: Pelaihari</p>
+                <p style="margin:0">Pada Tanggal: <span id="kie-tgl-cetak"></span></p>
+                <div style="margin-top: 15px; font-weight: bold;">
+                    Pengguna Anggaran,<br><br><br><br>
+                    <u>MARIA ULFAH, S.Psi.,MM.</u><br>
+                    NIP. 19791113 200501 2 008
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman 2 -->
+        <div class="page">
+            <table class="sppd-table-back">
+                <tr>
+                    <td class="col-num" style="border-bottom: none;"></td>
+                    <td style="width: 48%; border-right: none; border-bottom: none;"></td>
+                    <td style="width: 48%;">
+                        I. Berangkat dari : <br>
+                        &nbsp;&nbsp;&nbsp;Ke : <br>
+                        &nbsp;&nbsp;&nbsp;Pada Tanggal : <br>
+
+                        <div style="margin-top: 8px;">
+                            <span style="font-size: 8pt;">Penata Kelola Sistem dan Teknologi Informasi<br>
+                                Selaku Pejabat Pelaksana Teknis Kegiatan</span><br><br><br>
+                            <span class="bold underline">Zulyani Agustina, S. ST, M.M</span><br>
+                            <span style="font-size: 8pt;">NIP. 19860803 200903 2 006</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">II.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">III.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">IV.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">V.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="col-num" rowspan="3">VI.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="col-num" rowspan="3">VII.</td>
+                    <td style="height: 8px;">Tiba :</td>
+                    <td style="height: 8px;">Berangkat dari :</td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td class="row-space"></td>
+                    <td class="row-space"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">VIII.
+                    <td style="height: 8px;">Tiba :</td>
+                    <td rowspan="3" style="font-size: 8pt; text-align: justify; padding-top: 5px;">
+                        Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas dilakukan atas
+                        perintahnya dan
+                        semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 8px;">Pada tanggal :</td>
+                </tr>
+                <tr>
+                    <td style="height: 75px; vertical-align: bottom;">
+                        Kepala : Pengguna anggaran<br><br><br>
+                        <span class="bold underline">MARIA ULFAH, S.Psi.,MM.</span><br>
+                        <span style="font-size: 8pt;">NIP. 19791113 200501 2 008</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num">IX.</td>
+                    <td colspan="2" style="height: 12px;">Catatan lain-lain</td>
+                </tr>
+            </table>
+
+            <div class="perhatian-box">
+                <span class="bold">VIII. PERHATIAN :</span><br>
+                Pengguna Anggaran/Kuasa Pengguna Anggaran yang menerbitkan SPD, pejabat/pegawai/pihak lain yang
+                melakukan
+                perjalanan dinas, para pejabat yang mengesahkan tanggal berangkat/tiba, serta bendahara pengeluaran
+                bertanggung jawab berdasarkan peraturan-peraturan Keuangan Daerah apabila negara menderita rugi
+                akibat
+                kesalahan, kelalaian, dan kealpaannya.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ambil data pegawai dari localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            const pegawaiDataStr = localStorage.getItem('cetak_kie_data');
+
+            if (pegawaiDataStr) {
+                const pegawai = JSON.parse(pegawaiDataStr);
+
+                // Generate tanggal
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const tanggalCetak = today.toLocaleDateString('id-ID', options);
+
+                // Lama perjalanan KIE = 1 hari (default)
+                const lamaHari = 1;
+                const lamaText = '1 (satu) Hari';
+
+                const tglBerangkat = new Date(today);
+                const tglKembali = new Date(today);
+                tglKembali.setDate(tglKembali.getDate() + (lamaHari - 1));
+
+                const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
+                const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
+                // Isi data ke halaman
+                document.getElementById('kie-nomor').textContent = pegawai.no_spd || '';
+                document.getElementById('kie-nama').textContent = pegawai.nama || '-';
+                document.getElementById('kie-nip').textContent = pegawai.nip || '-';
+                document.getElementById('kie-jabatan').textContent = pegawai.jabatan || '-';
+                document.getElementById('kie-tujuan').textContent = pegawai.tempat_tujuan || '-';
+                document.getElementById('kie-lama-perjalanan').textContent = lamaText;
+                document.getElementById('kie-tgl-brkt').textContent = tglBerangkatStr;
+                document.getElementById('kie-tgl-kmbli').textContent = tglKembaliStr;
+                document.getElementById('kie-tgl-cetak').textContent = tanggalCetak;
+
+                // Jika ada maksud khusus KIE
+                if (pegawai.maksud_kie) {
+                    document.getElementById('kie-maksud').textContent = pegawai.maksud_kie;
+                }
+            } else {
+                // Jika tidak ada data, tampilkan pesan
+                document.body.innerHTML = '<div style="text-align:center;margin-top:100px;font-family:sans-serif;color:white;">' +
+                    '<h2>⚠️ Data tidak ditemukan</h2>' +
+                    '<p>Silakan buka halaman cetak KIE melalui tombol di halaman utama.</p>' +
+                    '<a href="index.html" style="color:#00b894;font-size:14pt;">← Kembali ke Halaman Utama</a></div>';
+            }
+        });
+    </script>
+</body>
+
+</html>

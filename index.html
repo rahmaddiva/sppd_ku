@@ -17,6 +17,9 @@
             <p>Dinas P3AP2KB Kabupaten Tanah Laut</p>
         </div>
 
+        <!-- tombol daftar pegawai KIE -->
+        <a href="index_kie.html"></a>
+
         <!-- Halaman Pilihan Kecamatan -->
         <div id="kecamatan-page">
             <div class="kecamatan-grid" id="kecamatan-grid"></div>
@@ -32,8 +35,10 @@
             <div class="search-box">
                 <div class="search-input-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="search-pegawai" placeholder="Cari nama pegawai..." oninput="filterPegawai(this.value)">
-                    <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()" style="display:none;">✕</button>
+                    <input type="text" id="search-pegawai" placeholder="Cari nama pegawai..."
+                        oninput="filterPegawai(this.value)">
+                    <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()"
+                        style="display:none;">✕</button>
                 </div>
                 <p class="search-result-count" id="search-result-count"></p>
             </div>
@@ -49,6 +54,8 @@
         <div class="cetak-controls">
             <button class="btn btn-print" onclick="window.print()">🖨️ Cetak PDF</button>
             <button class="btn btn-close" onclick="closeCetak()">✖ Tutup</button>
+            <!-- tombol ke isi spd untuk kie -->
+            <button class="btn btn-kie" onclick="cetakKIE()">📄 Cetak KIE</button>
         </div>
 
         <div class="preview-panel">
@@ -114,8 +121,11 @@
                     <tr>
                         <td align="center">7.</td>
                         <td>a. Lamanya perjalanan<br>b. Tanggal berangkat<br>c. Tanggal harus kembali</td>
-                        <td colspan="3">a. <span id="v-lama-perjalanan"></span><br>b. <span id="v-tgl-brkt"></span><br>c. <span
-                                id="v-tgl-kmbli"></span></td>
+                        <td colspan="3">
+                            a. <span id="v-lama-perjalanan"></span><br>
+                            b. <input type="date" id="v-input-tgl-brkt" onchange="updateTanggalKembali()" style="font-family:'Bookman Old Style',serif; font-size:9.5pt; border:1px solid #999; padding:2px 5px; border-radius:3px;"> <span id="v-tgl-brkt"></span><br>
+                            c. <input type="date" id="v-input-tgl-kmbli" onchange="updateTanggalManual()" style="font-family:'Bookman Old Style',serif; font-size:9.5pt; border:1px solid #999; padding:2px 5px; border-radius:3px;"> <span id="v-tgl-kmbli"></span>
+                        </td>
                     </tr>
                     <tr style="height:17pt">
                         <td align="center" style="width:25pt; vertical-align: top;">8.</td>

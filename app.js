@@ -3914,34 +3914,106 @@ function highlightText(text, query) {
 // ===========================
 // FUNGSI TAMPILKAN HALAMAN CETAK
 // ===========================
+// Variabel untuk menyimpan data pegawai yang sedang ditampilkan
+let currentPegawai = null;
+let currentLamaHari = 1; // Variabel global untuk lama perjalanan
+
+// ===========================
+// HELPER: Cek apakah hari kerja (Senin-Jumat)
+// ===========================
+function isHariKerja(date) {
+    const day = date.getDay(); // 0=Minggu, 6=Sabtu
+    return day !== 0 && day !== 6;
+}
+
+// ===========================
+// HELPER: Tambah N hari kerja dari tanggal mulai
+// Mengembalikan tanggal akhir (hari kerja ke-N)
+// ===========================
+function addHariKerja(startDate, jumlahHariKerja) {
+    const result = new Date(startDate);
+    let hariTerhitung = 1; // hari pertama = tanggal berangkat
+    while (hariTerhitung < jumlahHariKerja) {
+        result.setDate(result.getDate() + 1);
+        if (isHariKerja(result)) {
+            hariTerhitung++;
+        }
+    }
+    return result;
+}
+
+// ===========================
+// HELPER: Hitung jumlah hari kerja antara 2 tanggal (inklusif)
+// ===========================
+function hitungHariKerja(startDate, endDate) {
+    let count = 0;
+    const current = new Date(startDate);
+    while (current <= endDate) {
+        if (isHariKerja(current)) {
+            count++;
+        }
+        current.setDate(current.getDate() + 1);
+    }
+    return count;
+}
+
+// ===========================
+// HELPER: Format tanggal ke YYYY-MM-DD
+// ===========================
+function toInputDateStr(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+}
+
+// ===========================
+// HELPER: Konversi angka ke teks lama perjalanan
+// ===========================
+function lamaPerjalananText(hari) {
+    const angkaTeks = {
+        1: 'satu', 2: 'dua', 3: 'tiga', 4: 'empat', 5: 'lima',
+        6: 'enam', 7: 'tujuh', 8: 'delapan', 9: 'sembilan', 10: 'sepuluh'
+    };
+    return `${hari} (${angkaTeks[hari] || hari}) Hari`;
+}
+
 function showCetakPage(pegawai) {
+    // Simpan pegawai yang sedang ditampilkan
+    currentPegawai = pegawai;
+
     // Generate tanggal
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const tanggalCetak = today.toLocaleDateString('id-ID', options);
 
     // Tentukan lama perjalanan berdasarkan jabatan
-    // Kader IMP = 4 hari, Sub IMP = 3 hari
-    let lamaHari = 1; // default
+    // Kader IMP = 4 hari kerja, Sub IMP = 3 hari kerja
+    currentLamaHari = 1; // default
     const jabatanLower = (pegawai.jabatan || '').toLowerCase();
 
     if (jabatanLower.includes('kader imp')) {
-        lamaHari = 4;
+        currentLamaHari = 4;
     } else if (jabatanLower.includes('sub imp')) {
-        lamaHari = 3;
+        currentLamaHari = 3;
     }
 
-    // Konversi angka ke teks Indonesia
-    const angkaTeks = {
-        1: 'satu', 2: 'dua', 3: 'tiga', 4: 'empat', 5: 'lima',
-        6: 'enam', 7: 'tujuh', 8: 'delapan', 9: 'sembilan', 10: 'sepuluh'
-    };
-    const lamaText = `${lamaHari} (${angkaTeks[lamaHari] || lamaHari}) Hari`;
+    const lamaText = lamaPerjalananText(currentLamaHari);
 
-    // Hitung tanggal berangkat (hari ini) dan tanggal kembali
-    const tglBerangkat = new Date(today);
-    const tglKembali = new Date(today);
-    tglKembali.setDate(tglKembali.getDate() + (lamaHari - 1));
+    // Pastikan tanggal berangkat jatuh di hari kerja
+    let tglBerangkat = new Date(today);
+    while (!isHariKerja(tglBerangkat)) {
+        tglBerangkat.setDate(tglBerangkat.getDate() + 1);
+    }
+
+    // Hitung tanggal kembali (hari kerja saja, skip Sabtu-Minggu)
+    const tglKembali = addHariKerja(tglBerangkat, currentLamaHari);
+
+    // Set date inputs
+    const inputTglBrkt = document.getElementById('v-input-tgl-brkt');
+    const inputTglKmbli = document.getElementById('v-input-tgl-kmbli');
+    inputTglBrkt.value = toInputDateStr(tglBerangkat);
+    inputTglKmbli.value = toInputDateStr(tglKembali);
 
     const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
     const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
@@ -3961,6 +4033,98 @@ function showCetakPage(pegawai) {
     // Tampilkan halaman cetak
     document.getElementById('cetak-page').style.display = 'block';
     document.body.style.overflow = 'hidden';
+}
+
+// ===========================
+// FUNGSI UPDATE TANGGAL KEMBALI (saat user ubah tanggal berangkat)
+// Otomatis hitung tanggal kembali berdasarkan hari kerja
+// ===========================
+function updateTanggalKembali() {
+    const inputTglBrkt = document.getElementById('v-input-tgl-brkt');
+    const inputTglKmbli = document.getElementById('v-input-tgl-kmbli');
+    if (!inputTglBrkt.value) return;
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+    // Tanggal berangkat dari input kalender
+    let tglBerangkat = new Date(inputTglBrkt.value + 'T00:00:00');
+
+    // Jika user pilih hari weekend, geser ke Senin
+    if (!isHariKerja(tglBerangkat)) {
+        while (!isHariKerja(tglBerangkat)) {
+            tglBerangkat.setDate(tglBerangkat.getDate() + 1);
+        }
+        inputTglBrkt.value = toInputDateStr(tglBerangkat);
+    }
+
+    const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
+
+    // Hitung tanggal kembali (skip weekend)
+    const tglKembali = addHariKerja(tglBerangkat, currentLamaHari);
+    const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
+    // Update input dan tampilan
+    inputTglKmbli.value = toInputDateStr(tglKembali);
+    document.getElementById('v-tgl-brkt').textContent = tglBerangkatStr;
+    document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
+    document.getElementById('v-lama-perjalanan').textContent = lamaPerjalananText(currentLamaHari);
+
+    // Update tanggal cetak
+    document.getElementById('v-tgl-cetak').textContent = tglBerangkatStr;
+}
+
+// ===========================
+// FUNGSI UPDATE TANGGAL MANUAL (saat user ubah tanggal kembali)
+// Hitung ulang lama perjalanan berdasarkan hari kerja
+// ===========================
+function updateTanggalManual() {
+    const inputTglBrkt = document.getElementById('v-input-tgl-brkt');
+    const inputTglKmbli = document.getElementById('v-input-tgl-kmbli');
+    if (!inputTglBrkt.value || !inputTglKmbli.value) return;
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+    let tglBerangkat = new Date(inputTglBrkt.value + 'T00:00:00');
+    let tglKembali = new Date(inputTglKmbli.value + 'T00:00:00');
+
+    // Jika tanggal kembali weekend, geser ke Jumat sebelumnya
+    if (!isHariKerja(tglKembali)) {
+        while (!isHariKerja(tglKembali)) {
+            tglKembali.setDate(tglKembali.getDate() - 1);
+        }
+        inputTglKmbli.value = toInputDateStr(tglKembali);
+    }
+
+    // Pastikan tanggal kembali tidak sebelum tanggal berangkat
+    if (tglKembali < tglBerangkat) {
+        tglKembali = new Date(tglBerangkat);
+        inputTglKmbli.value = toInputDateStr(tglKembali);
+    }
+
+    // Hitung lama perjalanan dalam hari kerja
+    currentLamaHari = hitungHariKerja(tglBerangkat, tglKembali);
+
+    const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
+    // Update tampilan
+    document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
+    document.getElementById('v-lama-perjalanan').textContent = lamaPerjalananText(currentLamaHari);
+}
+
+// ===========================
+// FUNGSI CETAK SPD KIE
+// ===========================
+function cetakKIE() {
+    if (!currentPegawai) {
+        alert('Data pegawai tidak ditemukan!');
+        return;
+    }
+
+    // Simpan data pegawai ke localStorage untuk halaman cetak_kie.html
+    localStorage.setItem('cetak_kie_data', JSON.stringify(currentPegawai));
+
+    // Buka halaman cetak KIE di tab baru
+    window.open('cetak_kie.html', '_blank');
 }
 
 // ===========================
