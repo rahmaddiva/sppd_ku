@@ -109,31 +109,52 @@ function renderKecamatan() {
         card.onclick = () => showPegawaiPage(kec.id, kec.nama);
         grid.appendChild(card);
     });
+
+    // Trigger entrance + draggable animation
+    if (typeof animateKecamatanEntrance === 'function') animateKecamatanEntrance();
 }
 
 // ===========================
-// FUNGSI TAMPILKAN HALAMAN PEGAWAI
+// SKELETON LOADING
+// ===========================
+function showSkeleton(count = 11) {
+    const grid = document.getElementById('kecamatan-grid');
+    if (!grid) return;
+    grid.innerHTML = Array.from({ length: count }, () =>
+        `<div class="skeleton-card">
+            <div class="skeleton-line h-title"></div>
+            <div class="skeleton-line h-sub"></div>
+        </div>`
+    ).join('');
+}
+
+// ===========================
+// FUNGSI TAMPILKAN HALAMAN PEGAWAI (dengan transisi)
 // ===========================
 function showPegawaiPage(kecId, kecNama) {
     selectedKecamatan = kecId;
     document.getElementById('selected-kecamatan').textContent = `Kecamatan ${kecNama}`;
-    document.getElementById('kecamatan-page').style.display = 'none';
-    document.getElementById('pegawai-page').style.display = 'block';
+
+    const kecPage = document.getElementById('kecamatan-page');
+    const pegPage = document.getElementById('pegawai-page');
 
     // Reset search
     const searchInput = document.getElementById('search-pegawai');
-    if (searchInput) {
-        searchInput.value = '';
-    }
+    if (searchInput) searchInput.value = '';
     const clearBtn = document.getElementById('search-clear-btn');
-    if (clearBtn) {
-        clearBtn.style.display = 'none';
-    }
+    if (clearBtn) clearBtn.style.display = 'none';
     const resultCount = document.getElementById('search-result-count');
-    if (resultCount) {
-        resultCount.textContent = '';
-        resultCount.classList.remove('no-result');
-    }
+    if (resultCount) { resultCount.textContent = ''; resultCount.classList.remove('no-result'); }
+
+    // Animasi transisi keluar-masuk
+    pegPage.style.display = 'block';
+    kecPage.classList.add('page-exit-left');
+    pegPage.classList.add('page-enter-right');
+    setTimeout(() => {
+        kecPage.style.display = 'none';
+        kecPage.classList.remove('page-exit-left');
+        pegPage.classList.remove('page-enter-right');
+    }, 290);
 
     renderPegawaiList(kecId);
 }
@@ -214,6 +235,9 @@ function renderPegawaiList(kecId, searchQuery) {
 
         container.appendChild(item);
     });
+
+    // Staggered entrance animation
+    if (typeof animatePegawaiStagger === 'function') animatePegawaiStagger();
 }
 
 // ===========================
@@ -385,6 +409,11 @@ function showCetakPage(pegawai) {
     // Tampilkan halaman cetak
     document.getElementById('cetak-page').style.display = 'block';
     document.body.style.overflow = 'hidden';
+
+    // Toast notifikasi
+    const jabatanShort = (pegawai.jabatan || '').includes('Kader IMP') ? 'Kader IMP' :
+                         (pegawai.jabatan || '').includes('Sub IMP')   ? 'Sub IMP'   : 'Pegawai';
+    showToast(`Preview SPPD: ${pegawai.nama} (${jabatanShort})`, 'success', 2500);
 }
 
 // ===========================
@@ -558,12 +587,70 @@ function closeCetak() {
 }
 
 // ===========================
-// FUNGSI KEMBALI KE HALAMAN KECAMATAN
+// FUNGSI KEMBALI KE HALAMAN KECAMATAN (dengan transisi)
 // ===========================
 function backToKecamatan() {
-    document.getElementById('pegawai-page').style.display = 'none';
-    document.getElementById('kecamatan-page').style.display = 'block';
+    const kecPage = document.getElementById('kecamatan-page');
+    const pegPage = document.getElementById('pegawai-page');
+
+    kecPage.style.display = 'block';
+    pegPage.classList.add('page-exit-right');
+    kecPage.classList.add('page-enter-left');
+    setTimeout(() => {
+        pegPage.style.display = 'none';
+        pegPage.classList.remove('page-exit-right');
+        kecPage.classList.remove('page-enter-left');
+    }, 290);
 }
+
+// ===========================
+// TOAST NOTIFICATION
+// ===========================
+function showToast(msg, type = '', duration = 3000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast' + (type ? ' toast-' + type : '');
+    toast.textContent = msg;
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('toast-out');
+        setTimeout(() => toast.remove(), 260);
+    }, duration);
+}
+
+// ===========================
+// KEYBOARD SHORTCUTS
+// ===========================
+document.addEventListener('keydown', function(e) {
+    const cetakPage = document.getElementById('cetak-page');
+    const pegawaiPage = document.getElementById('pegawai-page');
+    const kecamatanPage = document.getElementById('kecamatan-page');
+    const searchInput = document.getElementById('search-pegawai');
+    const isInInput = document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA';
+    const cetakOpen = cetakPage && cetakPage.style.display === 'block';
+    const pegawaiOpen = pegawaiPage && pegawaiPage.style.display === 'block';
+
+    // Esc: tutup cetak → kembali ke kecamatan
+    if (e.key === 'Escape') {
+        if (cetakOpen) { closeCetak(); return; }
+        if (pegawaiOpen) { backToKecamatan(); return; }
+    }
+
+    // Ctrl/Cmd + P: cetak PDF
+    if ((e.ctrlKey || e.metaKey) && e.key === 'p' && cetakOpen) {
+        e.preventDefault();
+        window.print();
+        return;
+    }
+
+    // '/': fokus ke search (hanya di halaman pegawai)
+    if (e.key === '/' && !isInInput && pegawaiOpen) {
+        e.preventDefault();
+        if (searchInput) searchInput.focus();
+        return;
+    }
+});
 
 // ===========================
 // FUNGSI GENERATE NOMOR SPPD OTOMATIS
@@ -683,7 +770,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Halaman cetak_kie.html
         initCetakKie();
     } else {
-        // Halaman index.html
+        // Halaman index.html — tampilkan skeleton dulu
+        showSkeleton(11);
         await loadPegawaiData();
         generateNoSpdForAllPegawai();
         renderKecamatan();
