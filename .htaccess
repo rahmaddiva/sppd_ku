@@ -1,0 +1,24 @@
+# ============================================================
+# .htaccess — Keamanan SPPD Chat
+# ============================================================
+
+# Larang akses langsung ke file data/rate-limit
+<FilesMatch "^(chat\.json|chat_rl\.json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Larang akses ke file development & sensitif
+<FilesMatch "\.(git|env|log|bak|sh|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Sembunyikan informasi server
+ServerSignature Off
+
+# Cegah directory listing
+Options -Indexes
+
+# Karakter encoding default
+AddDefaultCharset UTF-8

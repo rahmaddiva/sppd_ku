@@ -23,6 +23,176 @@
     <!-- Toast Notifications -->
     <div id="toast-container"></div>
 
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="main-navbar">
+        <div class="navbar-inner">
+            <!-- Logo & Brand -->
+            <div class="navbar-brand">
+                <div class="navbar-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                        <path d="M10 9H8" />
+                        <path d="M16 13H8" />
+                        <path d="M16 17H8" />
+                    </svg>
+                </div>
+                <div class="navbar-brand-text">
+                    <span class="navbar-title">Sistem SPPD</span>
+                    <span class="navbar-sub">P3AP2KB Tanah Laut</span>
+                </div>
+            </div>
+
+            <!-- Nav Links (Desktop) -->
+            <div class="navbar-links" id="navbar-links">
+                <a href="#" class="nav-link active" id="nav-beranda" onclick="navGoHome(event)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                    Beranda
+                </a>
+                <a href="#" class="nav-link" id="nav-chat" onclick="openChatPanel(event)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    Chat
+                    <span class="chat-unread-badge" id="chat-unread-badge" style="display:none">0</span>
+                </a>
+            </div>
+
+            <!-- Navbar Right Controls -->
+            <div class="navbar-right">
+                <!-- Online indicator -->
+                <div class="online-indicator" id="online-indicator" title="Status koneksi">
+                    <span class="online-dot"></span>
+                    <span class="online-text" id="online-text">Online</span>
+                </div>
+                <!-- Theme Toggle -->
+                <button class="navbar-theme-btn" id="theme-toggle" onclick="toggleDarkMode()" title="Ganti tema">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    </svg>
+                    <span class="theme-toggle-label">Dark</span>
+                </button>
+                <!-- Hamburger (Mobile) -->
+                <button class="navbar-hamburger" id="navbar-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+            <a href="#" class="nav-link-mobile" onclick="navGoHome(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                Beranda
+            </a>
+            <a href="#" class="nav-link-mobile" onclick="openChatPanel(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                Chat Ruang Umum
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== MODAL NICKNAME ===== -->
+    <div class="modal-overlay" id="modal-nickname" style="display:none">
+        <div class="modal-box" id="modal-nickname-box">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+            </div>
+            <h2 class="modal-title">Masukkan Nama Anda</h2>
+            <p class="modal-desc">Nama ini akan ditampilkan di ruang chat. Tidak perlu daftar atau login.</p>
+            <div class="modal-input-group">
+                <input type="text" id="nickname-input" placeholder="Contoh: Budi, Admin, dll..."
+                    maxlength="30" autocomplete="off" autocorrect="off" spellcheck="false">
+            </div>
+            <div class="modal-color-label">Pilih warna nama Anda:</div>
+            <div class="modal-colors" id="modal-colors"></div>
+            <button class="modal-btn" id="modal-btn-ok" onclick="saveNickname()">Mulai Chat</button>
+        </div>
+    </div>
+
+    <!-- ===== CHAT PANEL ===== -->
+    <div class="chat-overlay" id="chat-overlay" onclick="closeChatPanel()" style="display:none"></div>
+    <div class="chat-panel" id="chat-panel">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="chat-header-title">Ruang Chat Umum</div>
+                    <div class="chat-header-sub" id="chat-status-text">Memuat pesan...</div>
+                </div>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-header-btn" id="chat-nick-btn" onclick="openChangeNickname()" title="Ganti nama">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </button>
+                <button class="chat-header-btn" onclick="closeChatPanel()" title="Tutup chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nickname display -->
+        <div class="chat-nick-display" id="chat-nick-display"></div>
+
+        <!-- Messages -->
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-loading" id="chat-loading">
+                <div class="chat-loading-spinner"></div>
+                <span>Memuat pesan...</span>
+            </div>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="chat-input-bar">
+            <div class="chat-input-wrapper">
+                <textarea id="chat-input" class="chat-textarea" placeholder="Ketik pesan..."
+                    rows="1" maxlength="500"
+                    onkeydown="handleChatKeydown(event)"
+                    oninput="autoresizeTextarea(this)"></textarea>
+                <button class="chat-send-btn" id="chat-send-btn" onclick="sendChatMessage()" title="Kirim (Enter)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m22 2-7 20-4-9-9-4Z" />
+                        <path d="M22 2 11 13" />
+                    </svg>
+                </button>
+            </div>
+            <div class="chat-input-hint">Enter kirim · Shift+Enter baris baru · Maks 500 karakter</div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -91,14 +261,7 @@
         </div>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="theme-toggle" onclick="toggleDarkMode()">
-        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-        </svg>
-        <span class="theme-toggle-label">Dark</span>
-    </button>
+    <!-- Theme Toggle sudah dipindah ke Navbar -->
 
     <!-- Halaman Cetak -->
     <div id="cetak-page">
@@ -362,7 +525,10 @@
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="app.js"></script>
+    <script src="chat-ui.js"></script>
     <script>
     // ================================================
     // ANIMATION SYSTEM
@@ -494,6 +660,8 @@
                 document.querySelector('.theme-toggle-label').textContent = 'Light';
                 document.getElementById('theme-icon').innerHTML = SUN;
             }
+            // Init chat system (defined in chat-ui.js)
+            if (typeof initChatSystem === 'function') initChatSystem();
         });
     </script>
 
