@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Cetak SPPD - Kabupaten Tanah Laut</title>
+    <meta name="description"
+        content="Sistem Cetak Surat Perintah Perjalanan Dinas (SPPD) Dinas P3AP2KB Kabupaten Tanah Laut">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -13,7 +18,19 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📋 Sistem Cetak SPPD</h1>
+            <h1>
+                <span class="header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                        <path d="M10 9H8" />
+                        <path d="M16 13H8" />
+                        <path d="M16 17H8" />
+                    </svg>
+                </span>
+                Sistem Cetak SPPD
+            </h1>
             <p>Dinas P3AP2KB Kabupaten Tanah Laut</p>
         </div>
 
@@ -27,14 +44,27 @@
 
         <!-- Halaman Daftar Pegawai -->
         <div id="pegawai-page">
-            <button class="back-btn" onclick="backToKecamatan()">⬅ Kembali ke Pilihan Kecamatan</button>
+            <button class="back-btn" onclick="backToKecamatan()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                </svg>
+                Kembali
+            </button>
             <div class="pegawai-info">
                 <h2 id="selected-kecamatan">Kecamatan</h2>
                 <p>Pilih pegawai yang akan melaksanakan perjalanan dinas</p>
             </div>
             <div class="search-box">
                 <div class="search-input-wrapper">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                    </span>
                     <input type="text" id="search-pegawai" placeholder="Cari nama pegawai..."
                         oninput="filterPegawai(this.value)">
                     <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()"
@@ -49,13 +79,44 @@
         </div>
     </div>
 
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleDarkMode()">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+        <span class="theme-toggle-label">Dark</span>
+    </button>
+
     <!-- Halaman Cetak -->
     <div id="cetak-page">
         <div class="cetak-controls">
-            <button class="btn btn-print" onclick="window.print()">🖨️ Cetak PDF</button>
-            <button class="btn btn-close" onclick="closeCetak()">✖ Tutup</button>
+            <button class="btn btn-print" onclick="window.print()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9" />
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <rect width="12" height="8" x="6" y="14" />
+                </svg>
+                Cetak PDF
+            </button>
+            <button class="btn btn-close" onclick="closeCetak()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+                Tutup
+            </button>
             <!-- tombol ke isi spd untuk kie -->
-            <button class="btn btn-kie" onclick="cetakKIE()">📄 Cetak KIE</button>
+            <button class="btn btn-kie" onclick="cetakKIE()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                </svg>
+                Cetak KIE
+            </button>
         </div>
 
         <div class="preview-panel">
@@ -181,9 +242,9 @@
                         <td class="col-num" style="border-bottom: none;"></td>
                         <td style="width: 48%; border-right: none; border-bottom: none;"></td>
                         <td style="width: 48%;">
-                            I. Berangkat dari : <br>
-                            &nbsp;&nbsp;&nbsp;Ke : <br>
-                            &nbsp;&nbsp;&nbsp;Pada Tanggal : <br>
+                            I. Berangkat dari : Pelaihari <br>
+                            &nbsp;&nbsp;&nbsp;Ke : <span id="v-tujuan2"></span> <br>
+                            &nbsp;&nbsp;&nbsp;Pada Tanggal : <span id="v-tgl-brkt2"></span><br>
 
                             <div style="margin-top: 8px;">
                                 <span style="font-size: 8pt;">Penata Kelola Sistem dan Teknologi Informasi<br>
@@ -290,6 +351,26 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        const MOON = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
+        const SUN = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('spd_dark_mode', isDark ? '1' : '0');
+            document.querySelector('.theme-toggle-label').textContent = isDark ? 'Light' : 'Dark';
+            document.getElementById('theme-icon').innerHTML = isDark ? SUN : MOON;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('spd_dark_mode') === '1') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle-label').textContent = 'Light';
+                document.getElementById('theme-icon').innerHTML = SUN;
+            }
+        });
+    </script>
 
 </body>
 

@@ -104,7 +104,7 @@ function renderKecamatan() {
         card.className = 'kecamatan-card';
         card.innerHTML = `
             <h3>${kec.nama}</h3>
-            <p>${kec.jumlahPegawai} pegawai terdaftar</p>
+            <p>${kec.jumlahPegawai} pegawai</p>
         `;
         card.onclick = () => showPegawaiPage(kec.id, kec.nama);
         grid.appendChild(card);
@@ -171,7 +171,7 @@ function renderPegawaiList(kecId, searchQuery) {
     if (filtered.length === 0 && query) {
         container.innerHTML = `
             <div class="pegawai-no-result">
-                <div class="no-result-icon">😕</div>
+                <div class="no-result-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m15 8-6 6"/></svg></div>
                 <p>Tidak ditemukan pegawai dengan nama "<strong>${escapeHtml(searchQuery)}</strong>"</p>
             </div>
         `;
@@ -190,9 +190,9 @@ function renderPegawaiList(kecId, searchQuery) {
             <p>NIP: ${escapeHtml(pegawai.nip)}</p>
             <p>Jabatan: ${escapeHtml(pegawai.jabatan)}</p>
             <p>Kelurahan/Desa: ${escapeHtml(pegawai.desa_kelurahan)}</p>
-            <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
-                <span style="color: #667eea; font-weight: bold; cursor:pointer;" class="btn-cetak-spd">📋 Cetak SPPD</span>
-                <span style="color: #00b894; font-weight: bold; cursor:pointer;" class="btn-cetak-kie">📄 Cetak KIE</span>
+            <div class="pegawai-actions">
+                <span class="action-link btn-cetak-spd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg> Cetak SPPD</span>
+                <span class="action-link btn-cetak-kie"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> Cetak KIE</span>
             </div>
         `;
 
@@ -323,6 +323,49 @@ function lamaPerjalananText(hari) {
     return `${hari} (${angkaTeks[hari] || hari}) Hari`;
 }
 
+// ===========================
+// HELPER: Format semua hari kerja antara dua tanggal
+// Contoh hasil: "4, 5, 6, 7 Mei 2026" atau "29, 30 April, 1, 2 Mei 2026"
+// ===========================
+function formatTanggalRange(tglBerangkat, tglKembali) {
+    const BULAN = ['Januari','Februari','Maret','April','Mei','Juni',
+                   'Juli','Agustus','September','Oktober','November','Desember'];
+
+    // Kumpulkan semua hari kerja dari berangkat s.d. kembali
+    const dates = [];
+    const cur = new Date(tglBerangkat);
+    while (cur <= tglKembali) {
+        if (isHariKerja(cur)) dates.push(new Date(cur));
+        cur.setDate(cur.getDate() + 1);
+    }
+    if (dates.length === 0) return '';
+
+    // Kelompokkan per bulan
+    const groups = [];
+    let grp = { month: dates[0].getMonth(), year: dates[0].getFullYear(), days: [] };
+    dates.forEach(d => {
+        if (d.getMonth() === grp.month && d.getFullYear() === grp.year) {
+            grp.days.push(d.getDate());
+        } else {
+            groups.push(grp);
+            grp = { month: d.getMonth(), year: d.getFullYear(), days: [d.getDate()] };
+        }
+    });
+    groups.push(grp);
+
+    // Format setiap grup bulan
+    return groups.map((g, i) => {
+        const isLast = i === groups.length - 1;
+        const nama = BULAN[g.month];
+        if (isLast) {
+            return `${g.days.join(', ')} ${nama} ${g.year}`;
+        }
+        return groups[i + 1].year !== g.year
+            ? `${g.days.join(', ')} ${nama} ${g.year}`
+            : `${g.days.join(', ')} ${nama}`;
+    }).join(', ');
+}
+
 function showCetakPage(pegawai) {
     // Simpan pegawai yang sedang ditampilkan
     currentPegawai = pegawai;
@@ -380,6 +423,10 @@ function updateTanggalKembali() {
 
     // Update tanggal cetak
     document.getElementById('v-tgl-cetak').textContent = tglBerangkatStr;
+
+    // Sync halaman 2: "Pada Tanggal" bagian I = semua tanggal hari kerja
+    const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
+    if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
 }
 
 // ===========================
@@ -595,6 +642,14 @@ function isiDataCetak(pegawai, prefix) {
     const inputKmbli = document.getElementById(`${prefix}-input-tgl-kmbli`);
     if (inputBrkt) inputBrkt.value = toInputDateStr(tglBerangkat);
     if (inputKmbli) inputKmbli.value = toInputDateStr(tglKembali);
+
+    // Isi halaman 2 SPPD: bagian I (Berangkat dari) — hanya untuk prefix 'v'
+    if (prefix === 'v') {
+        const elTujuan2 = document.getElementById('v-tujuan2');
+        const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
+        if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
+        if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+    }
 
     return { lamaHari, tglBerangkat, tglKembali };
 }
