@@ -210,10 +210,10 @@ function startFirebaseListener() {
     var container = document.getElementById('chat-messages');
     if (container) container.innerHTML = ''; // Kosongkan saat pertama kali
     
-    // Ambil 200 pesan terakhir agar tidak berat
+    // Ambil 200 pesan terakhir
     messagesRef.limitToLast(200).on('child_added', function(snapshot) {
         var msg = snapshot.val();
-        appendMessage(msg);
+        appendMessage(snapshot.key, msg);
         
         // Tambah badge unread jika panel tertutup
         if (!chatPanelOpen) {
@@ -221,12 +221,22 @@ function startFirebaseListener() {
             updateUnreadBadge();
         }
     });
+
+    // Listener Edit Pesan
+    messagesRef.limitToLast(200).on('child_changed', function(snapshot) {
+        updateMessageInDOM(snapshot.key, snapshot.val());
+    });
+
+    // Listener Hapus Pesan
+    messagesRef.limitToLast(200).on('child_removed', function(snapshot) {
+        removeMessageFromDOM(snapshot.key);
+    });
 }
 
 // ===========================
 // RENDER MESSAGES
 // ===========================
-function appendMessage(msg) {
+function appendMessage(key, msg) {
     var container = document.getElementById('chat-messages');
     if (!container) return;
 
@@ -244,22 +254,39 @@ function appendMessage(msg) {
         lastDateDivider = msgDate;
     }
     
-    container.appendChild(buildBubble(msg));
+    container.appendChild(buildBubble(key, msg));
     scrollChatBottom(true);
 }
 
-function buildBubble(msg) {
+function buildBubble(key, msg) {
     var isMe = chatNickname && (msg.nickname === chatNickname);
     var wrap = document.createElement('div');
     wrap.className = 'chat-msg ' + (isMe ? 'me' : 'other');
+    wrap.id = 'msg-' + key;
 
     var time      = formatChatTime(msg.timestamp);
     var nickStyle = isMe ? '' : ('color:' + (msg.color || '#2563eb'));
     var nickSpan  = '<span class="chat-msg-nick" style="' + nickStyle + '">' + _esc(msg.nickname) + '</span>';
     var bubble    = '<div class="chat-msg-bubble">' + _esc(msg.message) + '</div>';
-    var ts        = '<div class="chat-msg-time">' + time + '</div>';
+    
+    var editedLabel = msg.edited ? '<span class="chat-edited-label">(diedit)</span>' : '';
+    var ts          = '<div class="chat-msg-time">' + time + editedLabel + '</div>';
 
-    wrap.innerHTML = '<div class="chat-msg-meta">' + nickSpan + '</div>' + bubble + ts;
+    var actionsHtml = '';
+    if (isMe) {
+        var safeMsg = _esc(msg.message).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        actionsHtml = 
+            '<div class="chat-msg-actions">' +
+                '<button class="chat-action-btn" onclick="editMessage(\'' + key + '\', \'' + safeMsg + '\')" title="Edit">' +
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>' +
+                '</button>' +
+                '<button class="chat-action-btn delete" onclick="deleteMessage(\'' + key + '\')" title="Hapus">' +
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>' +
+                '</button>' +
+            '</div>';
+    }
+
+    wrap.innerHTML = '<div class="chat-msg-meta">' + nickSpan + '</div>' + bubble + ts + actionsHtml;
     return wrap;
 }
 
@@ -268,8 +295,20 @@ function scrollChatBottom(smooth) {
     if (c) c.scrollTo({ top: c.scrollHeight, behavior: smooth ? 'smooth' : 'auto' });
 }
 
+function updateMessageInDOM(key, msg) {
+    var wrap = document.getElementById('msg-' + key);
+    if (!wrap) return; // Jika tidak ditemukan, abaikan
+    var newBubble = buildBubble(key, msg);
+    wrap.parentNode.replaceChild(newBubble, wrap);
+}
+
+function removeMessageFromDOM(key) {
+    var wrap = document.getElementById('msg-' + key);
+    if (wrap) wrap.remove();
+}
+
 // ===========================
-// SEND MESSAGE
+// SEND & EDIT & DELETE MESSAGE
 // ===========================
 function sendChatMessage() {
     var ta = document.getElementById('chat-input');
@@ -301,6 +340,31 @@ function sendChatMessage() {
     });
 }
 
+function editMessage(key, oldMessage) {
+    // Decode HTML entities
+    var txt = document.createElement("textarea");
+    txt.innerHTML = oldMessage;
+    var decodedOldMsg = txt.value;
+
+    var newMsg = prompt("Edit pesan Anda:", decodedOldMsg);
+    if (newMsg !== null && newMsg.trim() !== "" && newMsg !== decodedOldMsg) {
+        messagesRef.child(key).update({
+            message: newMsg.trim(),
+            edited: true
+        }).catch(function(err) {
+            console.error("Gagal mengedit pesan:", err);
+        });
+    }
+}
+
+function deleteMessage(key) {
+    if (confirm("Apakah Anda yakin ingin menghapus pesan ini?")) {
+        messagesRef.child(key).remove().catch(function(err) {
+            console.error("Gagal menghapus pesan:", err);
+        });
+    }
+}
+
 // ===========================
 // UI HELPERS
 // ===========================
@@ -317,13 +381,19 @@ function autoresizeTextarea(el) {
 }
 
 function updateUnreadBadge() {
-    var badge = document.getElementById('chat-unread-badge');
-    if (!badge) return;
-    if (chatUnreadCount > 0) {
-        badge.style.display = 'inline-block';
-        badge.textContent   = chatUnreadCount > 99 ? '99+' : String(chatUnreadCount);
-    } else {
-        badge.style.display = 'none';
+    var badgeDesktop = document.getElementById('chat-unread-badge-desktop');
+    var badgeMobile  = document.getElementById('chat-unread-badge-mobile');
+    
+    var displayStyle = (chatUnreadCount > 0) ? 'inline-block' : 'none';
+    var txt = (chatUnreadCount > 99) ? '99+' : String(chatUnreadCount);
+    
+    if (badgeDesktop) {
+        badgeDesktop.style.display = displayStyle;
+        badgeDesktop.textContent   = txt;
+    }
+    if (badgeMobile) {
+        badgeMobile.style.display = displayStyle;
+        badgeMobile.textContent   = txt;
     }
 }
 

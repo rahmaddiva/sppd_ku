@@ -603,6 +603,49 @@ body.dark-mode .navbar {
     margin-top: 3px;
     padding: 0 2px;
 }
+/* Chat Action Buttons (Edit/Delete) */
+.chat-msg-actions {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    z-index: 10;
+}
+.chat-msg.me:hover .chat-msg-actions {
+    display: flex;
+}
+.chat-action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 4px 6px;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chat-action-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+.chat-action-btn.delete:hover {
+    color: var(--danger);
+}
+.chat-edited-label {
+    font-size: 0.6rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 6px;
+}
+.chat-msg.other .chat-edited-label {
+    color: var(--text-muted);
+}
 /* Input Bar */
 .chat-input-bar {
     padding: 12px 14px;
