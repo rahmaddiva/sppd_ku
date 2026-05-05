@@ -267,6 +267,14 @@
     <!-- Halaman Cetak -->
     <div id="cetak-page">
         <div class="cetak-controls">
+            <button class="btn btn-back" onclick="closeCetak()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+                Kembali ke Daftar
+            </button>
             <button class="btn btn-print" onclick="window.print()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -275,14 +283,6 @@
                     <rect width="12" height="8" x="6" y="14" />
                 </svg>
                 Cetak PDF
-            </button>
-            <button class="btn btn-close" onclick="closeCetak()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-                Tutup
             </button>
             <!-- tombol ke isi spd untuk kie -->
             <button class="btn btn-kie" onclick="cetakKIE()">
@@ -317,7 +317,11 @@
                     style="margin-left: 65%; font-size: 9.5pt; margin-top: 10px; font-family: 'Bookman Old Style', serif;">
                     <p style="margin:0">Lembar ke : </p>
                     <p style="margin:0">Kode No. : 000.1.2.3</p>
-                    <p style="margin:0">Nomor : <span id="v-nomor"></span></p>
+                    <p style="margin:0">Nomor : 
+                        <input type="month" id="v-input-bulan" onchange="updateBulanSppd()" 
+                            style="font-family:'Bookman Old Style',serif; font-size:9.5pt; border:1px solid #999; padding:1px 3px; border-radius:3px; margin-right:4px;">
+                        <span id="v-nomor"></span>
+                    </p>
                 </div>
 
                 <h3

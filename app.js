@@ -23,8 +23,8 @@ let noSpdConfig = {};
 // Bulan & tahun untuk format nomor SPPD
 const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 const currentDate = new Date();
-const BULAN_SPPD = BULAN_ROMAWI[currentDate.getMonth()]; // Otomatis bulan sekarang dalam angka Romawi
-const TAHUN_SPPD = String(currentDate.getFullYear());
+let BULAN_SPPD = BULAN_ROMAWI[currentDate.getMonth()]; // Otomatis bulan sekarang dalam angka Romawi
+let TAHUN_SPPD = String(currentDate.getFullYear());
 
 // ===========================
 // DATA MASTER - PEGAWAI
@@ -403,12 +403,21 @@ function showCetakPage(pegawai) {
     // Set nilai input tanggal (hanya ada di halaman SPD)
     const inputTglBrkt = document.getElementById('v-input-tgl-brkt');
     const inputTglKmbli = document.getElementById('v-input-tgl-kmbli');
+    const inputBulan = document.getElementById('v-input-bulan');
+    
     if (inputTglBrkt) inputTglBrkt.value = toInputDateStr(tglBerangkat);
     if (inputTglKmbli) inputTglKmbli.value = toInputDateStr(tglKembali);
+    
+    // Set default input bulan ke bulan sekarang jika belum diset
+    if (inputBulan && !inputBulan.value) {
+        const currentM = String(currentDate.getMonth() + 1).padStart(2, '0');
+        inputBulan.value = `${currentDate.getFullYear()}-${currentM}`;
+    }
 
     // Tampilkan halaman cetak
     document.getElementById('cetak-page').style.display = 'block';
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('is-printing-sppd'); // Tambahkan penanda print
 
     // Toast notifikasi
     const jabatanShort = (pegawai.jabatan || '').includes('Kader IMP') ? 'Kader IMP' :
@@ -584,6 +593,7 @@ function cetakKIE() {
 function closeCetak() {
     document.getElementById('cetak-page').style.display = 'none';
     document.body.style.overflow = 'auto';
+    document.body.classList.remove('is-printing-sppd'); // Hapus penanda print
 }
 
 // ===========================
@@ -666,6 +676,32 @@ function generateNoSpdForAllPegawai() {
             const nomorFormatted = String(nomorUrut).padStart(2, '0');
             pegawai.no_spd = `${nomorFormatted}/DP3AP2KB/${BULAN_SPPD}/${TAHUN_SPPD}`;
         });
+    }
+}
+
+// ===========================
+// FUNGSI UPDATE BULAN SPPD
+// ===========================
+function updateBulanSppd() {
+    const input = document.getElementById('v-input-bulan');
+    if (!input || !input.value) return;
+
+    // value is "YYYY-MM"
+    const parts = input.value.split('-');
+    if (parts.length !== 2) return;
+    
+    const year = parts[0];
+    const monthIndex = parseInt(parts[1], 10) - 1;
+
+    BULAN_SPPD = BULAN_ROMAWI[monthIndex];
+    TAHUN_SPPD = year;
+
+    // Update data di memory
+    generateNoSpdForAllPegawai();
+
+    // Update tampilan jika sedang preview
+    if (currentPegawai) {
+        document.getElementById('v-nomor').textContent = currentPegawai.no_spd;
     }
 }
 
