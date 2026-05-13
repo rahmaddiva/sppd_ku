@@ -724,12 +724,12 @@ body.dark-mode .navbar {
 .header h1 {
     max-width: 760px;
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 6.8vw, 5.9rem);
+    font-size: clamp(1.8rem, 4.2vw, 3.2rem);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
     color: var(--text-primary);
     margin-bottom: 16px;
-    letter-spacing: -0.075em;
+    letter-spacing: -0.055em;
     text-wrap: balance;
 }
 
@@ -871,9 +871,9 @@ body.dark-mode .navbar {
 .section-heading h2 {
     max-width: 620px;
     color: var(--text-primary);
-    font-size: clamp(1.5rem, 4vw, 2.55rem);
-    line-height: 1;
-    letter-spacing: -0.055em;
+    font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
     text-align: right;
 }
 

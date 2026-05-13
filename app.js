@@ -465,6 +465,10 @@ function updateTanggalKembali() {
     // Sync halaman 2: "Pada Tanggal" bagian I = semua tanggal hari kerja
     const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
     if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+
+    // Sync halaman 2: bagian VI "Pada tanggal" (tanggal kembali)
+    const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
+    if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
 }
 
 // ===========================
@@ -503,6 +507,10 @@ function updateTanggalManual() {
     // Update tampilan
     document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('v-lama-perjalanan').textContent = lamaPerjalananText(currentLamaHari);
+
+    // Sync halaman 2: bagian VI "Pada tanggal" (tanggal kembali)
+    const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
+    if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
 }
 
 // ===========================
@@ -770,8 +778,10 @@ function isiDataCetak(pegawai, prefix) {
     if (prefix === 'v') {
         const elTujuan2 = document.getElementById('v-tujuan2');
         const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
+        const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
         if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
         if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+        if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
     }
 
     return { lamaHari, tglBerangkat, tglKembali };

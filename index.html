@@ -120,8 +120,8 @@
             <h2 class="modal-title">Masukkan Nama Anda</h2>
             <p class="modal-desc">Nama ini akan ditampilkan di ruang chat. Tidak perlu daftar atau login.</p>
             <div class="modal-input-group">
-                <input type="text" id="nickname-input" placeholder="Contoh: Budi, Admin, dll..."
-                    maxlength="30" autocomplete="off" autocorrect="off" spellcheck="false">
+                <input type="text" id="nickname-input" placeholder="Contoh: Budi, Admin, dll..." maxlength="30"
+                    autocomplete="off" autocorrect="off" spellcheck="false">
             </div>
             <div class="modal-color-label">Pilih warna nama Anda:</div>
             <div class="modal-colors" id="modal-colors"></div>
@@ -178,10 +178,8 @@
         <!-- Input Bar -->
         <div class="chat-input-bar">
             <div class="chat-input-wrapper">
-                <textarea id="chat-input" class="chat-textarea" placeholder="Ketik pesan..."
-                    rows="1" maxlength="500"
-                    onkeydown="handleChatKeydown(event)"
-                    oninput="autoresizeTextarea(this)"></textarea>
+                <textarea id="chat-input" class="chat-textarea" placeholder="Ketik pesan..." rows="1" maxlength="500"
+                    onkeydown="handleChatKeydown(event)" oninput="autoresizeTextarea(this)"></textarea>
                 <button class="chat-send-btn" id="chat-send-btn" onclick="sendChatMessage()" title="Kirim (Enter)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -200,7 +198,8 @@
             <p class="landing-eyebrow">Dinas P3AP2KB Kabupaten Tanah Laut</p>
             <h1 id="landing-title">Cetak SPPD lebih cepat, rapi, dan siap digunakan.</h1>
             <p class="landing-lead">
-                Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan dinas tanpa mengulang format manual.
+                Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan dinas tanpa mengulang format
+                manual.
             </p>
             <div class="landing-actions">
                 <a class="landing-primary" href="#kecamatan-page">Mulai pilih kecamatan</a>
@@ -322,8 +321,8 @@
                     style="margin-left: 65%; font-size: 9.5pt; margin-top: 10px; font-family: 'Bookman Old Style', serif;">
                     <p style="margin:0">Lembar ke : </p>
                     <p style="margin:0">Kode No. : 000.1.2.3</p>
-                    <p style="margin:0">Nomor : 
-                        <input type="month" id="v-input-bulan" onchange="updateBulanSppd()" 
+                    <p style="margin:0">Nomor :
+                        <input type="month" id="v-input-bulan" onchange="updateBulanSppd()"
                             style="font-family:'Bookman Old Style',serif; font-size:9.5pt; border:1px solid #999; padding:1px 3px; border-radius:3px; margin-right:4px;">
                         <span id="v-nomor"></span>
                     </p>
@@ -331,7 +330,7 @@
 
                 <h3
                     style="text-align: center; margin-top: 15px; font-size: 11pt; font-weight: bold; font-family: 'Bookman Old Style', serif;">
-                    SURAT PERINTAH PERJALANAN DINAS (SPD)</h3>
+                    SURAT PERJALANAN DINAS (SPD)</h3>
 
                 <table class="main-table">
                     <tr>
@@ -413,7 +412,11 @@
                     <p style="margin:0">Dikeluarkan di: Pelaihari</p>
                     <p style="margin:0">Pada Tanggal: <span id="v-tgl-cetak"></span></p>
                     <div style="margin-top: 15px; font-weight: bold;">
-                        Pengguna Anggaran,<br><br><br><br>
+                        Pengguna Anggaran,<br>
+                        <p>Dinas Pemberdayaan Perempuan dan Perlindungan Anak,</p>
+                        <p>Pengendalian Penduduk dan Keluarga Berencana</p>
+                        <p>Kabupaten Tanah Laut,</p>
+                        <br><br><br><br>
                         <u>MARIA ULFAH, S.Psi.,MM.</u><br>
                         NIP. 19791113 200501 2 008
                     </div>
@@ -498,7 +501,7 @@
 
                     <tr>
                         <td class="col-num" rowspan="3">VI.</td>
-                        <td style="height: 8px;">Tiba :</td>
+                        <td style="height: 8px;">Tiba : Pelaihari</td>
                         <td rowspan="3" style="font-size: 8pt; text-align: justify; padding-top: 5px;">
                             Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas dilakukan atas
                             perintahnya dan
@@ -506,11 +509,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="height: 8px;">Pada tanggal :</td>
+                        <td style="height: 8px;">Pada tanggal : <span id="v-tgl-kmbli2"></span></td>
                     </tr>
                     <tr>
                         <td style="height: 75px; vertical-align: bottom;">
-                            Kepala : Pengguna anggaran<br><br><br>
+                            Kepala Dinas P3AP2KB Kab. Tanah Laut<br><br><br>
                             <span class="bold underline">MARIA ULFAH, S.Psi.,MM.</span><br>
                             <span style="font-size: 8pt;">NIP. 19791113 200501 2 008</span>
                         </td>
@@ -540,117 +543,117 @@
     <script src="app.js"></script>
     <script src="chat-ui.js"></script>
     <script>
-    // ================================================
-    // ANIMATION SYSTEM
-    // ================================================
+        // ================================================
+        // ANIMATION SYSTEM
+        // ================================================
 
-    // ---- Custom Cursor ----
-    (function () {
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        if (!dot || !ring) return;
-        let mx = 0, my = 0, rx = 0, ry = 0;
-        document.addEventListener('mousemove', e => {
-            mx = e.clientX; my = e.clientY;
-            dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-        });
-        document.addEventListener('mouseleave', () => { dot.style.opacity='0'; ring.style.opacity='0'; });
-        document.addEventListener('mouseenter', () => { dot.style.opacity=''; ring.style.opacity=''; });
-        (function follow() {
-            rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
-            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-            requestAnimationFrame(follow);
-        })();
-        const HOVER_SEL = 'button,a,.kecamatan-card,.pegawai-item,.back-btn,.theme-toggle,input,label,[onclick]';
-        document.addEventListener('mouseover', e => { if (e.target.closest(HOVER_SEL)) document.body.classList.add('cur-hover'); });
-        document.addEventListener('mouseout',  e => { if (e.target.closest(HOVER_SEL)) document.body.classList.remove('cur-hover'); });
-        document.addEventListener('mousedown', () => document.body.classList.add('cur-click'));
-        document.addEventListener('mouseup',   () => document.body.classList.remove('cur-click'));
-    })();
-
-    // ---- Kecamatan Cards: Entrance + Draggable ----
-    function animateKecamatanEntrance() {
-        anime({
-            targets: '.kecamatan-card',
-            opacity: [0, 1],
-            translateY: [28, 0],
-            scale: [0.93, 1],
-            duration: 480,
-            delay: anime.stagger(55, { start: 60 }),
-            easing: 'easeOutCubic',
-            complete: attachDraggable
-        });
-    }
-
-    function attachDraggable() {
-        document.querySelectorAll('.kecamatan-card').forEach(card => {
-            let tx = 0, ty = 0, sx = 0, sy = 0, moved = false;
-            const THRESH = 7;
-
-            function lift() {
-                card.style.zIndex = 50;
-                anime({ targets: card, scale: 1.08, duration: 160, easing: 'easeOutQuad' });
-            }
-            function snapBack() {
-                anime({
-                    targets: card, translateX: 0, translateY: 0, rotate: 0, scale: 1,
-                    duration: 720, easing: 'spring(1, 78, 12, 0)',
-                    complete() { card.style.transform = ''; card.style.zIndex = ''; tx = 0; ty = 0; }
-                });
-            }
-            function move(cx, cy) {
-                const dx = cx - sx, dy = cy - sy;
-                if (!moved && Math.hypot(dx, dy) > THRESH) { moved = true; lift(); }
-                if (moved) {
-                    tx = dx; ty = dy;
-                    card.style.transform = `translate(${dx}px,${dy}px) scale(1.08) rotate(${dx*0.012}deg)`;
-                }
-            }
-
-            card.addEventListener('mousedown', e => {
-                if (e.button !== 0) return;
-                moved = false; sx = e.clientX - tx; sy = e.clientY - ty;
-                anime.remove(card);
-                const onM = e2 => move(e2.clientX, e2.clientY);
-                const onU = () => {
-                    window.removeEventListener('mousemove', onM);
-                    window.removeEventListener('mouseup', onU);
-                    if (moved) {
-                        snapBack();
-                        card.addEventListener('click', e3 => e3.stopImmediatePropagation(), { capture: true, once: true });
-                    }
-                };
-                window.addEventListener('mousemove', onM);
-                window.addEventListener('mouseup', onU);
+        // ---- Custom Cursor ----
+        (function () {
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+            if (!dot || !ring) return;
+            let mx = 0, my = 0, rx = 0, ry = 0;
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                dot.style.left = mx + 'px'; dot.style.top = my + 'px';
             });
+            document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+            document.addEventListener('mouseenter', () => { dot.style.opacity = ''; ring.style.opacity = ''; });
+            (function follow() {
+                rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
+                ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+                requestAnimationFrame(follow);
+            })();
+            const HOVER_SEL = 'button,a,.kecamatan-card,.pegawai-item,.back-btn,.theme-toggle,input,label,[onclick]';
+            document.addEventListener('mouseover', e => { if (e.target.closest(HOVER_SEL)) document.body.classList.add('cur-hover'); });
+            document.addEventListener('mouseout', e => { if (e.target.closest(HOVER_SEL)) document.body.classList.remove('cur-hover'); });
+            document.addEventListener('mousedown', () => document.body.classList.add('cur-click'));
+            document.addEventListener('mouseup', () => document.body.classList.remove('cur-click'));
+        })();
 
-            card.addEventListener('touchstart', e => {
-                moved = false;
-                const t = e.touches[0]; sx = t.clientX - tx; sy = t.clientY - ty;
-                anime.remove(card);
-                const onT = e2 => { e2.preventDefault(); const t2=e2.touches[0]; move(t2.clientX,t2.clientY); };
-                const onU = () => {
-                    window.removeEventListener('touchmove', onT);
-                    window.removeEventListener('touchend', onU);
-                    if (moved) snapBack();
-                };
-                window.addEventListener('touchmove', onT, { passive: false });
-                window.addEventListener('touchend', onU);
-            }, { passive: true });
-        });
-    }
+        // ---- Kecamatan Cards: Entrance + Draggable ----
+        function animateKecamatanEntrance() {
+            anime({
+                targets: '.kecamatan-card',
+                opacity: [0, 1],
+                translateY: [28, 0],
+                scale: [0.93, 1],
+                duration: 480,
+                delay: anime.stagger(55, { start: 60 }),
+                easing: 'easeOutCubic',
+                complete: attachDraggable
+            });
+        }
 
-    // ---- Pegawai Items: Staggered Entrance ----
-    function animatePegawaiStagger() {
-        anime({
-            targets: '.pegawai-item',
-            opacity: [0, 1],
-            translateX: [-18, 0],
-            duration: 360,
-            delay: anime.stagger(45, { start: 40 }),
-            easing: 'easeOutQuart'
-        });
-    }
+        function attachDraggable() {
+            document.querySelectorAll('.kecamatan-card').forEach(card => {
+                let tx = 0, ty = 0, sx = 0, sy = 0, moved = false;
+                const THRESH = 7;
+
+                function lift() {
+                    card.style.zIndex = 50;
+                    anime({ targets: card, scale: 1.08, duration: 160, easing: 'easeOutQuad' });
+                }
+                function snapBack() {
+                    anime({
+                        targets: card, translateX: 0, translateY: 0, rotate: 0, scale: 1,
+                        duration: 720, easing: 'spring(1, 78, 12, 0)',
+                        complete() { card.style.transform = ''; card.style.zIndex = ''; tx = 0; ty = 0; }
+                    });
+                }
+                function move(cx, cy) {
+                    const dx = cx - sx, dy = cy - sy;
+                    if (!moved && Math.hypot(dx, dy) > THRESH) { moved = true; lift(); }
+                    if (moved) {
+                        tx = dx; ty = dy;
+                        card.style.transform = `translate(${dx}px,${dy}px) scale(1.08) rotate(${dx * 0.012}deg)`;
+                    }
+                }
+
+                card.addEventListener('mousedown', e => {
+                    if (e.button !== 0) return;
+                    moved = false; sx = e.clientX - tx; sy = e.clientY - ty;
+                    anime.remove(card);
+                    const onM = e2 => move(e2.clientX, e2.clientY);
+                    const onU = () => {
+                        window.removeEventListener('mousemove', onM);
+                        window.removeEventListener('mouseup', onU);
+                        if (moved) {
+                            snapBack();
+                            card.addEventListener('click', e3 => e3.stopImmediatePropagation(), { capture: true, once: true });
+                        }
+                    };
+                    window.addEventListener('mousemove', onM);
+                    window.addEventListener('mouseup', onU);
+                });
+
+                card.addEventListener('touchstart', e => {
+                    moved = false;
+                    const t = e.touches[0]; sx = t.clientX - tx; sy = t.clientY - ty;
+                    anime.remove(card);
+                    const onT = e2 => { e2.preventDefault(); const t2 = e2.touches[0]; move(t2.clientX, t2.clientY); };
+                    const onU = () => {
+                        window.removeEventListener('touchmove', onT);
+                        window.removeEventListener('touchend', onU);
+                        if (moved) snapBack();
+                    };
+                    window.addEventListener('touchmove', onT, { passive: false });
+                    window.addEventListener('touchend', onU);
+                }, { passive: true });
+            });
+        }
+
+        // ---- Pegawai Items: Staggered Entrance ----
+        function animatePegawaiStagger() {
+            anime({
+                targets: '.pegawai-item',
+                opacity: [0, 1],
+                translateX: [-18, 0],
+                duration: 360,
+                delay: anime.stagger(45, { start: 40 }),
+                easing: 'easeOutQuart'
+            });
+        }
     </script>
     <script>
         const MOON = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
