@@ -59,12 +59,17 @@
                 width: 100%;
             }
 
+            @page {
+                size: legal;
+                margin: 0;
+            }
+
             .page {
                 box-shadow: none;
                 margin: 0;
                 border: none;
-                width: 210mm;
-                height: 297mm;
+                width: 215.9mm;
+                height: 355.6mm;
                 page-break-after: always;
                 page-break-inside: avoid;
             }
@@ -114,7 +119,7 @@
             </div>
 
             <h3
-                style="text-align: center; margin-top: 15px; font-size: 11pt; font-weight: bold; font-family: 'Bookman Old Style', serif;">
+                style="text-align: center; margin-top: 15px; font-size: 11pt; font-weight: normal; text-decoration: underline; font-family: 'Bookman Old Style', serif;">
                 SURAT PERINTAH PERJALANAN DINAS (SPD)</h3>
 
             <table class="main-table">
@@ -212,9 +217,9 @@
                     <td class="col-num" style="border-bottom: none;"></td>
                     <td style="width: 48%; border-right: none; border-bottom: none;"></td>
                     <td style="width: 48%;">
-                        I. Berangkat dari : <br>
-                        &nbsp;&nbsp;&nbsp;Ke : <br>
-                        &nbsp;&nbsp;&nbsp;Pada Tanggal : <br>
+                        I. Berangkat dari : Pelaihari<br>
+                        &nbsp;&nbsp;&nbsp;Ke : <span id="kie-tujuan2"></span> <br>
+                        &nbsp;&nbsp;&nbsp;Pada Tanggal : <span id="kie-tgl-brkt2"></span><br>
 
                         <div style="margin-top: 8px;">
                             <span style="font-size: 8pt;">Penata Kelola Sistem dan Teknologi Informasi<br>
@@ -226,90 +231,314 @@
                 </tr>
 
                 <tr>
-                    <td class="col-num" rowspan="3">II.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
-                </tr>
-
-                <tr>
-                    <td class="col-num" rowspan="3">III.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
-                </tr>
-
-                <tr>
-                    <td class="col-num" rowspan="3">IV.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
-                </tr>
-
-                <tr>
-                    <td class="col-num" rowspan="3">V.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
-                </tr>
-                <tr>
-                    <td class="col-num" rowspan="3">VI.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
-                </tr>
-                <tr>
-                    <td class="col-num" rowspan="3">VII.</td>
-                    <td style="height: 8px;">Tiba :</td>
-                    <td style="height: 8px;">Berangkat dari :</td>
-                </tr>
-                <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                    <td style="height: 8px;">Pada tanggal :</td>
-                </tr>
-                <tr>
-                    <td class="row-space"></td>
-                    <td class="row-space"></td>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">II.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
-                    <td class="col-num" rowspan="3">VIII.
-                    <td style="height: 8px;">Tiba :</td>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">III.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">IV.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">V.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">VI.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" style="vertical-align: top; padding-top: 12px;">VII.</td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Tiba di</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                    <td style="padding: 12px; height: 160px; vertical-align: top; position: relative;">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Berangkat dari</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Ke</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Pada tanggal</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <div style="width: 120px;">Kepala</div>
+                            <div style="width: 15px;">:</div>
+                            <div>..................................</div>
+                        </div>
+                        <div style="position: absolute; bottom: 12px; left: 22px; line-height: 1.2; white-space: nowrap;">
+                            ( ................................................. )<br>
+                            NIP
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-num" rowspan="3">VIII.</td>
+                    <td style="height: 8px;">Tiba di : Pelaihari</td>
                     <td rowspan="3" style="font-size: 8pt; text-align: justify; padding-top: 5px;">
                         Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas dilakukan atas
                         perintahnya dan
@@ -317,11 +546,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="height: 8px;">Pada tanggal :</td>
+                    <td style="height: 8px;">Pada tanggal : <span id="kie-tgl-kmbli2"></span></td>
                 </tr>
                 <tr>
                     <td style="height: 75px; vertical-align: bottom;">
-                        Kepala : Pengguna anggaran<br><br><br>
+                        Kepala Dinas P3AP2KB Kab. Tanah Laut<br><br><br>
                         <span class="bold underline">MARIA ULFAH, S.Psi.,MM.</span><br>
                         <span style="font-size: 8pt;">NIP. 19791113 200501 2 008</span>
                     </td>
@@ -331,17 +560,14 @@
                     <td class="col-num">IX.</td>
                     <td colspan="2" style="height: 12px;">Catatan lain-lain</td>
                 </tr>
+                <tr>
+                    <td class="col-num">X.</td>
+                    <td colspan="2" style="padding: 8px; text-align: justify; font-size: 8pt; font-family: 'Bookman Old Style', serif;">
+                        <span class="bold">PERHATIAN :</span><br>
+                        Pengguna Anggaran/Kuasa Pengguna Anggaran yang menerbitkan SPD, pejabat/pegawai/pihak lain yang melakukan perjalanan dinas, para pejabat yang mengesahkan tanggal berangkat/tiba, serta bendahara pengeluaran bertanggung jawab berdasarkan peraturan-peraturan Keuangan Daerah apabila negara menderita rugi akibat kesalahan, kelalaian, dan kealpaannya.
+                    </td>
+                </tr>
             </table>
-
-            <div class="perhatian-box">
-                <span class="bold">VIII. PERHATIAN :</span><br>
-                Pengguna Anggaran/Kuasa Pengguna Anggaran yang menerbitkan SPD, pejabat/pegawai/pihak lain yang
-                melakukan
-                perjalanan dinas, para pejabat yang mengesahkan tanggal berangkat/tiba, serta bendahara pengeluaran
-                bertanggung jawab berdasarkan peraturan-peraturan Keuangan Daerah apabila negara menderita rugi
-                akibat
-                kesalahan, kelalaian, dan kealpaannya.
-            </div>
         </div>
     </div>
 

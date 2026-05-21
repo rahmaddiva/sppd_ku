@@ -540,10 +540,26 @@ function updateTglKembaliKIE() {
     let lamaHari = currentLamaHari || 1;
     const tglKembali = addHariKerja(tglBerangkat, lamaHari);
 
+    const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
+    const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
     inputKmbli.value = toInputDateStr(tglKembali);
-    document.getElementById('kie-tgl-brkt').textContent = tglBerangkat.toLocaleDateString('id-ID', options);
-    document.getElementById('kie-tgl-kmbli').textContent = tglKembali.toLocaleDateString('id-ID', options);
+    document.getElementById('kie-tgl-brkt').textContent = tglBerangkatStr;
+    document.getElementById('kie-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('kie-lama-perjalanan').textContent = lamaPerjalananText(lamaHari);
+
+    // Sync halaman 2 SPPD KIE
+    const elTglCetak = document.getElementById('kie-tgl-cetak');
+    if (elTglCetak) elTglCetak.textContent = tglBerangkatStr;
+
+    const elTglCetak2 = document.getElementById('kie-tgl-cetak2');
+    if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
+
+    const elTglBrkt2 = document.getElementById('kie-tgl-brkt2');
+    if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+
+    const elTglKmbli2 = document.getElementById('kie-tgl-kmbli2');
+    if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
 }
 
 // ===========================
@@ -576,10 +592,26 @@ function updateTglManualKIE() {
     const lamaHari = hitungHariKerja(tglBerangkat, tglKembali);
     currentLamaHari = lamaHari;
 
+    const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
+    const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
+
     // Update span teks tanggal berangkat dan kembali
-    document.getElementById('kie-tgl-brkt').textContent = tglBerangkat.toLocaleDateString('id-ID', options);
-    document.getElementById('kie-tgl-kmbli').textContent = tglKembali.toLocaleDateString('id-ID', options);
+    document.getElementById('kie-tgl-brkt').textContent = tglBerangkatStr;
+    document.getElementById('kie-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('kie-lama-perjalanan').textContent = lamaPerjalananText(lamaHari);
+
+    // Sync halaman 2 SPPD KIE
+    const elTglCetak = document.getElementById('kie-tgl-cetak');
+    if (elTglCetak) elTglCetak.textContent = tglBerangkatStr;
+
+    const elTglCetak2 = document.getElementById('kie-tgl-cetak2');
+    if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
+
+    const elTglBrkt2 = document.getElementById('kie-tgl-brkt2');
+    if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+
+    const elTglKmbli2 = document.getElementById('kie-tgl-kmbli2');
+    if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
 }
 
 // ===========================
@@ -777,17 +809,15 @@ function isiDataCetak(pegawai, prefix) {
     if (inputBrkt) inputBrkt.value = toInputDateStr(tglBerangkat);
     if (inputKmbli) inputKmbli.value = toInputDateStr(tglKembali);
 
-    // Isi halaman 2 SPPD: bagian I (Berangkat dari) — hanya untuk prefix 'v'
-    if (prefix === 'v') {
-        const elTujuan2 = document.getElementById('v-tujuan2');
-        const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
-        const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
-        const elTglCetak2 = document.getElementById('v-tgl-cetak2');
-        if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
-        if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
-        if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
-        if (elTglCetak2) elTglCetak2.textContent = tanggalCetak;
-    }
+    // Isi halaman 2 SPPD: bagian I (Berangkat dari) — untuk prefix 'v' dan 'kie'
+    const elTujuan2 = document.getElementById(`${prefix}-tujuan2`);
+    const elTglBrkt2 = document.getElementById(`${prefix}-tgl-brkt2`);
+    const elTglKmbli2 = document.getElementById(`${prefix}-tgl-kmbli2`);
+    const elTglCetak2 = document.getElementById(`${prefix}-tgl-cetak2`);
+    if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
+    if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
+    if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
+    if (elTglCetak2) elTglCetak2.textContent = tanggalCetak;
 
     return { lamaHari, tglBerangkat, tglKembali };
 }

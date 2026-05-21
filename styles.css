@@ -1413,11 +1413,11 @@ body.dark-mode .navbar {
 }
 
 /* ===========================
-   UKURAN KERTAS A4
+   UKURAN KERTAS LEGAL
    =========================== */
 .page {
-    width: 210mm;
-    height: 297mm;
+    width: 215.9mm;
+    height: 355.6mm;
     padding: 10mm 15mm;
     background: white;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
@@ -1623,6 +1623,11 @@ table.main-table td {
         margin: 0;
     }
 
+    @page {
+        size: legal;
+        margin: 0;
+    }
+
     .page {
         box-shadow: none;
         margin: 0;
@@ -1630,8 +1635,8 @@ table.main-table td {
         border: none;
         width: 100%;
         height: auto;
-        min-height: 297mm;
-        max-height: 297mm;
+        min-height: 355.6mm;
+        max-height: 355.6mm;
         overflow: hidden;
         page-break-after: always;
         page-break-inside: avoid;
