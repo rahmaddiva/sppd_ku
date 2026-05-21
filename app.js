@@ -462,6 +462,8 @@ function updateTanggalKembali() {
 
     // Update tanggal cetak
     document.getElementById('v-tgl-cetak').textContent = tglBerangkatStr;
+    const elTglCetak2 = document.getElementById('v-tgl-cetak2');
+    if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
 
     // Sync halaman 2: "Pada Tanggal" bagian I = semua tanggal hari kerja
     const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
@@ -780,9 +782,11 @@ function isiDataCetak(pegawai, prefix) {
         const elTujuan2 = document.getElementById('v-tujuan2');
         const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
         const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
+        const elTglCetak2 = document.getElementById('v-tgl-cetak2');
         if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
         if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
         if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
+        if (elTglCetak2) elTglCetak2.textContent = tanggalCetak;
     }
 
     return { lamaHari, tglBerangkat, tglKembali };
