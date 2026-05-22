@@ -356,7 +356,7 @@ function formatTanggalRange(tglBerangkat, tglKembali) {
     const BULAN = ['Januari','Februari','Maret','April','Mei','Juni',
                    'Juli','Agustus','September','Oktober','November','Desember'];
 
-    // Kumpulkan semua hari kerja dari berangkat s.d. kembali
+    // Kumpulkan semua hari kerja dari berangkat s.d. kembali (lewati Sabtu & Minggu)
     const dates = [];
     const cur = new Date(tglBerangkat);
     while (cur <= tglKembali) {
@@ -460,8 +460,9 @@ function updateTanggalKembali() {
     document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('v-lama-perjalanan').textContent = lamaPerjalananText(currentLamaHari);
 
-    // Update tanggal cetak
-    document.getElementById('v-tgl-cetak').textContent = tglBerangkatStr;
+    // Update tanggal cetak (null-safe, elemen mungkin tidak ada di halaman ini)
+    const elTglCetak = document.getElementById('v-tgl-cetak');
+    if (elTglCetak) elTglCetak.textContent = tglBerangkatStr;
     const elTglCetak2 = document.getElementById('v-tgl-cetak2');
     if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
 
@@ -505,11 +506,23 @@ function updateTanggalManual() {
     // Hitung lama perjalanan dalam hari kerja
     currentLamaHari = hitungHariKerja(tglBerangkat, tglKembali);
 
+    const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
     const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
 
-    // Update tampilan
+    // Update tampilan halaman 1
+    document.getElementById('v-tgl-brkt').textContent = tglBerangkatStr;
     document.getElementById('v-tgl-kmbli').textContent = tglKembaliStr;
     document.getElementById('v-lama-perjalanan').textContent = lamaPerjalananText(currentLamaHari);
+
+    // Update tanggal cetak (null-safe, elemen mungkin tidak ada di halaman ini)
+    const elTglCetak = document.getElementById('v-tgl-cetak');
+    if (elTglCetak) elTglCetak.textContent = tglBerangkatStr;
+    const elTglCetak2 = document.getElementById('v-tgl-cetak2');
+    if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
+
+    // Sync halaman 2: bagian I "Pada Tanggal" = semua tanggal hari kerja
+    const elTglBrkt2 = document.getElementById('v-tgl-brkt2');
+    if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
 
     // Sync halaman 2: bagian VI "Pada tanggal" (tanggal kembali)
     const elTglKmbli2 = document.getElementById('v-tgl-kmbli2');
