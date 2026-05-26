@@ -1,1426 +1,1109 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistem Cetak SPPD - Kabupaten Tanah Laut</title>
-    <meta
-      name="description"
-      content="Sistem Cetak Surat Perintah Perjalanan Dinas (SPPD) Dinas P3AP2KB Kabupaten Tanah Laut"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  </head>
 
-  <body>
-    <!-- Custom Cursor -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Cetak SPPD - Kabupaten Tanah Laut</title>
+  <meta name="description"
+    content="Sistem Cetak Surat Perintah Perjalanan Dinas (SPPD) Dinas P3AP2KB Kabupaten Tanah Laut" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
 
-    <!-- Toast Notifications -->
-    <div id="toast-container"></div>
+<body>
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="main-navbar">
-      <div class="navbar-inner">
-        <!-- Logo & Brand -->
-        <div class="navbar-brand">
-          <div class="navbar-logo">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
-              />
-              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-              <path d="M10 9H8" />
-              <path d="M16 13H8" />
-              <path d="M16 17H8" />
-            </svg>
-          </div>
-          <div class="navbar-brand-text">
-            <span class="navbar-title">Sistem SPPD</span>
-            <span class="navbar-sub">P3AP2KB Tanah Laut</span>
-          </div>
+  <!-- Toast Notifications -->
+  <div id="toast-container"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="main-navbar">
+    <div class="navbar-inner">
+      <!-- Logo & Brand -->
+      <div class="navbar-brand">
+        <div class="navbar-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            <path d="M10 9H8" />
+            <path d="M16 13H8" />
+            <path d="M16 17H8" />
+          </svg>
         </div>
-
-        <!-- Nav Links (Desktop) -->
-        <div class="navbar-links" id="navbar-links">
-          <a
-            href="#"
-            class="nav-link active"
-            id="nav-beranda"
-            onclick="navGoHome(event)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            Beranda
-          </a>
-          <a
-            href="#"
-            class="nav-link"
-            id="nav-chat"
-            onclick="openChatPanel(event)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-              />
-            </svg>
-            Chat
-            <span
-              class="chat-unread-badge"
-              id="chat-unread-badge-desktop"
-              style="display: none"
-              >0</span
-            >
-          </a>
-        </div>
-
-        <!-- Navbar Right Controls -->
-        <div class="navbar-right">
-          <!-- Online indicator -->
-          <div
-            class="online-indicator"
-            id="online-indicator"
-            title="Status koneksi"
-          >
-            <span class="online-dot"></span>
-            <span class="online-text" id="online-text">Online</span>
-          </div>
-          <!-- Theme Toggle -->
-          <button
-            class="navbar-theme-btn"
-            id="theme-toggle"
-            onclick="toggleDarkMode()"
-            title="Ganti tema"
-          >
-            <svg
-              id="theme-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-            </svg>
-            <span class="theme-toggle-label">Dark</span>
-          </button>
-          <!-- Hamburger (Mobile) -->
-          <button
-            class="navbar-hamburger"
-            id="navbar-hamburger"
-            onclick="toggleMobileMenu()"
-            aria-label="Menu"
-          >
-            <span></span><span></span><span></span>
-          </button>
+        <div class="navbar-brand-text">
+          <span class="navbar-title">Sistem SPPD</span>
+          <span class="navbar-sub">P3AP2KB Tanah Laut</span>
         </div>
       </div>
-      <!-- Mobile Menu -->
-      <div class="navbar-mobile-menu" id="navbar-mobile-menu">
-        <a href="#" class="nav-link-mobile" onclick="navGoHome(event)">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+
+      <!-- Nav Links (Desktop) -->
+      <div class="navbar-links" id="navbar-links">
+        <a href="#" class="nav-link active" id="nav-beranda" onclick="navGoHome(event)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
           Beranda
         </a>
-        <a href="#" class="nav-link-mobile" onclick="openChatPanel(event)">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-            />
+        <a href="#" class="nav-link" id="nav-chat" onclick="openChatPanel(event)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-          Chat Ruang Umum
-          <span
-            class="chat-unread-badge"
-            id="chat-unread-badge-mobile"
-            style="display: none"
-            >0</span
-          >
+          Chat
+          <span class="chat-unread-badge" id="chat-unread-badge-desktop" style="display: none">0</span>
         </a>
       </div>
-    </nav>
 
-    <!-- ===== MODAL NICKNAME ===== -->
-    <div class="modal-overlay" id="modal-nickname" style="display: none">
-      <div class="modal-box" id="modal-nickname-box">
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+      <!-- Navbar Right Controls -->
+      <div class="navbar-right">
+        <!-- Online indicator -->
+        <div class="online-indicator" id="online-indicator" title="Status koneksi">
+          <span class="online-dot"></span>
+          <span class="online-text" id="online-text">Online</span>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="navbar-theme-btn" id="theme-toggle" onclick="toggleDarkMode()" title="Ganti tema">
+          <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+        <!-- Hamburger (Mobile) -->
+        <button class="navbar-hamburger" id="navbar-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+      <a href="#" class="nav-link-mobile" onclick="navGoHome(event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Beranda
+      </a>
+      <a href="#" class="nav-link-mobile" onclick="openChatPanel(event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+        Chat Ruang Umum
+        <span class="chat-unread-badge" id="chat-unread-badge-mobile" style="display: none">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== MODAL NICKNAME ===== -->
+  <div class="modal-overlay" id="modal-nickname" style="display: none">
+    <div class="modal-box" id="modal-nickname-box">
+      <div class="modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </div>
+      <h2 class="modal-title">Masukkan Nama Anda</h2>
+      <p class="modal-desc">
+        Nama ini akan ditampilkan di ruang chat. Tidak perlu daftar atau
+        login.
+      </p>
+      <div class="modal-input-group">
+        <input type="text" id="nickname-input" placeholder="Contoh: Budi, Admin, dll..." maxlength="30"
+          autocomplete="off" autocorrect="off" spellcheck="false" />
+      </div>
+      <div class="modal-color-label">Pilih warna nama Anda:</div>
+      <div class="modal-colors" id="modal-colors"></div>
+      <button class="modal-btn" id="modal-btn-ok" onclick="saveNickname()">
+        Mulai Chat
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== CHAT PANEL ===== -->
+  <div class="chat-overlay" id="chat-overlay" onclick="closeChatPanel()" style="display: none"></div>
+  <div class="chat-panel" id="chat-panel">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-header-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </div>
+        <div>
+          <div class="chat-header-title">Ruang Chat Umum</div>
+          <div class="chat-header-sub" id="chat-status-text">
+            Memuat pesan...
+          </div>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button class="chat-header-btn" id="chat-nick-btn" onclick="openChangeNickname()" title="Ganti nama">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
+        </button>
+        <button class="chat-header-btn" onclick="closeChatPanel()" title="Tutup chat">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Nickname display -->
+    <div class="chat-nick-display" id="chat-nick-display"></div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-loading" id="chat-loading">
+        <div class="chat-loading-spinner"></div>
+        <span>Memuat pesan...</span>
+      </div>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="chat-input-bar">
+      <div class="chat-input-wrapper">
+        <textarea id="chat-input" class="chat-textarea" placeholder="Ketik pesan..." rows="1" maxlength="500"
+          onkeydown="handleChatKeydown(event)" oninput="autoresizeTextarea(this)"></textarea>
+        <button class="chat-send-btn" id="chat-send-btn" onclick="sendChatMessage()" title="Kirim (Enter)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 2-7 20-4-9-9-4Z" />
+            <path d="M22 2 11 13" />
+          </svg>
+        </button>
+      </div>
+      <div class="chat-input-hint">
+        Enter kirim · Shift+Enter baris baru · Maks 500 karakter
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Landing Page -->
+    <section class="header landing-hero" aria-labelledby="landing-title">
+      <p class="landing-eyebrow">Dinas P3AP2KB Kabupaten Tanah Laut</p>
+      <h1 id="landing-title">
+        Cetak SPPD lebih cepat, rapi, dan siap digunakan.
+      </h1>
+      <p class="landing-lead">
+        Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan
+        dinas tanpa mengulang format manual.
+      </p>
+      <div class="landing-actions">
+        <a class="landing-primary" href="#kecamatan-page">Mulai pilih kecamatan</a>
+        <button class="landing-secondary" type="button" onclick="openChatPanel(event)">
+          Buka chat
+        </button>
+      </div>
+      <div class="landing-meta" aria-label="Ringkasan sistem">
+        <span>11 kecamatan</span>
+        <span>Data pegawai lokal</span>
+        <span>Format SPD & KIE</span>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <p class="section-kicker">Daftar kecamatan</p>
+      <h2>Pilih wilayah untuk membuat dokumen.</h2>
+    </div>
+
+    <!-- tombol daftar pegawai KIE -->
+    <a href="index_kie.html"></a>
+
+    <!-- Halaman Pilihan Kecamatan -->
+    <div id="kecamatan-page">
+      <div class="kecamatan-grid" id="kecamatan-grid"></div>
+    </div>
+
+    <!-- Halaman Daftar Pegawai -->
+    <div id="pegawai-page">
+      <button class="back-btn" onclick="backToKecamatan()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 19-7-7 7-7" />
+          <path d="M19 12H5" />
+        </svg>
+        Kembali
+      </button>
+      <div class="pegawai-info">
+        <h2 id="selected-kecamatan">Kecamatan</h2>
+        <p>Pilih pegawai yang akan melaksanakan perjalanan dinas</p>
+      </div>
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </span>
+          <input type="text" id="search-pegawai" placeholder="Cari nama pegawai..."
+            oninput="filterPegawai(this.value)" />
+          <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()" style="display: none">
+            ✕
+          </button>
         </div>
-        <h2 class="modal-title">Masukkan Nama Anda</h2>
-        <p class="modal-desc">
-          Nama ini akan ditampilkan di ruang chat. Tidak perlu daftar atau
-          login.
+        <p class="search-result-count" id="search-result-count"></p>
+        <p class="kb-badge" style="margin-top: 6px">
+          Tekan <span class="kb-key">/</span> untuk fokus &nbsp;·&nbsp;
+          <span class="kb-key">Esc</span> kembali
         </p>
-        <div class="modal-input-group">
-          <input
-            type="text"
-            id="nickname-input"
-            placeholder="Contoh: Budi, Admin, dll..."
-            maxlength="30"
-            autocomplete="off"
-            autocorrect="off"
-            spellcheck="false"
-          />
-        </div>
-        <div class="modal-color-label">Pilih warna nama Anda:</div>
-        <div class="modal-colors" id="modal-colors"></div>
-        <button class="modal-btn" id="modal-btn-ok" onclick="saveNickname()">
-          Mulai Chat
-        </button>
+      </div>
+      <div class="pegawai-list">
+        <h3>Daftar Pegawai</h3>
+        <div id="pegawai-list-container"></div>
       </div>
     </div>
+  </div>
 
-    <!-- ===== CHAT PANEL ===== -->
-    <div
-      class="chat-overlay"
-      id="chat-overlay"
-      onclick="closeChatPanel()"
-      style="display: none"
-    ></div>
-    <div class="chat-panel" id="chat-panel">
-      <!-- Chat Header -->
-      <div class="chat-header">
-        <div class="chat-header-info">
-          <div class="chat-header-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-              />
-            </svg>
-          </div>
-          <div>
-            <div class="chat-header-title">Ruang Chat Umum</div>
-            <div class="chat-header-sub" id="chat-status-text">
-              Memuat pesan...
-            </div>
-          </div>
-        </div>
-        <div class="chat-header-actions">
-          <button
-            class="chat-header-btn"
-            id="chat-nick-btn"
-            onclick="openChangeNickname()"
-            title="Ganti nama"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-          </button>
-          <button
-            class="chat-header-btn"
-            onclick="closeChatPanel()"
-            title="Tutup chat"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
+  <!-- Theme Toggle sudah dipindah ke Navbar -->
 
-      <!-- Nickname display -->
-      <div class="chat-nick-display" id="chat-nick-display"></div>
-
-      <!-- Messages -->
-      <div class="chat-messages" id="chat-messages">
-        <div class="chat-loading" id="chat-loading">
-          <div class="chat-loading-spinner"></div>
-          <span>Memuat pesan...</span>
-        </div>
-      </div>
-
-      <!-- Input Bar -->
-      <div class="chat-input-bar">
-        <div class="chat-input-wrapper">
-          <textarea
-            id="chat-input"
-            class="chat-textarea"
-            placeholder="Ketik pesan..."
-            rows="1"
-            maxlength="500"
-            onkeydown="handleChatKeydown(event)"
-            oninput="autoresizeTextarea(this)"
-          ></textarea>
-          <button
-            class="chat-send-btn"
-            id="chat-send-btn"
-            onclick="sendChatMessage()"
-            title="Kirim (Enter)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m22 2-7 20-4-9-9-4Z" />
-              <path d="M22 2 11 13" />
-            </svg>
-          </button>
-        </div>
-        <div class="chat-input-hint">
-          Enter kirim · Shift+Enter baris baru · Maks 500 karakter
-        </div>
-      </div>
+  <!-- Halaman Cetak -->
+  <div id="cetak-page">
+    <div class="cetak-controls">
+      <button class="btn btn-back" onclick="closeCetak()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Kembali ke Daftar
+      </button>
+      <button class="btn btn-print" onclick="window.print()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9" />
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <rect width="12" height="8" x="6" y="14" />
+        </svg>
+        Cetak PDF
+      </button>
+      <!-- tombol ke isi spd untuk kie (disembunyikan, aktifkan bila diperlukan) -->
+      <button class="btn btn-kie" onclick="cetakKIE()" style="display: none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+          <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+        </svg>
+        Cetak KIE
+      </button>
     </div>
 
-    <div class="container">
-      <!-- Landing Page -->
-      <section class="header landing-hero" aria-labelledby="landing-title">
-        <p class="landing-eyebrow">Dinas P3AP2KB Kabupaten Tanah Laut</p>
-        <h1 id="landing-title">
-          Cetak SPPD lebih cepat, rapi, dan siap digunakan.
-        </h1>
-        <p class="landing-lead">
-          Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan
-          dinas tanpa mengulang format manual.
-        </p>
-        <div class="landing-actions">
-          <a class="landing-primary" href="#kecamatan-page"
-            >Mulai pilih kecamatan</a
-          >
-          <button
-            class="landing-secondary"
-            type="button"
-            onclick="openChatPanel(event)"
-          >
-            Buka chat
-          </button>
-        </div>
-        <div class="landing-meta" aria-label="Ringkasan sistem">
-          <span>11 kecamatan</span>
-          <span>Data pegawai lokal</span>
-          <span>Format SPD & KIE</span>
-        </div>
-      </section>
+    <div class="preview-panel">
+      <!-- Halaman 1 -->
+      <div class="page">
+        <table class="header-table">
+          <tr>
+            <td width="70" align="center">
+              <img src="logo_tanah_laut.png" alt="Logo Tanah Laut" height="65" width="65" />
+            </td>
+            <td>
+              <p class="kop-title">PEMERINTAH KABUPATEN TANAH LAUT</p>
+              <p class="kop-dinas">
+                DINAS PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK,<br />PENGENDALIAN
+                PENDUDUK DAN KELUARGA BERENCANA
+              </p>
+              <p class="kop-alamat">
+                Jalan. A. Syairani Komplek Perkantoran Gagas Pelaihari
+                70814<br />Email: dp3ap2kb@tanahlautkab.go.id
+              </p>
+            </td>
+          </tr>
+        </table>
 
-      <div class="section-heading">
-        <p class="section-kicker">Daftar kecamatan</p>
-        <h2>Pilih wilayah untuk membuat dokumen.</h2>
-      </div>
-
-      <!-- tombol daftar pegawai KIE -->
-      <a href="index_kie.html"></a>
-
-      <!-- Halaman Pilihan Kecamatan -->
-      <div id="kecamatan-page">
-        <div class="kecamatan-grid" id="kecamatan-grid"></div>
-      </div>
-
-      <!-- Halaman Daftar Pegawai -->
-      <div id="pegawai-page">
-        <button class="back-btn" onclick="backToKecamatan()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m12 19-7-7 7-7" />
-            <path d="M19 12H5" />
-          </svg>
-          Kembali
-        </button>
-        <div class="pegawai-info">
-          <h2 id="selected-kecamatan">Kecamatan</h2>
-          <p>Pilih pegawai yang akan melaksanakan perjalanan dinas</p>
-        </div>
-        <div class="search-box">
-          <div class="search-input-wrapper">
-            <span class="search-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </span>
-            <input
-              type="text"
-              id="search-pegawai"
-              placeholder="Cari nama pegawai..."
-              oninput="filterPegawai(this.value)"
-            />
-            <button
-              class="search-clear-btn"
-              id="search-clear-btn"
-              onclick="clearSearch()"
-              style="display: none"
-            >
-              ✕
-            </button>
-          </div>
-          <p class="search-result-count" id="search-result-count"></p>
-          <p class="kb-badge" style="margin-top: 6px">
-            Tekan <span class="kb-key">/</span> untuk fokus &nbsp;·&nbsp;
-            <span class="kb-key">Esc</span> kembali
-          </p>
-        </div>
-        <div class="pegawai-list">
-          <h3>Daftar Pegawai</h3>
-          <div id="pegawai-list-container"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Theme Toggle sudah dipindah ke Navbar -->
-
-    <!-- Halaman Cetak -->
-    <div id="cetak-page">
-      <div class="cetak-controls">
-        <button class="btn btn-back" onclick="closeCetak()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M19 12H5" />
-            <polyline points="12 19 5 12 12 5" />
-          </svg>
-          Kembali ke Daftar
-        </button>
-        <button class="btn btn-print" onclick="window.print()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path
-              d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
-            />
-            <rect width="12" height="8" x="6" y="14" />
-          </svg>
-          Cetak PDF
-        </button>
-        <!-- tombol ke isi spd untuk kie (disembunyikan, aktifkan bila diperlukan) -->
-        <button class="btn btn-kie" onclick="cetakKIE()" style="display: none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
-            />
-            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-          </svg>
-          Cetak KIE
-        </button>
-      </div>
-
-      <div class="preview-panel">
-        <!-- Halaman 1 -->
-        <div class="page">
-          <table class="header-table">
-            <tr>
-              <td width="70" align="center">
-                <img
-                  src="logo_tanah_laut.png"
-                  alt="Logo Tanah Laut"
-                  height="65"
-                  width="65"
-                />
-              </td>
-              <td>
-                <p class="kop-title">PEMERINTAH KABUPATEN TANAH LAUT</p>
-                <p class="kop-dinas">
-                  DINAS PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK,<br />PENGENDALIAN
-                  PENDUDUK DAN KELUARGA BERENCANA
-                </p>
-                <p class="kop-alamat">
-                  Jalan. A. Syairani Komplek Perkantoran Gagas Pelaihari
-                  70814<br />Email: dp3ap2kb@tanahlautkab.go.id
-                </p>
-              </td>
-            </tr>
-          </table>
-
-          <div
-            style="
+        <div style="
               margin-left: 65%;
               font-size: 9.5pt;
               margin-top: 10px;
               font-family: &quot;Bookman Old Style&quot;, serif;
-            "
-          >
-            <p style="margin: 0">Lembar ke :</p>
-            <p style="margin: 0">Kode No. : 000.1.2.3</p>
-            <p style="margin: 0">
-              Nomor :
-              <input
-                type="month"
-                id="v-input-bulan"
-                onchange="updateBulanSppd()"
-                style="
+            ">
+          <p style="margin: 0">Lembar ke :</p>
+          <p style="margin: 0">Kode No. : 000.1.2.3</p>
+          <p style="margin: 0">
+            Nomor :
+            <input type="month" id="v-input-bulan" onchange="updateBulanSppd()" style="
                   font-family: &quot;Bookman Old Style&quot;, serif;
                   font-size: 9.5pt;
                   border: 1px solid #999;
                   padding: 1px 3px;
                   border-radius: 3px;
                   margin-right: 4px;
-                "
-              />
-              <span id="v-nomor"></span>
-            </p>
-          </div>
+                " />
+            <span id="v-nomor"></span>
+          </p>
+        </div>
 
-          <h3
-            style="
+        <h3 style="
               text-align: center;
               margin-top: 15px;
               font-size: 11pt;
               font-weight: normal;
               text-decoration:;
               font-family: &quot;Bookman Old Style&quot;, serif;
-            "
-          >
-            SURAT PERJALANAN DINAS (SPD)
-          </h3>
+            ">
+          SURAT PERJALANAN DINAS (SPD)
+        </h3>
 
-          <table class="main-table">
-            <tr>
-              <td width="25" align="center">1.</td>
-              <td width="200">Pengguna Anggaran</td>
-              <td colspan="3">
-                MARIA ULFAH, S.Psi.,MM.<br />NIP. 19791113 200501 2 008
-              </td>
-            </tr>
-            <tr>
-              <td align="center">2.</td>
-              <td>Nama pejabat yang melaksanakan perjalanan dinas</td>
-              <td colspan="3">
-                <span id="v-nama"></span><br />NIP. <span id="v-nip"></span>
-              </td>
-            </tr>
-            <tr>
-              <td align="center">3.</td>
-              <td>
-                a. Jabatan<br />b. Tingkat perjalanan dinas<br />c. Tingkat
-                biaya perjalanan dinas
-              </td>
-              <td colspan="3">
-                a. <span id="v-jabatan"></span><br />b. - <br />c. -
-              </td>
-            </tr>
-            <tr>
-              <td align="center">4.</td>
-              <td>Maksud Perjalanan dinas</td>
-              <td colspan="3"><span id="v-maksud"></span></td>
-            </tr>
-            <tr>
-              <td align="center">5.</td>
-              <td>Alat angkut yang digunakan</td>
-              <td colspan="3">Kendaraan Roda Dua</td>
-            </tr>
-            <tr>
-              <td align="center">6.</td>
-              <td>a. Tempat berangkat<br />b. Tempat tujuan</td>
-              <td colspan="3">
-                a. Pelaihari<br />b. <span id="v-tujuan"></span>
-              </td>
-            </tr>
-            <tr>
-              <td align="center">7.</td>
-              <td>
-                a. Lamanya perjalanan<br />b. Tanggal berangkat<br />c. Tanggal
-                harus kembali/tiba di tempat baru *
-              </td>
-              <td colspan="3">
-                a. <span id="v-lama-perjalanan"></span> Kerja<br />
-                b.
-                <input
-                  type="date"
-                  id="v-input-tgl-brkt"
-                  onchange="updateTanggalKembali()"
-                  style="
+        <table class="main-table">
+          <tr>
+            <td width="25" align="center">1.</td>
+            <td width="200">Pengguna Anggaran</td>
+            <td colspan="3">
+              MARIA ULFAH, S.Psi.,MM.<br />NIP. 19791113 200501 2 008
+            </td>
+          </tr>
+          <tr>
+            <td align="center">2.</td>
+            <td>Nama pejabat yang melaksanakan perjalanan dinas</td>
+            <td colspan="3">
+              <span id="v-nama"></span><br />NIP. <span id="v-nip"></span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">3.</td>
+            <td>
+              a. Jabatan<br />b. Tingkat perjalanan dinas<br />c. Tingkat
+              biaya perjalanan dinas
+            </td>
+            <td colspan="3">
+              a. <span id="v-jabatan"></span><br />b. - <br />c. -
+            </td>
+          </tr>
+          <tr>
+            <td align="center">4.</td>
+            <td>Maksud Perjalanan dinas</td>
+            <td colspan="3"><span id="v-maksud"></span></td>
+          </tr>
+          <tr>
+            <td align="center">5.</td>
+            <td>Alat angkut yang digunakan</td>
+            <td colspan="3">Kendaraan Roda Dua</td>
+          </tr>
+          <tr>
+            <td align="center">6.</td>
+            <td>a. Tempat berangkat<br />b. Tempat tujuan</td>
+            <td colspan="3">
+              a. Pelaihari<br />b. <span id="v-tujuan"></span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">7.</td>
+            <td>
+              a. Lamanya perjalanan<br />b. Tanggal berangkat<br />c. Tanggal
+              harus kembali/tiba di tempat baru *
+            </td>
+            <td colspan="3">
+              a. <span id="v-lama-perjalanan"></span> Kerja<br />
+              b.
+              <input type="date" id="v-input-tgl-brkt" onchange="updateTanggalKembali()" style="
                     font-family: &quot;Bookman Old Style&quot;, serif;
                     font-size: 9.5pt;
                     border: 1px solid #999;
                     padding: 2px 5px;
                     border-radius: 3px;
-                  "
-                />
-                <span id="v-tgl-brkt"></span><br />
-                c.
-                <input
-                  type="date"
-                  id="v-input-tgl-kmbli"
-                  onchange="updateTanggalManual()"
-                  style="
+                  " />
+              <span id="v-tgl-brkt"></span><br />
+              c.
+              <input type="date" id="v-input-tgl-kmbli" onchange="updateTanggalManual()" style="
                     font-family: &quot;Bookman Old Style&quot;, serif;
                     font-size: 9.5pt;
                     border: 1px solid #999;
                     padding: 2px 5px;
                     border-radius: 3px;
-                  "
-                />
-                <span id="v-tgl-kmbli"></span>
-              </td>
-            </tr>
-            <tr style="height: 17pt">
-              <td align="center" style="width: 25pt; vertical-align: top">
-                8.
-              </td>
-              <td style="width: 252pt; vertical-align: top">
-                <p style="margin: 0; border-bottom: 1px solid black">
-                  Nama Pengikut :
-                </p>
-                <div
-                  style="
+                  " />
+              <span id="v-tgl-kmbli"></span>
+            </td>
+          </tr>
+          <tr style="height: 17pt">
+            <td align="center" style="width: 25pt; vertical-align: top">
+              8.
+            </td>
+            <td style="width: 252pt; vertical-align: top">
+              <p style="margin: 0; border-bottom: 1px solid black">
+                Nama Pengikut :
+              </p>
+              <div style="
                     padding-left: 10px;
                     margin-top: 5px;
                     font-size: 9pt;
                     line-height: 1.5;
-                  "
-                >
-                  <div>1</div>
-                  <div>2</div>
-                  <div>3</div>
-                </div>
-              </td>
-              <td style="width: 139pt; vertical-align: top">
-                <p style="margin: 0; border-bottom: 1px solid black">
-                  Tanggal lahir
-                </p>
-                <div
-                  style="margin-top: 5px; font-size: 9pt; line-height: 1.5"
-                ></div>
-              </td>
-              <td style="width: 133pt; vertical-align: top">
-                <p style="margin: 0; border-bottom: 1px solid black">
-                  Keterangan
-                </p>
-                <div
-                  style="margin-top: 5px; font-size: 9pt; line-height: 1.5"
-                ></div>
-              </td>
-            </tr>
-            <tr>
-              <td align="center">9.</td>
-              <td>Pembebanan Anggaran<br />a. Instansi<br />b. Akun</td>
-              <td colspan="3">
-                <br />a. Dinas P3AP2KB Kab. Tanah Laut<br />b.
-                5.1.02.04.001.0003
-              </td>
-            </tr>
-            <tr>
-              <td align="center">10.</td>
-              <td>Keterangan lain-lain</td>
-              <td colspan="3"></td>
-            </tr>
-          </table>
-          <p style="text-align: justify; margin-top: 3px; font-size: 9pt">
-            *Coret yang jika tidak perlu<br />
-          </p>
+                  ">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+              </div>
+            </td>
+            <td style="width: 139pt; vertical-align: top">
+              <p style="margin: 0; border-bottom: 1px solid black">
+                Tanggal lahir
+              </p>
+              <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5"></div>
+            </td>
+            <td style="width: 133pt; vertical-align: top">
+              <p style="margin: 0; border-bottom: 1px solid black">
+                Keterangan
+              </p>
+              <div style="margin-top: 5px; font-size: 9pt; line-height: 1.5"></div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">9.</td>
+            <td>Pembebanan Anggaran<br />a. Instansi<br />b. Akun</td>
+            <td colspan="3">
+              <br />a. Dinas P3AP2KB Kab. Tanah Laut<br />b.
+              5.1.02.04.001.0003
+            </td>
+          </tr>
+          <tr>
+            <td align="center">10.</td>
+            <td>Keterangan lain-lain</td>
+            <td colspan="3"></td>
+          </tr>
+        </table>
+        <p style="text-align: justify; margin-top: 3px; font-size: 9pt">
+          *Coret yang jika tidak perlu<br />
+        </p>
 
-          <div
-            style="
+        <div style="
               margin-top: 30px;
               margin-left: 60%;
               font-size: 9.5pt;
               font-family: &quot;Bookman Old Style&quot;, serif;
-            "
-          >
-            <div style="margin-top: 15px">
-              Pengguna Anggaran,<br />
+            ">
+          <table
+            style="width: 100%; border: none; font-size: 9.5pt; font-family: 'Bookman Old Style', serif; border-collapse: collapse; margin: 0;">
+            <tr style="border: none;">
+              <td style="width: 110px; border: none; padding: 0; white-space: nowrap;">Dikeluarkan di</td>
+              <td style="width: 15px; border: none; padding: 0;">:</td>
+              <td style="border: none; padding: 0;">Pelaihari</td>
+            </tr>
+            <tr style="border: none;">
+              <td style="border: none; padding: 0; white-space: nowrap;">Tanggal</td>
+              <td style="border: none; padding: 0;">:</td>
+              <td style="border: none; padding: 0;"><span id="v-tgl-cetak"></span></td>
+            </tr>
+          </table>
 
-              <br /><br /><br /><br />
-              MARIA ULFAH, S.Psi.,MM.<br />
-              NIP. 19791113 200501 2 008
-            </div>
+          <div style="margin-top: 5px">
+            Pengguna Anggaran,<br />
+
+            <br /><br /><br /><br />
+            MARIA ULFAH, S.Psi.,MM.<br />
+            NIP. 19791113 200501 2 008
           </div>
         </div>
+      </div>
 
-        <!-- Halaman 2 -->
-        <div class="page">
-          <table class="sppd-table-back">
-            <tr>
-              <td class="col-num" style="border-bottom: none"></td>
-              <td
-                style="width: 48%; border-right: none; border-bottom: none"
-              ></td>
-              <td style="width: 48%">
-                I. Berangkat dari : Pelaihari <br />
-                &nbsp;&nbsp;&nbsp;Ke : <span id="v-tujuan2"></span> <br />
-                &nbsp;&nbsp;&nbsp;Pada Tanggal : <span id="v-tgl-brkt2"></span
-                ><br />
+      <!-- Halaman 2 -->
+      <div class="page">
+        <table class="sppd-table-back">
+          <tr>
+            <td class="col-num" style="border-bottom: none"></td>
+            <td style="width: 48%; border-right: none; border-bottom: none"></td>
+            <td style="width: 48%">
+              I. Berangkat dari : Pelaihari <br />
+              &nbsp;&nbsp;&nbsp;Ke : <span id="v-tujuan2"></span> <br />
+              &nbsp;&nbsp;&nbsp;Pada Tanggal : <span id="v-tgl-brkt2"></span><br />
 
-                <div style="margin-top: 8px">
-                  <span style="font-size: 8pt"
-                    >Penata Kelola Sistem dan Teknologi Informasi<br />
-                    Selaku Pejabat Pelaksana Teknis Kegiatan</span
-                  ><br /><br /><br />
-                  <span>Zulyani Agustina, S. ST, M.M</span><br />
-                  <span style="font-size: 8pt">NIP. 19860803 200903 2 006</span>
-                </div>
-              </td>
-            </tr>
+              <div style="margin-top: 8px">
+                <span style="font-size: 8pt">Penata Kelola Sistem dan Teknologi Informasi<br />
+                  Selaku Pejabat Pelaksana Teknis Kegiatan</span><br /><br /><br />
+                <span>Zulyani Agustina, S. ST, M.M</span><br />
+                <span style="font-size: 8pt">NIP. 19860803 200903 2 006</span>
+              </div>
+            </td>
+          </tr>
 
-            <tr>
-              <td
-                class="col-num"
-                style="vertical-align: top; padding-top: 12px"
-              >
-                II.
-              </td>
-              <td
-                style="
+          <tr>
+            <td class="col-num" style="vertical-align: top; padding-top: 12px">
+              II.
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Tiba di</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Tiba di</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-              <td
-                style="
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Berangkat dari</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Ke</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Berangkat dari</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Ke</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-            </tr>
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+          </tr>
 
-            <tr>
-              <td
-                class="col-num"
-                style="vertical-align: top; padding-top: 12px"
-              >
-                III.
-              </td>
-              <td
-                style="
+          <tr>
+            <td class="col-num" style="vertical-align: top; padding-top: 12px">
+              III.
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Tiba di</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Tiba di</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-              <td
-                style="
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Berangkat dari</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Ke</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Berangkat dari</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Ke</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-            </tr>
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+          </tr>
 
-            <tr>
-              <td
-                class="col-num"
-                style="vertical-align: top; padding-top: 12px"
-              >
-                IV.
-              </td>
-              <td
-                style="
+          <tr>
+            <td class="col-num" style="vertical-align: top; padding-top: 12px">
+              IV.
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Tiba di</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Tiba di</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-              <td
-                style="
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Berangkat dari</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Ke</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Berangkat dari</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Ke</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-            </tr>
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+          </tr>
 
-            <tr>
-              <td
-                class="col-num"
-                style="vertical-align: top; padding-top: 12px"
-              >
-                V.
-              </td>
-              <td
-                style="
+          <tr>
+            <td class="col-num" style="vertical-align: top; padding-top: 12px">
+              V.
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Tiba di</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Tiba di</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-              <td
-                style="
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+            <td style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
                   position: relative;
-                "
-              >
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Berangkat dari</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Ke</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Pada tanggal</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div style="display: flex; margin-bottom: 5px">
-                  <div style="width: 120px">Kepala</div>
-                  <div style="width: 15px">:</div>
-                  <div>..................................</div>
-                </div>
-                <div
-                  style="
+                ">
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Berangkat dari</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Ke</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Pada tanggal</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="display: flex; margin-bottom: 5px">
+                <div style="width: 120px">Kepala</div>
+                <div style="width: 15px">:</div>
+                <div>..................................</div>
+              </div>
+              <div style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
                     line-height: 1.2;
                     white-space: nowrap;
-                  "
-                >
-                  ( ................................................. )<br />
-                  NIP
-                </div>
-              </td>
-            </tr>
+                  ">
+                ( ................................................. )<br />
+                NIP
+              </div>
+            </td>
+          </tr>
 
-            <tr>
-              <td class="col-num" rowspan="3">VI.</td>
-              <td style="height: 8px">Tiba di : Pelaihari</td>
-              <td
-                rowspan="3"
-                style="font-size: 8pt; text-align: justify; padding-top: 5px"
-              >
-                Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di
-                atas dilakukan atas perintahnya dan semata-mata untuk
-                kepentingan jabatan dalam waktu yang sesingkat-singkatnya.
-              </td>
-            </tr>
-            <tr>
-              <td style="height: 8px">
-                Pada tanggal : <span id="v-tgl-kmbli2"></span>
-              </td>
-            </tr>
-            <tr>
-              <td style="height: 75px; vertical-align: bottom">
-                Kepala Dinas P3AP2KB Kab. Tanah Laut<br /><br /><br />
-                <span class="">MARIA ULFAH, S.Psi.,MM.</span><br />
-                <span style="font-size: 8pt">NIP. 19791113 200501 2 008</span>
-              </td>
-            </tr>
+          <tr>
+            <td class="col-num" rowspan="3">VI.</td>
+            <td style="height: 8px">Tiba di : Pelaihari</td>
+            <td rowspan="3" style="font-size: 8pt; text-align: justify; padding-top: 5px">
+              Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di
+              atas dilakukan atas perintahnya dan semata-mata untuk
+              kepentingan jabatan dalam waktu yang sesingkat-singkatnya.
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 8px">
+              Pada tanggal : <span id="v-tgl-kmbli2"></span>
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 75px; vertical-align: bottom">
+              Kepala Dinas P3AP2KB Kab. Tanah Laut<br /><br /><br />
+              <span class="">MARIA ULFAH, S.Psi.,MM.</span><br />
+              <span style="font-size: 8pt">NIP. 19791113 200501 2 008</span>
+            </td>
+          </tr>
 
-            <tr>
-              <td class="col-num">VII.</td>
-              <td colspan="2" style="height: 12px">Catatan lain-lain</td>
-            </tr>
-            <tr>
-              <td class="col-num">VIII.</td>
-              <td
-                colspan="2"
-                style="
+          <tr>
+            <td class="col-num">VII.</td>
+            <td colspan="2" style="height: 12px">Catatan lain-lain</td>
+          </tr>
+          <tr>
+            <td class="col-num">VIII.</td>
+            <td colspan="2" style="
                   padding: 8px;
                   text-align: justify;
                   font-size: 8pt;
                   font-family: &quot;Bookman Old Style&quot;, serif;
-                "
-              >
-                <span class="bold">PERHATIAN :</span><br />
-                PPK yang menerbitkan SPD, pejabat/pegawai/pihak lain yang
-                melakukan perjalanan dinas, para pejabat yang mengesahkan
-                tanggal berangkat/tiba, serta bendahara pengeluaran bertanggung
-                jawab berdasarkan peraturan-peraturan Keuangan Negara apabila
-                negara menderita rugi akibat kesalahan, kelalaian, dan
-                kealpaannya.
-              </td>
-            </tr>
-          </table>
-          <div
-            style="
+                ">
+              <span class="bold">PERHATIAN :</span><br />
+              PPK yang menerbitkan SPD, pejabat/pegawai/pihak lain yang
+              melakukan perjalanan dinas, para pejabat yang mengesahkan
+              tanggal berangkat/tiba, serta bendahara pengeluaran bertanggung
+              jawab berdasarkan peraturan-peraturan Keuangan Negara apabila
+              negara menderita rugi akibat kesalahan, kelalaian, dan
+              kealpaannya.
+            </td>
+          </tr>
+        </table>
+        <div style="
               margin-top: 30px;
               margin-left: 60%;
               font-size: 9.5pt;
               font-family: &quot;Bookman Old Style&quot;, serif;
-            "
-          >
-            <div style="margin-top: 15px">
-              Pengguna Anggaran,<br />
+            ">
+          <div style="margin-top: 15px">
+            Pengguna Anggaran,<br />
 
-              <br /><br /><br /><br />
-              MARIA ULFAH, S.Psi.,MM.<br />
-              NIP. 19791113 200501 2 008
-            </div>
+            <br /><br /><br /><br />
+            MARIA ULFAH, S.Psi.,MM.<br />
+            NIP. 19791113 200501 2 008
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="app.js"></script>
-    <script src="chat-ui.js"></script>
-    <script>
-      // ================================================
-      // ANIMATION SYSTEM
-      // ================================================
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="app.js"></script>
+  <script src="chat-ui.js"></script>
+  <script>
+    // ================================================
+    // ANIMATION SYSTEM
+    // ================================================
 
-      // ---- Custom Cursor ----
-      (function () {
-        const dot = document.getElementById("cursor-dot");
-        const ring = document.getElementById("cursor-ring");
-        if (!dot || !ring) return;
-        let mx = 0,
-          my = 0,
-          rx = 0,
-          ry = 0;
-        document.addEventListener("mousemove", (e) => {
-          mx = e.clientX;
-          my = e.clientY;
-          dot.style.left = mx + "px";
-          dot.style.top = my + "px";
-        });
-        document.addEventListener("mouseleave", () => {
-          dot.style.opacity = "0";
-          ring.style.opacity = "0";
-        });
-        document.addEventListener("mouseenter", () => {
-          dot.style.opacity = "";
-          ring.style.opacity = "";
-        });
-        (function follow() {
-          rx += (mx - rx) * 0.11;
-          ry += (my - ry) * 0.11;
-          ring.style.left = rx + "px";
-          ring.style.top = ry + "px";
-          requestAnimationFrame(follow);
-        })();
-        const HOVER_SEL =
-          "button,a,.kecamatan-card,.pegawai-item,.back-btn,.theme-toggle,input,label,[onclick]";
-        document.addEventListener("mouseover", (e) => {
-          if (e.target.closest(HOVER_SEL))
-            document.body.classList.add("cur-hover");
-        });
-        document.addEventListener("mouseout", (e) => {
-          if (e.target.closest(HOVER_SEL))
-            document.body.classList.remove("cur-hover");
-        });
-        document.addEventListener("mousedown", () =>
-          document.body.classList.add("cur-click"),
-        );
-        document.addEventListener("mouseup", () =>
-          document.body.classList.remove("cur-click"),
-        );
-      })();
-
-      // ---- Kecamatan Cards: Entrance + Draggable ----
-      function animateKecamatanEntrance() {
-        anime({
-          targets: ".kecamatan-card",
-          opacity: [0, 1],
-          translateY: [28, 0],
-          scale: [0.93, 1],
-          duration: 480,
-          delay: anime.stagger(55, { start: 60 }),
-          easing: "easeOutCubic",
-          complete: attachDraggable,
-        });
-      }
-
-      function attachDraggable() {
-        document.querySelectorAll(".kecamatan-card").forEach((card) => {
-          let tx = 0,
-            ty = 0,
-            sx = 0,
-            sy = 0,
-            moved = false;
-          const THRESH = 7;
-
-          function lift() {
-            card.style.zIndex = 50;
-            anime({
-              targets: card,
-              scale: 1.08,
-              duration: 160,
-              easing: "easeOutQuad",
-            });
-          }
-          function snapBack() {
-            anime({
-              targets: card,
-              translateX: 0,
-              translateY: 0,
-              rotate: 0,
-              scale: 1,
-              duration: 720,
-              easing: "spring(1, 78, 12, 0)",
-              complete() {
-                card.style.transform = "";
-                card.style.zIndex = "";
-                tx = 0;
-                ty = 0;
-              },
-            });
-          }
-          function move(cx, cy) {
-            const dx = cx - sx,
-              dy = cy - sy;
-            if (!moved && Math.hypot(dx, dy) > THRESH) {
-              moved = true;
-              lift();
-            }
-            if (moved) {
-              tx = dx;
-              ty = dy;
-              card.style.transform = `translate(${dx}px,${dy}px) scale(1.08) rotate(${dx * 0.012}deg)`;
-            }
-          }
-
-          card.addEventListener("mousedown", (e) => {
-            if (e.button !== 0) return;
-            moved = false;
-            sx = e.clientX - tx;
-            sy = e.clientY - ty;
-            anime.remove(card);
-            const onM = (e2) => move(e2.clientX, e2.clientY);
-            const onU = () => {
-              window.removeEventListener("mousemove", onM);
-              window.removeEventListener("mouseup", onU);
-              if (moved) {
-                snapBack();
-                card.addEventListener(
-                  "click",
-                  (e3) => e3.stopImmediatePropagation(),
-                  { capture: true, once: true },
-                );
-              }
-            };
-            window.addEventListener("mousemove", onM);
-            window.addEventListener("mouseup", onU);
-          });
-
-          card.addEventListener(
-            "touchstart",
-            (e) => {
-              moved = false;
-              const t = e.touches[0];
-              sx = t.clientX - tx;
-              sy = t.clientY - ty;
-              anime.remove(card);
-              const onT = (e2) => {
-                e2.preventDefault();
-                const t2 = e2.touches[0];
-                move(t2.clientX, t2.clientY);
-              };
-              const onU = () => {
-                window.removeEventListener("touchmove", onT);
-                window.removeEventListener("touchend", onU);
-                if (moved) snapBack();
-              };
-              window.addEventListener("touchmove", onT, { passive: false });
-              window.addEventListener("touchend", onU);
-            },
-            { passive: true },
-          );
-        });
-      }
-
-      // ---- Pegawai Items: Staggered Entrance ----
-      function animatePegawaiStagger() {
-        anime({
-          targets: ".pegawai-item",
-          opacity: [0, 1],
-          translateX: [-18, 0],
-          duration: 360,
-          delay: anime.stagger(45, { start: 40 }),
-          easing: "easeOutQuart",
-        });
-      }
-    </script>
-    <script>
-      const MOON = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
-      const SUN =
-        '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
-
-      function toggleDarkMode() {
-        document.body.classList.toggle("dark-mode");
-        const isDark = document.body.classList.contains("dark-mode");
-        localStorage.setItem("spd_dark_mode", isDark ? "1" : "0");
-        document.querySelector(".theme-toggle-label").textContent = isDark
-          ? "Light"
-          : "Dark";
-        document.getElementById("theme-icon").innerHTML = isDark ? SUN : MOON;
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        if (localStorage.getItem("spd_dark_mode") === "1") {
-          document.body.classList.add("dark-mode");
-          document.querySelector(".theme-toggle-label").textContent = "Light";
-          document.getElementById("theme-icon").innerHTML = SUN;
-        }
-        // Init chat system (defined in chat-ui.js)
-        if (typeof initChatSystem === "function") initChatSystem();
+    // ---- Custom Cursor ----
+    (function () {
+      const dot = document.getElementById("cursor-dot");
+      const ring = document.getElementById("cursor-ring");
+      if (!dot || !ring) return;
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.left = mx + "px";
+        dot.style.top = my + "px";
       });
-    </script>
-  </body>
+      document.addEventListener("mouseleave", () => {
+        dot.style.opacity = "0";
+        ring.style.opacity = "0";
+      });
+      document.addEventListener("mouseenter", () => {
+        dot.style.opacity = "";
+        ring.style.opacity = "";
+      });
+      (function follow() {
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(follow);
+      })();
+      const HOVER_SEL =
+        "button,a,.kecamatan-card,.pegawai-item,.back-btn,.theme-toggle,input,label,[onclick]";
+      document.addEventListener("mouseover", (e) => {
+        if (e.target.closest(HOVER_SEL))
+          document.body.classList.add("cur-hover");
+      });
+      document.addEventListener("mouseout", (e) => {
+        if (e.target.closest(HOVER_SEL))
+          document.body.classList.remove("cur-hover");
+      });
+      document.addEventListener("mousedown", () =>
+        document.body.classList.add("cur-click"),
+      );
+      document.addEventListener("mouseup", () =>
+        document.body.classList.remove("cur-click"),
+      );
+    })();
+
+    // ---- Kecamatan Cards: Entrance + Draggable ----
+    function animateKecamatanEntrance() {
+      anime({
+        targets: ".kecamatan-card",
+        opacity: [0, 1],
+        translateY: [28, 0],
+        scale: [0.93, 1],
+        duration: 480,
+        delay: anime.stagger(55, { start: 60 }),
+        easing: "easeOutCubic",
+        complete: attachDraggable,
+      });
+    }
+
+    function attachDraggable() {
+      document.querySelectorAll(".kecamatan-card").forEach((card) => {
+        let tx = 0,
+          ty = 0,
+          sx = 0,
+          sy = 0,
+          moved = false;
+        const THRESH = 7;
+
+        function lift() {
+          card.style.zIndex = 50;
+          anime({
+            targets: card,
+            scale: 1.08,
+            duration: 160,
+            easing: "easeOutQuad",
+          });
+        }
+        function snapBack() {
+          anime({
+            targets: card,
+            translateX: 0,
+            translateY: 0,
+            rotate: 0,
+            scale: 1,
+            duration: 720,
+            easing: "spring(1, 78, 12, 0)",
+            complete() {
+              card.style.transform = "";
+              card.style.zIndex = "";
+              tx = 0;
+              ty = 0;
+            },
+          });
+        }
+        function move(cx, cy) {
+          const dx = cx - sx,
+            dy = cy - sy;
+          if (!moved && Math.hypot(dx, dy) > THRESH) {
+            moved = true;
+            lift();
+          }
+          if (moved) {
+            tx = dx;
+            ty = dy;
+            card.style.transform = `translate(${dx}px,${dy}px) scale(1.08) rotate(${dx * 0.012}deg)`;
+          }
+        }
+
+        card.addEventListener("mousedown", (e) => {
+          if (e.button !== 0) return;
+          moved = false;
+          sx = e.clientX - tx;
+          sy = e.clientY - ty;
+          anime.remove(card);
+          const onM = (e2) => move(e2.clientX, e2.clientY);
+          const onU = () => {
+            window.removeEventListener("mousemove", onM);
+            window.removeEventListener("mouseup", onU);
+            if (moved) {
+              snapBack();
+              card.addEventListener(
+                "click",
+                (e3) => e3.stopImmediatePropagation(),
+                { capture: true, once: true },
+              );
+            }
+          };
+          window.addEventListener("mousemove", onM);
+          window.addEventListener("mouseup", onU);
+        });
+
+        card.addEventListener(
+          "touchstart",
+          (e) => {
+            moved = false;
+            const t = e.touches[0];
+            sx = t.clientX - tx;
+            sy = t.clientY - ty;
+            anime.remove(card);
+            const onT = (e2) => {
+              e2.preventDefault();
+              const t2 = e2.touches[0];
+              move(t2.clientX, t2.clientY);
+            };
+            const onU = () => {
+              window.removeEventListener("touchmove", onT);
+              window.removeEventListener("touchend", onU);
+              if (moved) snapBack();
+            };
+            window.addEventListener("touchmove", onT, { passive: false });
+            window.addEventListener("touchend", onU);
+          },
+          { passive: true },
+        );
+      });
+    }
+
+    // ---- Pegawai Items: Staggered Entrance ----
+    function animatePegawaiStagger() {
+      anime({
+        targets: ".pegawai-item",
+        opacity: [0, 1],
+        translateX: [-18, 0],
+        duration: 360,
+        delay: anime.stagger(45, { start: 40 }),
+        easing: "easeOutQuart",
+      });
+    }
+  </script>
+  <script>
+    const MOON = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
+    const SUN =
+      '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("spd_dark_mode", isDark ? "1" : "0");
+      document.querySelector(".theme-toggle-label").textContent = isDark
+        ? "Light"
+        : "Dark";
+      document.getElementById("theme-icon").innerHTML = isDark ? SUN : MOON;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (localStorage.getItem("spd_dark_mode") === "1") {
+        document.body.classList.add("dark-mode");
+        document.querySelector(".theme-toggle-label").textContent = "Light";
+        document.getElementById("theme-icon").innerHTML = SUN;
+      }
+      // Init chat system (defined in chat-ui.js)
+      if (typeof initChatSystem === "function") initChatSystem();
+    });
+  </script>
+</body>
+
 </html>
