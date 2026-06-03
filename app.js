@@ -19,6 +19,9 @@ const kecamatanList = [
 // KONFIGURASI NOMOR SPPD PER KECAMATAN (APRIL 2026)
 // ===========================
 let noSpdConfig = {};
+const DEFAULT_NOMOR_AWAL_SPPD = 4;
+const ADMIN_PIN = 'erniwati';
+let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
 
 // Bulan & tahun untuk format nomor SPPD
 const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
@@ -73,18 +76,35 @@ async function loadPegawaiData() {
         processData(kaderIMPData, "Kader IMP");
         processData(subIMPData, "Sub IMP");
         
-        // Buat config dinamis untuk no_spd secara berurutan dan update jumlah
-        let currentStart = 1;
-        kecamatanList.forEach(kec => {
-            const count = pegawaiData[kec.id] ? pegawaiData[kec.id].length : 0;
-            kec.jumlahPegawai = count; // update global list
-            noSpdConfig[kec.id] = { start: currentStart, end: currentStart + count - 1 };
-            currentStart += count;
-        });
+        rebuildNoSpdConfig();
 
     } catch (e) {
         console.error("Gagal memuat data pegawai:", e);
     }
+}
+
+async function loadNomorAwalSppd() {
+    try {
+        const response = await fetch('settings.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Gagal memuat settings.json');
+
+        const settings = await response.json();
+        const value = parseInt(settings.nomorAwalSppd, 10);
+        nomorAwalSppd = Number.isInteger(value) && value > 0 ? value : DEFAULT_NOMOR_AWAL_SPPD;
+    } catch (e) {
+        console.warn('Pakai default nomor awal SPPD:', e);
+        nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
+    }
+}
+
+function rebuildNoSpdConfig() {
+    let currentStart = nomorAwalSppd;
+    kecamatanList.forEach(kec => {
+        const count = pegawaiData[kec.id] ? pegawaiData[kec.id].length : 0;
+        kec.jumlahPegawai = count;
+        noSpdConfig[kec.id] = { start: currentStart, end: currentStart + count - 1 };
+        currentStart += count;
+    });
 }
 
 // ===========================
@@ -686,6 +706,59 @@ function showToast(msg, type = '', duration = 3000) {
 }
 
 // ===========================
+// ADMIN SETTINGS - NOMOR AWAL SPPD
+// ===========================
+function openAdminSettings() {
+    const modal = document.getElementById('admin-modal');
+    const pinSection = document.getElementById('admin-pin-section');
+    const form = document.getElementById('admin-settings-form');
+    const pinInput = document.getElementById('admin-pin-input');
+    const pinError = document.getElementById('admin-pin-error');
+
+    if (!modal) return;
+    modal.style.display = 'flex';
+    if (pinSection) pinSection.style.display = 'block';
+    if (form) form.style.display = 'none';
+    if (pinInput) pinInput.value = '';
+    if (pinError) pinError.style.display = 'none';
+    setTimeout(() => { if (pinInput) pinInput.focus(); }, 80);
+}
+
+function closeAdminSettings() {
+    const modal = document.getElementById('admin-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function handleAdminOverlayClick(event) {
+    if (event.target && event.target.id === 'admin-modal') closeAdminSettings();
+}
+
+function handleAdminPinKeydown(event) {
+    if (event.key === 'Enter') verifyAdminPin();
+}
+
+function verifyAdminPin() {
+    const pinInput = document.getElementById('admin-pin-input');
+    const pinError = document.getElementById('admin-pin-error');
+    const pinSection = document.getElementById('admin-pin-section');
+    const form = document.getElementById('admin-settings-form');
+    const nomorText = document.getElementById('admin-current-nomor-awal');
+
+    if (!pinInput) return;
+    if (pinInput.value.trim() !== ADMIN_PIN) {
+        if (pinError) pinError.style.display = 'block';
+        pinInput.focus();
+        pinInput.select();
+        return;
+    }
+
+    if (pinError) pinError.style.display = 'none';
+    if (pinSection) pinSection.style.display = 'none';
+    if (form) form.style.display = 'block';
+    if (nomorText) nomorText.textContent = nomorAwalSppd;
+}
+
+// ===========================
 // KEYBOARD SHORTCUTS
 // ===========================
 document.addEventListener('keydown', function(e) {
@@ -865,6 +938,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initCetakKie();
     } else {
         // Halaman index.html — tampilkan skeleton dulu
+        await loadNomorAwalSppd();
         showSkeleton(11);
         await loadPegawaiData();
         generateNoSpdForAllPegawai();

@@ -78,6 +78,13 @@
           </svg>
           <span class="theme-toggle-label">Dark</span>
         </button>
+        <button class="navbar-admin-btn" id="admin-settings-btn" onclick="openAdminSettings()" title="Pengaturan Admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.72l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
         <!-- Hamburger (Mobile) -->
         <button class="navbar-hamburger" id="navbar-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -129,6 +136,39 @@
       <button class="modal-btn" id="modal-btn-ok" onclick="saveNickname()">
         Mulai Chat
       </button>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN SETTINGS ===== -->
+  <div class="admin-modal-overlay" id="admin-modal" onclick="handleAdminOverlayClick(event)" style="display: none">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <div>
+          <h2 class="admin-modal-title">Pengaturan Admin</h2>
+          <p class="admin-modal-desc">Atur nomor awal SPPD untuk urutan cetak bulan ini.</p>
+        </div>
+        <button class="admin-modal-close" onclick="closeAdminSettings()" title="Tutup">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="admin-pin-section" id="admin-pin-section">
+        <label class="admin-label" for="admin-pin-input">PIN Admin</label>
+        <input class="admin-input" type="password" id="admin-pin-input" placeholder="Masukkan PIN" autocomplete="off"
+          onkeydown="handleAdminPinKeydown(event)" />
+        <p class="admin-error" id="admin-pin-error" style="display: none">PIN salah.</p>
+        <button class="admin-primary-btn" onclick="verifyAdminPin()">Masuk</button>
+      </div>
+      <div class="admin-settings-form" id="admin-settings-form" style="display: none">
+        <div class="admin-current-number">
+          Nomor awal aktif: <strong id="admin-current-nomor-awal">4</strong>
+        </div>
+        <p class="admin-help">Sumber global: <strong>settings.json</strong>.</p>
+        <p class="admin-help">Untuk mengubah nomor semua user, edit file <strong>settings.json</strong>, lalu refresh halaman.</p>
+      </div>
     </div>
   </div>
 
