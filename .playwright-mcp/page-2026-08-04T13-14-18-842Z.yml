@@ -1,0 +1,83 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e9]:
+        - generic [ref=e10]: Sistem SPPD
+        - generic [ref=e11]: P3AP2KB Tanah Laut
+      - generic [ref=e12]:
+        - link "Beranda" [ref=e13] [cursor=pointer]:
+          - /url: "#"
+        - link "Chat" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e20]:
+        - generic "Status koneksi" [ref=e21]: Offline
+        - button "Dark" [ref=e24] [cursor=pointer]
+        - button "Pengaturan Admin" [ref=e28] [cursor=pointer]
+  - generic [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e38]:
+        - generic [ref=e39]: Ruang Chat Umum
+        - generic [ref=e40]: Menghubungkan...
+      - generic [ref=e41]:
+        - button "Ganti nama" [ref=e42] [cursor=pointer]
+        - button "Tutup chat" [ref=e46] [cursor=pointer]
+    - generic [ref=e50]: Belum ada nama — klik ikon pengguna untuk mengatur.
+    - generic [ref=e51]: Memuat pesan...
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - textbox "Ketik pesan..." [ref=e57]
+        - button "Kirim (Enter)" [ref=e58] [cursor=pointer]
+      - generic [ref=e62]: Enter kirim · Shift+Enter baris baru · Maks 500 karakter
+  - generic [ref=e63]:
+    - region [ref=e64]:
+      - paragraph [ref=e65]: Dinas P3AP2KB Kabupaten Tanah Laut
+      - heading "Cetak SPPD lebih cepat, rapi, dan siap digunakan." [level=1] [ref=e66]
+      - paragraph [ref=e67]: Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan dinas tanpa mengulang format manual.
+      - generic [ref=e68]:
+        - link "Mulai pilih kecamatan" [ref=e69] [cursor=pointer]:
+          - /url: "#kecamatan-page"
+        - button "Buka chat" [ref=e70] [cursor=pointer]
+      - generic "Ringkasan sistem" [ref=e71]:
+        - generic [ref=e72]: 11 kecamatan
+        - generic [ref=e73]: Data pegawai lokal
+        - generic [ref=e74]: Format SPD & KIE
+      - text: SPPD
+    - generic [ref=e75]:
+      - paragraph [ref=e76]: Daftar kecamatan
+      - heading "Pilih wilayah untuk membuat dokumen." [level=2] [ref=e77]
+    - link:
+      - /url: index_kie.html
+    - generic [ref=e79]:
+      - generic [ref=e80] [cursor=pointer]:
+        - heading "Bajuin" [level=3] [ref=e81]
+        - paragraph [ref=e82]: 37 pegawai
+      - generic [ref=e83] [cursor=pointer]:
+        - heading "Bati-Bati" [level=3] [ref=e84]
+        - paragraph [ref=e85]: 50 pegawai
+      - generic [ref=e86] [cursor=pointer]:
+        - heading "Batu Ampar" [level=3] [ref=e87]
+        - paragraph [ref=e88]: 61 pegawai
+      - generic [ref=e89] [cursor=pointer]:
+        - heading "Bumi Makmur" [level=3] [ref=e90]
+        - paragraph [ref=e91]: 44 pegawai
+      - generic [ref=e92] [cursor=pointer]:
+        - heading "Jorong" [level=3] [ref=e93]
+        - paragraph [ref=e94]: 52 pegawai
+      - generic [ref=e95] [cursor=pointer]:
+        - heading "Kintap" [level=3] [ref=e96]
+        - paragraph [ref=e97]: 59 pegawai
+      - generic [ref=e98] [cursor=pointer]:
+        - heading "Kurau" [level=3] [ref=e99]
+        - paragraph [ref=e100]: 28 pegawai
+      - generic [ref=e101] [cursor=pointer]:
+        - heading "Panyipatan" [level=3] [ref=e102]
+        - paragraph [ref=e103]: 51 pegawai
+      - generic [ref=e104] [cursor=pointer]:
+        - heading "Pelaihari" [level=3] [ref=e105]
+        - paragraph [ref=e106]: 80 pegawai
+      - generic [ref=e107] [cursor=pointer]:
+        - heading "Takisung" [level=3] [ref=e108]
+        - paragraph [ref=e109]: 63 pegawai
+      - generic [ref=e110] [cursor=pointer]:
+        - heading "Tambang Ulang" [level=3] [ref=e111]
+        - paragraph [ref=e112]: 31 pegawai

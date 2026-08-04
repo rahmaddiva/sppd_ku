@@ -166,8 +166,12 @@
         <div class="admin-current-number">
           Nomor awal aktif: <strong id="admin-current-nomor-awal">4</strong>
         </div>
+        <div class="admin-current-number">
+          Kepala aktif: <strong id="admin-current-kepala">-</strong>
+        </div>
         <p class="admin-help">Sumber global: <strong>settings.json</strong>.</p>
         <p class="admin-help">Untuk mengubah nomor semua user, edit file <strong>settings.json</strong>, lalu refresh halaman.</p>
+        <p class="admin-help">Untuk mengganti "Kepala" di kolom VI halaman 2 SPD, ubah <strong>kepalaAktif</strong> di <strong>settings.json</strong> (cocokkan dengan field <strong>jabatan</strong> pada daftar <strong>pejabat</strong>), lalu refresh halaman.</p>
       </div>
     </div>
   </div>
@@ -903,7 +907,7 @@
               <div style="display: flex; margin-bottom: 5px">
                 <div style="width: 120px">Kepala</div>
                 <div style="width: 15px">:</div>
-                <div></div>
+                <div><span id="v-kepala-jabatan"></span></div>
               </div>
               <div style="
                     position: absolute;
@@ -912,8 +916,8 @@
                     line-height: 1.2;
                     white-space: nowrap;
                   ">
-                ( ................................................. )<br />
-                NIP
+                <span id="v-kepala-nama">.................................................</span><br />
+                NIP. <span id="v-kepala-nip"></span>
               </div>
             </td>
             <td style="

@@ -23,6 +23,17 @@ const DEFAULT_NOMOR_AWAL_SPPD = 4;
 const ADMIN_PIN = 'erniwati';
 let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
 
+// Pejabat (Kepala) untuk kolom VI halaman 2 SPD — diisi dari settings.json
+const DEFAULT_PEJABAT = {
+    nama: 'Maria Ulfah, S.Psi, M.M',
+    nip: '197911132005012008',
+    pangkat_gol: 'Pembina Tk. I / IV/b',
+    jabatan: 'Kepala Dinas',
+    unit: 'DP3AP2KB'
+};
+let pejabatList = [];
+let kepalaAktif = '';
+
 // Bulan & tahun untuk format nomor SPPD
 const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 const currentDate = new Date();
@@ -83,7 +94,7 @@ async function loadPegawaiData() {
     }
 }
 
-async function loadNomorAwalSppd() {
+async function loadSettings() {
     try {
         const response = await fetch('settings.json', { cache: 'no-store' });
         if (!response.ok) throw new Error('Gagal memuat settings.json');
@@ -91,10 +102,23 @@ async function loadNomorAwalSppd() {
         const settings = await response.json();
         const value = parseInt(settings.nomorAwalSppd, 10);
         nomorAwalSppd = Number.isInteger(value) && value > 0 ? value : DEFAULT_NOMOR_AWAL_SPPD;
+
+        if (Array.isArray(settings.pejabat) && settings.pejabat.length > 0) {
+            pejabatList = settings.pejabat;
+        }
+        kepalaAktif = settings.kepalaAktif || (pejabatList[0] ? pejabatList[0].jabatan : '');
     } catch (e) {
-        console.warn('Pakai default nomor awal SPPD:', e);
+        console.warn('Pakai default settings:', e);
         nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
     }
+}
+
+// Mengambil pejabat yang aktif sebagai "Kepala" (kolom VI halaman 2 SPD)
+function getKepalaAktif() {
+    if (pejabatList.length > 0) {
+        return pejabatList.find(p => p.jabatan === kepalaAktif) || pejabatList[0];
+    }
+    return DEFAULT_PEJABAT;
 }
 
 function rebuildNoSpdConfig() {
@@ -756,6 +780,12 @@ function verifyAdminPin() {
     if (pinSection) pinSection.style.display = 'none';
     if (form) form.style.display = 'block';
     if (nomorText) nomorText.textContent = nomorAwalSppd;
+
+    const kepalaInfo = document.getElementById('admin-current-kepala');
+    if (kepalaInfo) {
+        const kepala = getKepalaAktif();
+        kepalaInfo.textContent = `${kepala.jabatan} (${kepala.nama})`;
+    }
 }
 
 // ===========================
@@ -905,6 +935,17 @@ function isiDataCetak(pegawai, prefix) {
     if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
     if (elTglCetak2) elTglCetak2.textContent = tanggalCetak;
 
+    // Isi kolom VI halaman 2 SPD: pejabat aktif sebagai "Kepala" (hanya prefix 'v')
+    if (prefix === 'v') {
+        const kepala = getKepalaAktif();
+        const elKepalaJabatan = document.getElementById('v-kepala-jabatan');
+        const elKepalaNama = document.getElementById('v-kepala-nama');
+        const elKepalaNip = document.getElementById('v-kepala-nip');
+        if (elKepalaJabatan) elKepalaJabatan.textContent = kepala.jabatan || '-';
+        if (elKepalaNama) elKepalaNama.textContent = kepala.nama || '.................................................';
+        if (elKepalaNip) elKepalaNip.textContent = kepala.nip || '';
+    }
+
     return { lamaHari, tglBerangkat, tglKembali };
 }
 
@@ -938,7 +979,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         initCetakKie();
     } else {
         // Halaman index.html — tampilkan skeleton dulu
-        await loadNomorAwalSppd();
+        await loadSettings();
         showSkeleton(11);
         await loadPegawaiData();
         generateNoSpdForAllPegawai();

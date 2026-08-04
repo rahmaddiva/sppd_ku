@@ -1,3 +1,20 @@
 {
-  "nomorAwalSppd": 15
+  "nomorAwalSppd": 15,
+  "pejabat": [
+    {
+      "nama": "Maria Ulfah, S.Psi, M.M",
+      "nip": "197911132005012008",
+      "pangkat_gol": "Pembina Tk. I / IV/b",
+      "jabatan": "Kepala Dinas",
+      "unit": "DP3AP2KB"
+    },
+    {
+      "nama": "Dila Arisanti, SE, M.A.P",
+      "nip": "198203222008012013",
+      "pangkat_gol": "Pembina Tk. I / IV/b",
+      "jabatan": "Sekretaris Dinas",
+      "unit": "Sekretariat"
+    }
+  ],
+  "kepalaAktif": "Sekretaris Dinas",
 }
