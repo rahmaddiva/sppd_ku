@@ -23,6 +23,15 @@ const DEFAULT_NOMOR_AWAL_SPPD = 4;
 const ADMIN_PIN = 'erniwati';
 let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
 
+// Penomoran per tanggal batch
+// Sumber utama: Firebase Realtime Database (shared untuk semua user).
+// Cache localStorage dipakai sebagai tampilan instan & cadangan offline.
+const TANGGAL_BATCH_KEY = 'sppd_tanggal_batch';
+const TANGGAL_BATCH_FB = 'sppd/tanggalBatch';
+let tanggalBatch = []; // [{ tanggal: 'YYYY-MM-DD', nomorAwal: n }]
+let selectedTanggalCetak = ''; // tanggal yang dipilih user saat mencetak
+let pegawaiLoaded = false; // menandai pegawaiData sudah dimuat
+
 // Pejabat (Kepala) untuk kolom VI halaman 2 SPD — diisi dari settings.json
 const DEFAULT_PEJABAT = {
     nama: 'Maria Ulfah, S.Psi, M.M',
@@ -129,6 +138,156 @@ function rebuildNoSpdConfig() {
         noSpdConfig[kec.id] = { start: currentStart, end: currentStart + count - 1 };
         currentStart += count;
     });
+}
+
+// ===========================
+// PENOMORAN PER TANGGAL BATCH (Tanpa backend — localStorage)
+// ===========================
+
+// Total pegawai di SEMUA kecamatan (untuk menghitung rentang nomor)
+function hitungTotalPegawai() {
+    let total = 0;
+    kecamatanList.forEach(kec => {
+        total += (pegawaiData[kec.id] || []).length;
+    });
+    return total;
+}
+
+// Format nomor SPPD: NN/DP3AP2KB/BULAN_ROMAWI/TAHUN
+function formatNoSpd(num) {
+    return `${String(num).padStart(2, '0')}/DP3AP2KB/${BULAN_SPPD}/${TAHUN_SPPD}`;
+}
+
+// Normalisasi data tanggal batch dari Firebase/localStorage
+function normalizeTanggalBatch(val) {
+    if (!Array.isArray(val)) return [];
+    return val
+        .filter(t => t && t.tanggal && Number.isFinite(parseInt(t.nomorAwal, 10)))
+        .map(t => ({ tanggal: String(t.tanggal), nomorAwal: parseInt(t.nomorAwal, 10) }));
+}
+
+// Muat daftar tanggal batch. Sumber utama: Firebase RTDB (shared real-time).
+// Cache localStorage dipakai untuk tampilan instan & cadangan offline.
+function loadTanggalBatch() {
+    // 1) Tampilkan cache lokal dulu (instan & saat offline)
+    try {
+        const raw = localStorage.getItem(TANGGAL_BATCH_KEY);
+        if (raw) {
+            const norm = normalizeTanggalBatch(JSON.parse(raw));
+            if (norm.length > 0) {
+                tanggalBatch = norm;
+                if (!selectedTanggalCetak || !norm.some(t => t.tanggal === selectedTanggalCetak)) {
+                    selectedTanggalCetak = norm[norm.length - 1].tanggal;
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('Gagal baca cache tanggal batch:', e);
+    }
+
+    // 2) Sumber utama: langganan real-time ke Firebase
+    try {
+        if (typeof firebase === 'undefined' || !firebase.database) {
+            throw new Error('Firebase tidak tersedia');
+        }
+        firebase.database().ref(TANGGAL_BATCH_FB).on('value', snap => {
+            const norm = normalizeTanggalBatch(snap.val());
+            if (norm.length > 0) {
+                tanggalBatch = norm;
+            } else if (tanggalBatch.length === 0) {
+                // Firebase kosong & belum ada cache → buat default hari ini
+                const todayStr = toInputDateStr(new Date());
+                tanggalBatch = [{ tanggal: todayStr, nomorAwal: nomorAwalSppd }];
+                saveTanggalBatch();
+            }
+            if (!selectedTanggalCetak || !tanggalBatch.some(t => t.tanggal === selectedTanggalCetak)) {
+                selectedTanggalCetak = tanggalBatch.length ? tanggalBatch[tanggalBatch.length - 1].tanggal : '';
+            }
+            renderTanggalSelector();
+            if (pegawaiLoaded) applyTanggalChange();
+        }, err => {
+            console.warn('Gagal baca Firebase tanggal batch:', err);
+        });
+    } catch (e) {
+        console.warn('Pakai cache lokal (Firebase tidak tersedia):', e);
+    }
+}
+
+// Simpan daftar tanggal batch ke Firebase (shared) + cache localStorage.
+function saveTanggalBatch() {
+    try {
+        localStorage.setItem(TANGGAL_BATCH_KEY, JSON.stringify(tanggalBatch));
+    } catch (e) {
+        console.warn('Gagal cache tanggal batch:', e);
+    }
+    try {
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            firebase.database().ref(TANGGAL_BATCH_FB).set(tanggalBatch)
+                .catch(err => console.warn('Gagal simpan ke Firebase:', err));
+        }
+    } catch (e) {
+        console.warn('Firebase tidak tersedia:', e);
+    }
+}
+
+// Hitung & tetapkan no_spd berurutan untuk SEMUA pegawai (semua kecamatan),
+// dimulai dari nomorAwal tanggal terpilih. Mengembalikan nomor terakhir.
+function computeNoSpdForTanggal(tanggal) {
+    const entry = tanggalBatch.find(t => t.tanggal === tanggal);
+    const start = entry ? entry.nomorAwal : nomorAwalSppd;
+    let currentNo = start;
+    kecamatanList.forEach(kec => {
+        const list = pegawaiData[kec.id] || [];
+        list.forEach(p => {
+            p.no_spd = formatNoSpd(currentNo);
+            currentNo++;
+        });
+    });
+    return currentNo - 1;
+}
+
+// Format 'YYYY-MM-DD' → tanggal Indonesia (ex: "Senin, 4 Agustus 2026")
+function formatTanggalTampil(yyyymmdd) {
+    if (!yyyymmdd) return '';
+    const parts = String(yyyymmdd).split('-');
+    if (parts.length !== 3) return yyyymmdd;
+    const d = new Date(parts[0], parts[1] - 1, parts[2]);
+    return d.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// Isi dropdown tanggal di navbar dari tanggalBatch
+function renderTanggalSelector() {
+    const select = document.getElementById('tanggal-select');
+    if (!select) return;
+    select.innerHTML = '';
+    tanggalBatch.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.tanggal;
+        opt.textContent = `${formatTanggalTampil(t.tanggal)} · mulai ${t.nomorAwal}`;
+        select.appendChild(opt);
+    });
+    if (selectedTanggalCetak && !tanggalBatch.some(t => t.tanggal === selectedTanggalCetak)) {
+        selectedTanggalCetak = tanggalBatch.length ? tanggalBatch[tanggalBatch.length - 1].tanggal : '';
+    }
+    if (selectedTanggalCetak) select.value = selectedTanggalCetak;
+}
+
+// Terapkan penomoran untuk tanggal terpilih (dipakai saat ganti tanggal
+// maupun saat data Firebase real-time diterima)
+function applyTanggalChange() {
+    computeNoSpdForTanggal(selectedTanggalCetak);
+    const pegPage = document.getElementById('pegawai-page');
+    if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
+        renderPegawaiList(selectedKecamatan);
+    }
+}
+
+// Event: user ganti tanggal di dropdown
+function onTanggalChange() {
+    const select = document.getElementById('tanggal-select');
+    if (!select) return;
+    selectedTanggalCetak = select.value;
+    applyTanggalChange();
 }
 
 // ===========================
@@ -439,6 +598,18 @@ function showCetakPage(pegawai) {
     // Simpan pegawai yang sedang ditampilkan
     currentPegawai = pegawai;
 
+    // Pastikan nomor SPPD sesuai tanggal terpilih
+    if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
+
+    // Keluar dari mode batch (tampilkan preview-panel tunggal, sembunyikan batch)
+    const batchContainer = document.getElementById('cetak-batch-container');
+    const previewPanel = document.querySelector('#cetak-page .preview-panel');
+    if (batchContainer) {
+        batchContainer.style.display = 'none';
+        batchContainer.innerHTML = '';
+    }
+    if (previewPanel) previewPanel.style.display = '';
+
     // Isi semua data menggunakan fungsi bersama (prefix 'v')
     const { lamaHari, tglBerangkat, tglKembali } = isiDataCetak(pegawai, 'v');
 
@@ -468,6 +639,92 @@ function showCetakPage(pegawai) {
     const jabatanShort = (pegawai.jabatan || '').includes('Kader IMP') ? 'Kader IMP' :
                          (pegawai.jabatan || '').includes('Sub IMP')   ? 'Sub IMP'   : 'Pegawai';
     showToast(`Preview SPPD: ${pegawai.nama} (${jabatanShort})`, 'success', 2500);
+}
+
+// ===========================
+// PRINT BATCH: CETAK SEMUA PEGAWAI DALAM DAFTAR
+// Merender halaman 1 & 2 untuk tiap pegawai dalam `list`, dengan nomor
+// berjalan dari nomorAwal tanggal terpilih. Dipakai oleh printBatch()
+// (per kecamatan) dan printBatchSemuaKecamatan() (seluruh kecamatan).
+// ===========================
+function renderBatchPages(list) {
+    if (!selectedTanggalCetak && tanggalBatch.length > 0) {
+        selectedTanggalCetak = tanggalBatch[tanggalBatch.length - 1].tanggal;
+    }
+
+    if (!list || list.length === 0) {
+        showToast('Tidak ada data pegawai', 'error', 2500);
+        return;
+    }
+
+    // Pastikan penomoran sesuai tanggal terpilih
+    computeNoSpdForTanggal(selectedTanggalCetak);
+
+    const batchContainer = document.getElementById('cetak-batch-container');
+    const previewPanel = document.querySelector('#cetak-page .preview-panel');
+    if (!batchContainer || !previewPanel) return;
+
+    // Gunakan dua .page asli dari preview sebagai template (page1 & page2)
+    const pages = previewPanel.querySelectorAll('.page');
+    if (pages.length < 2) {
+        showToast('Template halaman cetak tidak ditemukan', 'error', 2500);
+        return;
+    }
+    const tplPage1 = pages[0];
+    const tplPage2 = pages[1];
+
+    // Sembunyikan preview tunggal, siapkan container batch
+    previewPanel.style.display = 'none';
+    batchContainer.innerHTML = '';
+    batchContainer.style.display = '';
+
+    // Cloning tiap pejabat: wrapper .batch-set menampung halaman 1 & 2
+    list.forEach(pegawai => {
+        const wrap = document.createElement('div');
+        wrap.className = 'batch-set';
+        wrap.appendChild(tplPage1.cloneNode(true));
+        wrap.appendChild(tplPage2.cloneNode(true));
+        isiDataCetak(pegawai, 'v', wrap);
+        batchContainer.appendChild(wrap);
+    });
+
+    // Tampilkan halaman cetak
+    document.getElementById('cetak-page').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('is-printing-sppd');
+
+    return list.length;
+}
+
+// ===========================
+// CETAK SEMUA PEGAWAI PER KECAMATAN
+// ===========================
+function printBatch() {
+    const list = (selectedKecamatan && pegawaiData[selectedKecamatan]) || [];
+    if (list.length === 0) {
+        showToast('Tidak ada pegawai di kecamatan ini', 'error', 2500);
+        return;
+    }
+    const count = renderBatchPages(list);
+    const kecNama = (kecamatanList.find(k => k.id === selectedKecamatan) || {}).nama || selectedKecamatan;
+    showToast(`Print batch: ${count} pegawai — ${kecNama}`, 'success', 3000);
+}
+
+// ===========================
+// CETAK SEMUA PEGAWAI (SELURUH KECAMATAN) PER TANGGAL
+// ===========================
+function printBatchSemuaKecamatan() {
+    const allPegawai = [];
+    kecamatanList.forEach(kec => {
+        (pegawaiData[kec.id] || []).forEach(p => allPegawai.push(p));
+    });
+    if (allPegawai.length === 0) {
+        showToast('Tidak ada data pegawai', 'error', 2500);
+        return;
+    }
+    const count = renderBatchPages(allPegawai);
+    const tglLabel = formatTanggalTampil(selectedTanggalCetak);
+    showToast(`Print batch: ${count} pegawai (semua kecamatan) — ${tglLabel}`, 'success', 3000);
 }
 
 // ===========================
@@ -694,6 +951,15 @@ function closeCetak() {
     document.getElementById('cetak-page').style.display = 'none';
     document.body.style.overflow = 'auto';
     document.body.classList.remove('is-printing-sppd'); // Hapus penanda print
+
+    // Bersihkan & tutup container batch, tampilkan preview-panel tunggal
+    const batchContainer = document.getElementById('cetak-batch-container');
+    const previewPanel = document.querySelector('#cetak-page .preview-panel');
+    if (batchContainer) {
+        batchContainer.style.display = 'none';
+        batchContainer.innerHTML = '';
+    }
+    if (previewPanel) previewPanel.style.display = '';
 }
 
 // ===========================
@@ -786,6 +1052,79 @@ function verifyAdminPin() {
         const kepala = getKepalaAktif();
         kepalaInfo.textContent = `${kepala.jabatan} (${kepala.nama})`;
     }
+
+    renderAdminTanggalList();
+}
+
+// ===========================
+// ADMIN: KELOLA PENOMORAN PER TANGGAL
+// ===========================
+function renderAdminTanggalList() {
+    const container = document.getElementById('admin-tanggal-list');
+    if (!container) return;
+    const total = hitungTotalPegawai();
+    container.innerHTML = '';
+
+    if (tanggalBatch.length === 0) {
+        container.innerHTML = '<p class="admin-help">Belum ada tanggal terdaftar. Tambahkan di bawah.</p>';
+        return;
+    }
+
+    tanggalBatch.forEach(t => {
+        const end = t.nomorAwal + total - 1;
+        const row = document.createElement('div');
+        row.className = 'admin-tanggal-row';
+        row.innerHTML = `
+            <div class="admin-tanggal-info">
+                <strong>${escapeHtml(formatTanggalTampil(t.tanggal))}</strong>
+                <span class="admin-tanggal-range">Mulai ${t.nomorAwal} → ${end} (${total} pegawai)</span>
+            </div>
+            <button class="admin-delete-btn" onclick="deleteTanggalBatch('${t.tanggal}')" title="Hapus tanggal">Hapus</button>
+        `;
+        container.appendChild(row);
+    });
+}
+
+function addTanggalBatch() {
+    const tanggalInput = document.getElementById('admin-tanggal-input');
+    const nomorInput = document.getElementById('admin-nomor-awal-input');
+    if (!tanggalInput || !nomorInput) return;
+
+    const tanggal = tanggalInput.value;
+    const nomorAwal = parseInt(nomorInput.value, 10);
+
+    if (!tanggal) { showToast('Pilih tanggal terlebih dahulu', 'error', 2500); return; }
+    if (!Number.isInteger(nomorAwal) || nomorAwal < 1) { showToast('Isi nomor awal yang valid', 'error', 2500); return; }
+    if (tanggalBatch.some(t => t.tanggal === tanggal)) { showToast('Tanggal sudah terdaftar', 'error', 2500); return; }
+
+    tanggalBatch.push({ tanggal, nomorAwal });
+    tanggalBatch.sort((a, b) => a.tanggal.localeCompare(b.tanggal));
+    saveTanggalBatch();
+    renderTanggalSelector();
+    renderAdminTanggalList();
+    computeNoSpdForTanggal(selectedTanggalCetak);
+    tanggalInput.value = '';
+    nomorInput.value = '';
+    showToast('Tanggal batch ditambahkan', 'success', 2500);
+}
+
+function deleteTanggalBatch(tanggal) {
+    tanggalBatch = tanggalBatch.filter(t => t.tanggal !== tanggal);
+    saveTanggalBatch();
+    renderTanggalSelector();
+    renderAdminTanggalList();
+
+    if (selectedTanggalCetak === tanggal) {
+        selectedTanggalCetak = tanggalBatch.length ? tanggalBatch[tanggalBatch.length - 1].tanggal : '';
+        const select = document.getElementById('tanggal-select');
+        if (select) select.value = selectedTanggalCetak;
+    }
+    computeNoSpdForTanggal(selectedTanggalCetak);
+    const pegPage = document.getElementById('pegawai-page');
+    if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
+        renderPegawaiList(selectedKecamatan);
+    }
+    showToast('Tanggal dihapus', 'success', 2500);
 }
 
 // ===========================
@@ -855,8 +1194,8 @@ function updateBulanSppd() {
     BULAN_SPPD = BULAN_ROMAWI[monthIndex];
     TAHUN_SPPD = year;
 
-    // Update data di memory
-    generateNoSpdForAllPegawai();
+    // Update data di memory — pakai penomoran per tanggal terpilih
+    if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
 
     // Update tampilan jika sedang preview
     if (currentPegawai) {
@@ -877,8 +1216,11 @@ function hitungLamaHariDariJabatan(jabatan) {
 // ===========================
 // HELPER BERSAMA: Isi data pegawai ke elemen halaman cetak
 // prefix: 'v' untuk SPD (index.html), 'kie' untuk KIE (cetak_kie.html)
+// container (opsional): scope elemen untuk query — dipakai saat print batch
+// (setiap pegawai diisi dalam wrapper-nya sendiri). Default: seluruh dokumen.
 // ===========================
-function isiDataCetak(pegawai, prefix) {
+function isiDataCetak(pegawai, prefix, container) {
+    const root = container || document;
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const tanggalCetak = today.toLocaleDateString('id-ID', options);
@@ -899,9 +1241,9 @@ function isiDataCetak(pegawai, prefix) {
     const tglBerangkatStr = tglBerangkat.toLocaleDateString('id-ID', options);
     const tglKembaliStr = tglKembali.toLocaleDateString('id-ID', options);
 
-    // Isi elemen berdasarkan prefix
+    // Isi elemen berdasarkan prefix (di-scope ke container bila ada)
     const setEl = (id, val) => {
-        const el = document.getElementById(`${prefix}-${id}`);
+        const el = root.querySelector(`#${prefix}-${id}`);
         if (el) el.textContent = val || '-';
     };
 
@@ -920,16 +1262,16 @@ function isiDataCetak(pegawai, prefix) {
     setEl('maksud', maksud);
 
     // Set nilai input tanggal jika ada (SPD: v-input-*, KIE: kie-input-*)
-    const inputBrkt = document.getElementById(`${prefix}-input-tgl-brkt`);
-    const inputKmbli = document.getElementById(`${prefix}-input-tgl-kmbli`);
+    const inputBrkt = root.querySelector(`#${prefix}-input-tgl-brkt`);
+    const inputKmbli = root.querySelector(`#${prefix}-input-tgl-kmbli`);
     if (inputBrkt) inputBrkt.value = toInputDateStr(tglBerangkat);
     if (inputKmbli) inputKmbli.value = toInputDateStr(tglKembali);
 
     // Isi halaman 2 SPPD: bagian I (Berangkat dari) — untuk prefix 'v' dan 'kie'
-    const elTujuan2 = document.getElementById(`${prefix}-tujuan2`);
-    const elTglBrkt2 = document.getElementById(`${prefix}-tgl-brkt2`);
-    const elTglKmbli2 = document.getElementById(`${prefix}-tgl-kmbli2`);
-    const elTglCetak2 = document.getElementById(`${prefix}-tgl-cetak2`);
+    const elTujuan2 = root.querySelector(`#${prefix}-tujuan2`);
+    const elTglBrkt2 = root.querySelector(`#${prefix}-tgl-brkt2`);
+    const elTglKmbli2 = root.querySelector(`#${prefix}-tgl-kmbli2`);
+    const elTglCetak2 = root.querySelector(`#${prefix}-tgl-cetak2`);
     if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
     if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
     if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
@@ -938,9 +1280,9 @@ function isiDataCetak(pegawai, prefix) {
     // Isi kolom VI halaman 2 SPD: pejabat aktif sebagai "Kepala" (hanya prefix 'v')
     if (prefix === 'v') {
         const kepala = getKepalaAktif();
-        const elKepalaJabatan = document.getElementById('v-kepala-jabatan');
-        const elKepalaNama = document.getElementById('v-kepala-nama');
-        const elKepalaNip = document.getElementById('v-kepala-nip');
+        const elKepalaJabatan = root.querySelector('#v-kepala-jabatan');
+        const elKepalaNama = root.querySelector('#v-kepala-nama');
+        const elKepalaNip = root.querySelector('#v-kepala-nip');
         if (elKepalaJabatan) elKepalaJabatan.textContent = kepala.jabatan || '-';
         if (elKepalaNama) elKepalaNama.textContent = kepala.nama || '.................................................';
         if (elKepalaNip) elKepalaNip.textContent = kepala.nip || '';
@@ -970,6 +1312,34 @@ function initCetakKie() {
 }
 
 // ===========================
+// MODAL UPDATE TERBARU
+// ===========================
+// Naikkan angka ini setiap ada pembaruan penting agar modal muncul lagi.
+const UPDATE_VERSION = 'v2';
+const UPDATE_SEEN_KEY = 'sppd_update_seen';
+
+function showUpdateModal() {
+    const modal = document.getElementById('update-modal');
+    if (!modal) return;
+    try {
+        if (localStorage.getItem(UPDATE_SEEN_KEY) === UPDATE_VERSION) return;
+    } catch (e) { /* abaikan */ }
+    modal.style.display = 'flex';
+}
+
+function closeUpdateModal() {
+    const modal = document.getElementById('update-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function dismissUpdateModal() {
+    try {
+        localStorage.setItem(UPDATE_SEEN_KEY, UPDATE_VERSION);
+    } catch (e) { /* abaikan */ }
+    closeUpdateModal();
+}
+
+// ===========================
 // INISIALISASI APLIKASI
 // ===========================
 document.addEventListener('DOMContentLoaded', async function() {
@@ -980,9 +1350,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     } else {
         // Halaman index.html — tampilkan skeleton dulu
         await loadSettings();
+        loadTanggalBatch();
         showSkeleton(11);
         await loadPegawaiData();
-        generateNoSpdForAllPegawai();
+        pegawaiLoaded = true;
+        if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
+        renderTanggalSelector();
         renderKecamatan();
+        // Tampilkan modal update setelah halaman siap (sedikit delay agar tampil paling atas)
+        setTimeout(showUpdateModal, 400);
     }
 });

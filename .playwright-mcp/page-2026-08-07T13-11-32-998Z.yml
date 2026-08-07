@@ -1,0 +1,401 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e9]:
+        - generic [ref=e10]: Sistem SPPD
+        - generic [ref=e11]: P3AP2KB Tanah Laut
+      - generic [ref=e12]:
+        - link "Beranda" [ref=e13] [cursor=pointer]:
+          - /url: "#"
+        - link "Chat" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e20]:
+        - generic "Status koneksi" [ref=e21]: Online
+        - button "Dark" [ref=e24] [cursor=pointer]
+        - button "Pengaturan Admin" [ref=e28] [cursor=pointer]
+  - generic [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e38]:
+        - generic [ref=e39]: Ruang Chat Umum
+        - generic [ref=e40]: Terhubung (Real-time)
+      - generic [ref=e41]:
+        - button "Ganti nama" [ref=e42] [cursor=pointer]
+        - button "Tutup chat" [ref=e46] [cursor=pointer]
+    - generic [ref=e50]: Belum ada nama — klik ikon pengguna untuk mengatur.
+    - generic [ref=e51]: Memuat pesan...
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - textbox "Ketik pesan..." [ref=e57]
+        - button "Kirim (Enter)" [ref=e58] [cursor=pointer]
+      - generic [ref=e62]: Enter kirim · Shift+Enter baris baru · Maks 500 karakter
+  - generic [ref=e63]:
+    - region [ref=e64]:
+      - paragraph [ref=e65]: Dinas P3AP2KB Kabupaten Tanah Laut
+      - heading "Cetak SPPD lebih cepat, rapi, dan siap digunakan." [level=1] [ref=e66]
+      - paragraph [ref=e67]: Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan dinas tanpa mengulang format manual.
+      - generic [ref=e68]:
+        - link "Mulai pilih kecamatan" [ref=e69] [cursor=pointer]:
+          - /url: "#kecamatan-page"
+        - button "Buka chat" [ref=e70] [cursor=pointer]
+      - generic "Ringkasan sistem" [ref=e71]:
+        - generic [ref=e72]: 11 kecamatan
+        - generic [ref=e73]: Data pegawai lokal
+        - generic [ref=e74]: Format SPD & KIE
+      - text: SPPD
+    - generic [ref=e75]:
+      - paragraph [ref=e76]: Daftar kecamatan
+      - heading "Pilih wilayah untuk membuat dokumen." [level=2] [ref=e77]
+    - link:
+      - /url: index_kie.html
+    - generic [ref=e113]:
+      - button "Kembali" [ref=e114] [cursor=pointer]
+      - generic [ref=e117]:
+        - heading "Kecamatan Bajuin" [level=2] [ref=e118]
+        - paragraph [ref=e119]: Pilih pegawai yang akan melaksanakan perjalanan dinas
+      - generic [ref=e120]:
+        - textbox "Cari nama pegawai..." [ref=e126]
+        - paragraph
+        - paragraph [ref=e127]:
+          - text: Tekan
+          - generic [ref=e128]: /
+          - text: untuk fokus ·
+          - generic [ref=e129]: Esc
+          - text: kembali
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - heading "Daftar Pegawai" [level=3] [ref=e132]
+          - button "Cetak Semua" [ref=e133] [cursor=pointer]
+        - generic [ref=e138]:
+          - generic [ref=e139] [cursor=pointer]:
+            - heading "Isnawiyah" [level=4] [ref=e140]
+            - paragraph [ref=e141]:
+              - text: "No SPPD:"
+              - strong [ref=e142]: 15/DP3AP2KB/VIII/2026
+            - paragraph [ref=e143]: "NIP:"
+            - paragraph [ref=e144]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e145]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=e146]: Cetak SPPD
+          - generic [ref=e152] [cursor=pointer]:
+            - heading "Halimatus Sa'diah" [level=4] [ref=e153]
+            - paragraph [ref=e154]:
+              - text: "No SPPD:"
+              - strong [ref=e155]: 16/DP3AP2KB/VIII/2026
+            - paragraph [ref=e156]: "NIP:"
+            - paragraph [ref=e157]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e158]: "Kelurahan/Desa: Galam"
+            - generic [ref=e159]: Cetak SPPD
+          - generic [ref=e165] [cursor=pointer]:
+            - heading "Sutikah" [level=4] [ref=e166]
+            - paragraph [ref=e167]:
+              - text: "No SPPD:"
+              - strong [ref=e168]: 17/DP3AP2KB/VIII/2026
+            - paragraph [ref=e169]: "NIP:"
+            - paragraph [ref=e170]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e171]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=e172]: Cetak SPPD
+          - generic [ref=e178] [cursor=pointer]:
+            - heading "Rima Anggraini" [level=4] [ref=e179]
+            - paragraph [ref=e180]:
+              - text: "No SPPD:"
+              - strong [ref=e181]: 18/DP3AP2KB/VIII/2026
+            - paragraph [ref=e182]: "NIP:"
+            - paragraph [ref=e183]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e184]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=e185]: Cetak SPPD
+          - generic [ref=e191] [cursor=pointer]:
+            - heading "Murdaningsih" [level=4] [ref=e192]
+            - paragraph [ref=e193]:
+              - text: "No SPPD:"
+              - strong [ref=e194]: 19/DP3AP2KB/VIII/2026
+            - paragraph [ref=e195]: "NIP:"
+            - paragraph [ref=e196]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e197]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=e198]: Cetak SPPD
+          - generic [ref=e204] [cursor=pointer]:
+            - heading "Puti Endah Wahyu Ningtyas" [level=4] [ref=e205]
+            - paragraph [ref=e206]:
+              - text: "No SPPD:"
+              - strong [ref=e207]: 20/DP3AP2KB/VIII/2026
+            - paragraph [ref=e208]: "NIP:"
+            - paragraph [ref=e209]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e210]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=e211]: Cetak SPPD
+          - generic [ref=e217] [cursor=pointer]:
+            - heading "Susi Susanti" [level=4] [ref=e218]
+            - paragraph [ref=e219]:
+              - text: "No SPPD:"
+              - strong [ref=e220]: 21/DP3AP2KB/VIII/2026
+            - paragraph [ref=e221]: "NIP:"
+            - paragraph [ref=e222]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e223]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e224]: Cetak SPPD
+          - generic [ref=e230] [cursor=pointer]:
+            - heading "Aryanie Susilowati" [level=4] [ref=e231]
+            - paragraph [ref=e232]:
+              - text: "No SPPD:"
+              - strong [ref=e233]: 22/DP3AP2KB/VIII/2026
+            - paragraph [ref=e234]: "NIP:"
+            - paragraph [ref=e235]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e236]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=e237]: Cetak SPPD
+          - generic [ref=e243] [cursor=pointer]:
+            - heading "Siti Aminah" [level=4] [ref=e244]
+            - paragraph [ref=e245]:
+              - text: "No SPPD:"
+              - strong [ref=e246]: 23/DP3AP2KB/VIII/2026
+            - paragraph [ref=e247]: "NIP:"
+            - paragraph [ref=e248]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=e249]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=e250]: Cetak SPPD
+          - generic [ref=e256] [cursor=pointer]:
+            - heading "Herlinawati" [level=4] [ref=e257]
+            - paragraph [ref=e258]:
+              - text: "No SPPD:"
+              - strong [ref=e259]: 24/DP3AP2KB/VIII/2026
+            - paragraph [ref=e260]: "NIP:"
+            - paragraph [ref=e261]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e262]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=e263]: Cetak SPPD
+          - generic [ref=e269] [cursor=pointer]:
+            - heading "Fitriani" [level=4] [ref=e270]
+            - paragraph [ref=e271]:
+              - text: "No SPPD:"
+              - strong [ref=e272]: 25/DP3AP2KB/VIII/2026
+            - paragraph [ref=e273]: "NIP:"
+            - paragraph [ref=e274]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e275]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=e276]: Cetak SPPD
+          - generic [ref=e282] [cursor=pointer]:
+            - heading "Mursi" [level=4] [ref=e283]
+            - paragraph [ref=e284]:
+              - text: "No SPPD:"
+              - strong [ref=e285]: 26/DP3AP2KB/VIII/2026
+            - paragraph [ref=e286]: "NIP:"
+            - paragraph [ref=e287]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e288]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=e289]: Cetak SPPD
+          - generic [ref=e295] [cursor=pointer]:
+            - heading "Siti Jaleha" [level=4] [ref=e296]
+            - paragraph [ref=e297]:
+              - text: "No SPPD:"
+              - strong [ref=e298]: 27/DP3AP2KB/VIII/2026
+            - paragraph [ref=e299]: "NIP:"
+            - paragraph [ref=e300]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e301]: "Kelurahan/Desa: Galam"
+            - generic [ref=e302]: Cetak SPPD
+          - generic [ref=e308] [cursor=pointer]:
+            - heading "Maria Ulfah" [level=4] [ref=e309]
+            - paragraph [ref=e310]:
+              - text: "No SPPD:"
+              - strong [ref=e311]: 28/DP3AP2KB/VIII/2026
+            - paragraph [ref=e312]: "NIP:"
+            - paragraph [ref=e313]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e314]: "Kelurahan/Desa: Galam"
+            - generic [ref=e315]: Cetak SPPD
+          - generic [ref=e321] [cursor=pointer]:
+            - heading "Nurul Huda" [level=4] [ref=e322]
+            - paragraph [ref=e323]:
+              - text: "No SPPD:"
+              - strong [ref=e324]: 29/DP3AP2KB/VIII/2026
+            - paragraph [ref=e325]: "NIP:"
+            - paragraph [ref=e326]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e327]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=e328]: Cetak SPPD
+          - generic [ref=e334] [cursor=pointer]:
+            - heading "Rina Qurotul Aini" [level=4] [ref=e335]
+            - paragraph [ref=e336]:
+              - text: "No SPPD:"
+              - strong [ref=e337]: 30/DP3AP2KB/VIII/2026
+            - paragraph [ref=e338]: "NIP:"
+            - paragraph [ref=e339]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e340]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=e341]: Cetak SPPD
+          - generic [ref=e347] [cursor=pointer]:
+            - heading "Sri Mulyanti" [level=4] [ref=e348]
+            - paragraph [ref=e349]:
+              - text: "No SPPD:"
+              - strong [ref=e350]: 31/DP3AP2KB/VIII/2026
+            - paragraph [ref=e351]: "NIP:"
+            - paragraph [ref=e352]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e353]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=e354]: Cetak SPPD
+          - generic [ref=e360] [cursor=pointer]:
+            - heading "Siti Khadijah" [level=4] [ref=e361]
+            - paragraph [ref=e362]:
+              - text: "No SPPD:"
+              - strong [ref=e363]: 32/DP3AP2KB/VIII/2026
+            - paragraph [ref=e364]: "NIP:"
+            - paragraph [ref=e365]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e366]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=e367]: Cetak SPPD
+          - generic [ref=e373] [cursor=pointer]:
+            - heading "Siti Sumarida" [level=4] [ref=e374]
+            - paragraph [ref=e375]:
+              - text: "No SPPD:"
+              - strong [ref=e376]: 33/DP3AP2KB/VIII/2026
+            - paragraph [ref=e377]: "NIP:"
+            - paragraph [ref=e378]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e379]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=e380]: Cetak SPPD
+          - generic [ref=e386] [cursor=pointer]:
+            - heading "Junita Sari" [level=4] [ref=e387]
+            - paragraph [ref=e388]:
+              - text: "No SPPD:"
+              - strong [ref=e389]: 34/DP3AP2KB/VIII/2026
+            - paragraph [ref=e390]: "NIP:"
+            - paragraph [ref=e391]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e392]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=e393]: Cetak SPPD
+          - generic [ref=e399] [cursor=pointer]:
+            - heading "Halisah" [level=4] [ref=e400]
+            - paragraph [ref=e401]:
+              - text: "No SPPD:"
+              - strong [ref=e402]: 35/DP3AP2KB/VIII/2026
+            - paragraph [ref=e403]: "NIP:"
+            - paragraph [ref=e404]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e405]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=e406]: Cetak SPPD
+          - generic [ref=e412] [cursor=pointer]:
+            - heading "Arbainah" [level=4] [ref=e413]
+            - paragraph [ref=e414]:
+              - text: "No SPPD:"
+              - strong [ref=e415]: 36/DP3AP2KB/VIII/2026
+            - paragraph [ref=e416]: "NIP:"
+            - paragraph [ref=e417]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e418]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=e419]: Cetak SPPD
+          - generic [ref=e425] [cursor=pointer]:
+            - heading "Jahratun Nupus" [level=4] [ref=e426]
+            - paragraph [ref=e427]:
+              - text: "No SPPD:"
+              - strong [ref=e428]: 37/DP3AP2KB/VIII/2026
+            - paragraph [ref=e429]: "NIP:"
+            - paragraph [ref=e430]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e431]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=e432]: Cetak SPPD
+          - generic [ref=e438] [cursor=pointer]:
+            - heading "Yunita" [level=4] [ref=e439]
+            - paragraph [ref=e440]:
+              - text: "No SPPD:"
+              - strong [ref=e441]: 38/DP3AP2KB/VIII/2026
+            - paragraph [ref=e442]: "NIP:"
+            - paragraph [ref=e443]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e444]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=e445]: Cetak SPPD
+          - generic [ref=e451] [cursor=pointer]:
+            - heading "Hartati" [level=4] [ref=e452]
+            - paragraph [ref=e453]:
+              - text: "No SPPD:"
+              - strong [ref=e454]: 39/DP3AP2KB/VIII/2026
+            - paragraph [ref=e455]: "NIP:"
+            - paragraph [ref=e456]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e457]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e458]: Cetak SPPD
+          - generic [ref=e464] [cursor=pointer]:
+            - heading "Dewi Cris Natalia" [level=4] [ref=e465]
+            - paragraph [ref=e466]:
+              - text: "No SPPD:"
+              - strong [ref=e467]: 40/DP3AP2KB/VIII/2026
+            - paragraph [ref=e468]: "NIP:"
+            - paragraph [ref=e469]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e470]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e471]: Cetak SPPD
+          - generic [ref=e477] [cursor=pointer]:
+            - heading "Norpi Suharti" [level=4] [ref=e478]
+            - paragraph [ref=e479]:
+              - text: "No SPPD:"
+              - strong [ref=e480]: 41/DP3AP2KB/VIII/2026
+            - paragraph [ref=e481]: "NIP:"
+            - paragraph [ref=e482]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e483]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e484]: Cetak SPPD
+          - generic [ref=e490] [cursor=pointer]:
+            - heading "Jamilah" [level=4] [ref=e491]
+            - paragraph [ref=e492]:
+              - text: "No SPPD:"
+              - strong [ref=e493]: 42/DP3AP2KB/VIII/2026
+            - paragraph [ref=e494]: "NIP:"
+            - paragraph [ref=e495]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e496]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e497]: Cetak SPPD
+          - generic [ref=e503] [cursor=pointer]:
+            - heading "Dewi Mekarsari" [level=4] [ref=e504]
+            - paragraph [ref=e505]:
+              - text: "No SPPD:"
+              - strong [ref=e506]: 43/DP3AP2KB/VIII/2026
+            - paragraph [ref=e507]: "NIP:"
+            - paragraph [ref=e508]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e509]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e510]: Cetak SPPD
+          - generic [ref=e516] [cursor=pointer]:
+            - heading "Ardhani" [level=4] [ref=e517]
+            - paragraph [ref=e518]:
+              - text: "No SPPD:"
+              - strong [ref=e519]: 44/DP3AP2KB/VIII/2026
+            - paragraph [ref=e520]: "NIP:"
+            - paragraph [ref=e521]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e522]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e523]: Cetak SPPD
+          - generic [ref=e529] [cursor=pointer]:
+            - heading "Siti Fatimah" [level=4] [ref=e530]
+            - paragraph [ref=e531]:
+              - text: "No SPPD:"
+              - strong [ref=e532]: 45/DP3AP2KB/VIII/2026
+            - paragraph [ref=e533]: "NIP:"
+            - paragraph [ref=e534]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e535]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=e536]: Cetak SPPD
+          - generic [ref=e542] [cursor=pointer]:
+            - heading "Salmiah" [level=4] [ref=e543]
+            - paragraph [ref=e544]:
+              - text: "No SPPD:"
+              - strong [ref=e545]: 46/DP3AP2KB/VIII/2026
+            - paragraph [ref=e546]: "NIP:"
+            - paragraph [ref=e547]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e548]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=e549]: Cetak SPPD
+          - generic [ref=e555] [cursor=pointer]:
+            - heading "Sri Wahyuni" [level=4] [ref=e556]
+            - paragraph [ref=e557]:
+              - text: "No SPPD:"
+              - strong [ref=e558]: 47/DP3AP2KB/VIII/2026
+            - paragraph [ref=e559]: "NIP:"
+            - paragraph [ref=e560]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e561]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=e562]: Cetak SPPD
+          - generic [ref=e568] [cursor=pointer]:
+            - heading "Desi Ratnawati" [level=4] [ref=e569]
+            - paragraph [ref=e570]:
+              - text: "No SPPD:"
+              - strong [ref=e571]: 48/DP3AP2KB/VIII/2026
+            - paragraph [ref=e572]: "NIP:"
+            - paragraph [ref=e573]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e574]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=e575]: Cetak SPPD
+          - generic [ref=e581] [cursor=pointer]:
+            - heading "Sri Susanti" [level=4] [ref=e582]
+            - paragraph [ref=e583]:
+              - text: "No SPPD:"
+              - strong [ref=e584]: 49/DP3AP2KB/VIII/2026
+            - paragraph [ref=e585]: "NIP:"
+            - paragraph [ref=e586]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e587]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=e588]: Cetak SPPD
+          - generic [ref=e594] [cursor=pointer]:
+            - heading "Sukrisnawati" [level=4] [ref=e595]
+            - paragraph [ref=e596]:
+              - text: "No SPPD:"
+              - strong [ref=e597]: 50/DP3AP2KB/VIII/2026
+            - paragraph [ref=e598]: "NIP:"
+            - paragraph [ref=e599]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e600]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=e601]: Cetak SPPD
+          - generic [ref=e607] [cursor=pointer]:
+            - heading "Eka Anggraini" [level=4] [ref=e608]
+            - paragraph [ref=e609]:
+              - text: "No SPPD:"
+              - strong [ref=e610]: 51/DP3AP2KB/VIII/2026
+            - paragraph [ref=e611]: "NIP:"
+            - paragraph [ref=e612]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=e613]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=e614]: Cetak SPPD

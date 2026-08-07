@@ -409,7 +409,9 @@ body.dark-mode .navbar {
   -webkit-backdrop-filter: blur(6px);
 }
 .admin-modal-box {
-  width: min(420px, 100%);
+  width: min(560px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border);
@@ -516,6 +518,325 @@ body.dark-mode .navbar {
 }
 .admin-help {
   margin-top: 8px;
+}
+
+/* Penomoran per tanggal (admin) */
+.admin-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 18px 0 16px;
+}
+
+/* Ringkasan meta (nomor awal & kepala) */
+.admin-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.admin-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--accent-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.admin-meta-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+.admin-meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.admin-note {
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  background: var(--bg-input);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.admin-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: var(--bg-card);
+}
+.admin-section-head {
+  margin-bottom: 10px;
+}
+.admin-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.admin-section-desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.admin-tanggal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.admin-tanggal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.admin-tanggal-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.admin-tanggal-info strong {
+  font-size: 0.88rem;
+}
+.admin-tanggal-range {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.admin-delete-btn {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-sm);
+  color: var(--danger);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.admin-delete-btn:hover {
+  background: var(--danger);
+  color: #fff;
+}
+.admin-add-tanggal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+.admin-add-tanggal .admin-primary-btn {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+}
+.admin-add-tanggal .admin-input {
+  min-width: 0;
+}
+
+/* ===========================
+   MODAL UPDATE TERBARU
+   =========================== */
+.update-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: updateFadeIn 0.2s ease;
+}
+@keyframes updateFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.update-modal-box {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 26px 24px 22px;
+  animation: updateSlideUp 0.25s ease;
+}
+@keyframes updateSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.update-modal-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.update-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.update-modal-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.update-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.update-modal-sub {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.update-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.update-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.update-item-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.update-item strong {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 2px;
+}
+.update-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.update-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.update-modal-actions .update-btn {
+  flex: 1;
+}
+.update-btn-primary,
+.update-btn-secondary {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.update-btn-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+}
+.update-btn-primary:hover {
+  background: var(--accent-hover);
+}
+.update-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.update-btn-secondary:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Date selector di navbar */
+.navbar-tanggal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navbar-tanggal-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.tanggal-select {
+  height: 36px;
+  max-width: 230px;
+  padding: 0 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.82rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+.tanggal-select:focus {
+  border-color: var(--border-focus);
+}
+
+/* Tombol Cetak Semua di section heading */
+.section-cetak-all {
+  white-space: nowrap;
 }
 
 /* ===========================
@@ -1797,6 +2118,50 @@ body.dark-mode .navbar {
 }
 
 /* ===========================
+   PRINT BATCH — SEMUA PEGAWAI KECAMATAN
+   Kelas baru (tidak menyentuh format cetak resmi .page / @page)
+   =========================== */
+.pegawai-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pegawai-list-header h3 {
+  margin: 0;
+}
+
+.btn-batch {
+  background: var(--info);
+  color: white;
+}
+
+.btn-batch:hover {
+  background: var(--info-hover);
+}
+
+#cetak-batch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 70px;
+  padding: 20px;
+}
+
+/* Tiap pegawai = satu set berisi halaman 1 & 2, mulai di halaman baru saat cetak */
+.batch-set {
+  page-break-before: always;
+  page-break-inside: avoid;
+}
+
+.batch-set:first-child {
+  page-break-before: auto;
+}
+
+/* ===========================
    UKURAN KERTAS LEGAL
    =========================== */
 .page {
@@ -1963,6 +2328,9 @@ table.main-table td {
     margin-top: 6px;
     text-align: left;
   }
+  .section-cetak-all {
+    margin-top: 12px;
+  }
   .kecamatan-grid {
     grid-template-columns: 1fr;
   }
@@ -2029,6 +2397,11 @@ table.main-table td {
   }
 
   .preview-panel {
+    padding: 0;
+    margin: 0;
+  }
+
+  #cetak-batch-container {
     padding: 0;
     margin: 0;
   }

@@ -78,6 +78,10 @@
           </svg>
           <span class="theme-toggle-label">Dark</span>
         </button>
+        <div class="navbar-tanggal" title="Pilih tanggal untuk penomoran SPPD">
+          <label class="navbar-tanggal-label" for="tanggal-select">Tanggal</label>
+          <select id="tanggal-select" class="tanggal-select" onchange="onTanggalChange()"></select>
+        </div>
         <button class="navbar-admin-btn" id="admin-settings-btn" onclick="openAdminSettings()" title="Pengaturan Admin">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -163,20 +167,92 @@
         <button class="admin-primary-btn" onclick="verifyAdminPin()">Masuk</button>
       </div>
       <div class="admin-settings-form" id="admin-settings-form" style="display: none">
-        <div class="admin-current-number">
-          Nomor awal aktif: <strong id="admin-current-nomor-awal">4</strong>
+        <div class="admin-meta">
+          <div class="admin-meta-item">
+            <span class="admin-meta-label">Nomor awal aktif</span>
+            <span class="admin-meta-value" id="admin-current-nomor-awal">4</span>
+          </div>
+          <div class="admin-meta-item">
+            <span class="admin-meta-label">Kepala aktif</span>
+            <span class="admin-meta-value" id="admin-current-kepala">-</span>
+          </div>
         </div>
-        <div class="admin-current-number">
-          Kepala aktif: <strong id="admin-current-kepala">-</strong>
+
+        <div class="admin-note">
+          Sumber default: <strong>settings.json</strong>. Untuk mengubah nomor awal
+          semua user, edit file <strong>settings.json</strong>, lalu refresh halaman.
+          Ganti "Kepala" di kolom VI halaman 2 SPD lewat <strong>kepalaAktif</strong>
+          di <strong>settings.json</strong> (cocokkan dengan <strong>jabatan</strong>
+          pada daftar <strong>pejabat</strong>).
         </div>
-        <p class="admin-help">Sumber global: <strong>settings.json</strong>.</p>
-        <p class="admin-help">Untuk mengubah nomor semua user, edit file <strong>settings.json</strong>, lalu refresh halaman.</p>
-        <p class="admin-help">Untuk mengganti "Kepala" di kolom VI halaman 2 SPD, ubah <strong>kepalaAktif</strong> di <strong>settings.json</strong> (cocokkan dengan field <strong>jabatan</strong> pada daftar <strong>pejabat</strong>), lalu refresh halaman.</p>
+
+        <div class="admin-section">
+          <div class="admin-section-head">
+            <div>
+              <h3 class="admin-section-title">Penomoran per Tanggal</h3>
+              <p class="admin-section-desc">
+                Tiap tanggal punya nomor awal sendiri. Nomor berjalan sampai
+                seluruh pegawai (semua kecamatan). Disimpan di
+                <strong>localStorage</strong> (per browser, tanpa backend).
+              </p>
+            </div>
+          </div>
+          <div id="admin-tanggal-list" class="admin-tanggal-list"></div>
+          <div class="admin-add-tanggal">
+            <input class="admin-input" type="date" id="admin-tanggal-input" />
+            <input class="admin-input" type="number" id="admin-nomor-awal-input" placeholder="Nomor awal" min="1" />
+            <button class="admin-primary-btn" onclick="addTanggalBatch()">Tambah Tanggal</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== CHAT PANEL ===== -->
+  <!-- ===== MODAL UPDATE TERBARU ===== -->
+  <div class="update-modal-overlay" id="update-modal" style="display: none">
+    <div class="update-modal-box">
+      <div class="update-modal-badge">✦ Update Terbaru</div>
+      <button class="update-modal-close" onclick="closeUpdateModal()" title="Tutup" aria-label="Tutup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+
+      <h2 class="update-modal-title">Halo Kak, Ada Update Baru! 🎉</h2>
+      <p class="update-modal-sub">Buat operator cetak SPPD, mampir sebentar yuk.</p>
+
+      <div class="update-modal-body">
+        <div class="update-item">
+          <span class="update-item-icon">🗓️</span>
+          <div>
+            <strong>Nomor SPPD ikut tanggal</strong>
+            <p>Tiap tanggal punya nomor awal sendiri. Tinggal pilih tanggal di menu atas, nomornya otomatis ngikut (misal tanggal 4 mulai 15, tanggal 5 lanjut 571, dst).</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-item-icon">🖨️</span>
+          <div>
+            <strong>Cetak langsung banyak pegawai</strong>
+            <p>Ada tombol <b>"Cetak Semua Pegawai"</b> untuk satu kecamatan, dan <b>"Cetak Semua Kecamatan"</b> untuk semua wilayah sekaligus. Halaman 1 &amp; 2 langsung jadi. (Sesuai Kebutuhan)</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-item-icon">⚙️</span>
+          <div>
+            <strong>Kelola lewat menu Admin</strong>
+            <p>Pengaturan tanggal &amp; nomor awal ada di tombol gerigi di pojok kanan atas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="update-modal-actions">
+        <button class="update-btn-secondary" onclick="dismissUpdateModal()">Jangan ingatkan lagi</button>
+        <button class="update-btn-primary" onclick="closeUpdateModal()">Ngerti, sip! 👍</button>
+      </div>
+    </div>
+  </div>
   <div class="chat-overlay" id="chat-overlay" onclick="closeChatPanel()" style="display: none"></div>
   <div class="chat-panel" id="chat-panel">
     <!-- Chat Header -->
@@ -268,8 +344,19 @@
     </section>
 
     <div class="section-heading">
-      <p class="section-kicker">Daftar kecamatan</p>
-      <h2>Pilih wilayah untuk membuat dokumen.</h2>
+      <div>
+        <p class="section-kicker">Daftar kecamatan</p>
+        <h2>Pilih wilayah untuk membuat dokumen.</h2>
+      </div>
+<button class="btn btn-batch section-cetak-all" onclick="printBatchSemuaKecamatan()" title="Cetak semua pegawai di semua kecamatan">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect width="12" height="8" x="6" y="14"/>
+            </svg>
+            Cetak Semua Kecamatan
+          </button>
     </div>
 
     <!-- tombol daftar pegawai KIE -->
@@ -316,7 +403,18 @@
         </p>
       </div>
       <div class="pegawai-list">
-        <h3>Daftar Pegawai</h3>
+        <div class="pegawai-list-header">
+          <h3>Daftar Pegawai</h3>
+          <button class="btn btn-batch" onclick="printBatch()" title="Cetak semua pegawai di kecamatan ini">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect width="12" height="8" x="6" y="14"/>
+            </svg>
+            Cetak Semua Pegawai
+          </button>
+        </div>
         <div id="pegawai-list-container"></div>
       </div>
     </div>
@@ -973,6 +1071,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Container untuk print batch (semua pegawai kecamatan) -->
+    <div id="cetak-batch-container" style="display: none"></div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

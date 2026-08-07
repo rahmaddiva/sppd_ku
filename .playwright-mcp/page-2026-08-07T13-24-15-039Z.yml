@@ -1,0 +1,664 @@
+- generic [active] [ref=f4e1]:
+  - generic: "Preview SPPD: Isnawiyah (Kader IMP)"
+  - navigation [ref=f4e2]:
+    - generic [ref=f4e3]:
+      - generic [ref=f4e9]:
+        - generic [ref=f4e10]: Sistem SPPD
+        - generic [ref=f4e11]: P3AP2KB Tanah Laut
+      - generic [ref=f4e12]:
+        - link "Beranda" [ref=f4e13] [cursor=pointer]:
+          - /url: "#"
+        - link "Chat" [ref=f4e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=f4e20]:
+        - generic "Status koneksi" [ref=f4e21]: Online
+        - button "Dark" [ref=f4e24] [cursor=pointer]
+        - button "Pengaturan Admin" [ref=f4e28] [cursor=pointer]
+  - generic [ref=f4e32]:
+    - generic [ref=f4e33]:
+      - generic [ref=f4e38]:
+        - generic [ref=f4e39]: Ruang Chat Umum
+        - generic [ref=f4e40]: Terhubung (Real-time)
+      - generic [ref=f4e41]:
+        - button "Ganti nama" [ref=f4e42] [cursor=pointer]
+        - button "Tutup chat" [ref=f4e46] [cursor=pointer]
+    - generic [ref=f4e50]: Belum ada nama — klik ikon pengguna untuk mengatur.
+    - generic [ref=f4e51]: Memuat pesan...
+    - generic [ref=f4e55]:
+      - generic [ref=f4e56]:
+        - textbox "Ketik pesan..." [ref=f4e57]
+        - button "Kirim (Enter)" [ref=f4e58] [cursor=pointer]
+      - generic [ref=f4e62]: Enter kirim · Shift+Enter baris baru · Maks 500 karakter
+  - generic [ref=f4e63]:
+    - region [ref=f4e64]:
+      - paragraph [ref=f4e65]: Dinas P3AP2KB Kabupaten Tanah Laut
+      - heading "Cetak SPPD lebih cepat, rapi, dan siap digunakan." [level=1] [ref=f4e66]
+      - paragraph [ref=f4e67]: Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan dinas tanpa mengulang format manual.
+      - generic [ref=f4e68]:
+        - link "Mulai pilih kecamatan" [ref=f4e69] [cursor=pointer]:
+          - /url: "#kecamatan-page"
+        - button "Buka chat" [ref=f4e70] [cursor=pointer]
+      - generic "Ringkasan sistem" [ref=f4e71]:
+        - generic [ref=f4e72]: 11 kecamatan
+        - generic [ref=f4e73]: Data pegawai lokal
+        - generic [ref=f4e74]: Format SPD & KIE
+      - text: SPPD
+    - generic [ref=f4e75]:
+      - paragraph [ref=f4e76]: Daftar kecamatan
+      - heading "Pilih wilayah untuk membuat dokumen." [level=2] [ref=f4e77]
+    - link:
+      - /url: index_kie.html
+    - generic [ref=f4e113]:
+      - button "Kembali" [ref=f4e114] [cursor=pointer]
+      - generic [ref=f4e117]:
+        - heading "Kecamatan Bajuin" [level=2] [ref=f4e118]
+        - paragraph [ref=f4e119]: Pilih pegawai yang akan melaksanakan perjalanan dinas
+      - generic [ref=f4e120]:
+        - textbox "Cari nama pegawai..." [ref=f4e126]
+        - paragraph
+        - paragraph [ref=f4e127]:
+          - text: Tekan
+          - generic [ref=f4e128]: /
+          - text: untuk fokus ·
+          - generic [ref=f4e129]: Esc
+          - text: kembali
+      - generic [ref=f4e130]:
+        - generic [ref=f4e131]:
+          - heading "Daftar Pegawai" [level=3] [ref=f4e132]
+          - button "Cetak Semua" [ref=f4e133] [cursor=pointer]
+        - generic [ref=f4e138]:
+          - generic [ref=f4e139] [cursor=pointer]:
+            - heading "Isnawiyah" [level=4] [ref=f4e140]
+            - paragraph [ref=f4e141]:
+              - text: "No SPPD:"
+              - strong [ref=f4e142]: 15/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e143]: "NIP:"
+            - paragraph [ref=f4e144]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e145]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=f4e146]: Cetak SPPD
+          - generic [ref=f4e152] [cursor=pointer]:
+            - heading "Halimatus Sa'diah" [level=4] [ref=f4e153]
+            - paragraph [ref=f4e154]:
+              - text: "No SPPD:"
+              - strong [ref=f4e155]: 16/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e156]: "NIP:"
+            - paragraph [ref=f4e157]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e158]: "Kelurahan/Desa: Galam"
+            - generic [ref=f4e159]: Cetak SPPD
+          - generic [ref=f4e165] [cursor=pointer]:
+            - heading "Sutikah" [level=4] [ref=f4e166]
+            - paragraph [ref=f4e167]:
+              - text: "No SPPD:"
+              - strong [ref=f4e168]: 17/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e169]: "NIP:"
+            - paragraph [ref=f4e170]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e171]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=f4e172]: Cetak SPPD
+          - generic [ref=f4e178] [cursor=pointer]:
+            - heading "Rima Anggraini" [level=4] [ref=f4e179]
+            - paragraph [ref=f4e180]:
+              - text: "No SPPD:"
+              - strong [ref=f4e181]: 18/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e182]: "NIP:"
+            - paragraph [ref=f4e183]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e184]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=f4e185]: Cetak SPPD
+          - generic [ref=f4e191] [cursor=pointer]:
+            - heading "Murdaningsih" [level=4] [ref=f4e192]
+            - paragraph [ref=f4e193]:
+              - text: "No SPPD:"
+              - strong [ref=f4e194]: 19/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e195]: "NIP:"
+            - paragraph [ref=f4e196]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e197]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=f4e198]: Cetak SPPD
+          - generic [ref=f4e204] [cursor=pointer]:
+            - heading "Puti Endah Wahyu Ningtyas" [level=4] [ref=f4e205]
+            - paragraph [ref=f4e206]:
+              - text: "No SPPD:"
+              - strong [ref=f4e207]: 20/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e208]: "NIP:"
+            - paragraph [ref=f4e209]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e210]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=f4e211]: Cetak SPPD
+          - generic [ref=f4e217] [cursor=pointer]:
+            - heading "Susi Susanti" [level=4] [ref=f4e218]
+            - paragraph [ref=f4e219]:
+              - text: "No SPPD:"
+              - strong [ref=f4e220]: 21/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e221]: "NIP:"
+            - paragraph [ref=f4e222]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e223]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e224]: Cetak SPPD
+          - generic [ref=f4e230] [cursor=pointer]:
+            - heading "Aryanie Susilowati" [level=4] [ref=f4e231]
+            - paragraph [ref=f4e232]:
+              - text: "No SPPD:"
+              - strong [ref=f4e233]: 22/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e234]: "NIP:"
+            - paragraph [ref=f4e235]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e236]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=f4e237]: Cetak SPPD
+          - generic [ref=f4e243] [cursor=pointer]:
+            - heading "Siti Aminah" [level=4] [ref=f4e244]
+            - paragraph [ref=f4e245]:
+              - text: "No SPPD:"
+              - strong [ref=f4e246]: 23/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e247]: "NIP:"
+            - paragraph [ref=f4e248]: "Jabatan: Kader IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e249]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=f4e250]: Cetak SPPD
+          - generic [ref=f4e256] [cursor=pointer]:
+            - heading "Herlinawati" [level=4] [ref=f4e257]
+            - paragraph [ref=f4e258]:
+              - text: "No SPPD:"
+              - strong [ref=f4e259]: 24/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e260]: "NIP:"
+            - paragraph [ref=f4e261]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e262]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=f4e263]: Cetak SPPD
+          - generic [ref=f4e269] [cursor=pointer]:
+            - heading "Fitriani" [level=4] [ref=f4e270]
+            - paragraph [ref=f4e271]:
+              - text: "No SPPD:"
+              - strong [ref=f4e272]: 25/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e273]: "NIP:"
+            - paragraph [ref=f4e274]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e275]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=f4e276]: Cetak SPPD
+          - generic [ref=f4e282] [cursor=pointer]:
+            - heading "Mursi" [level=4] [ref=f4e283]
+            - paragraph [ref=f4e284]:
+              - text: "No SPPD:"
+              - strong [ref=f4e285]: 26/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e286]: "NIP:"
+            - paragraph [ref=f4e287]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e288]: "Kelurahan/Desa: Bajuin"
+            - generic [ref=f4e289]: Cetak SPPD
+          - generic [ref=f4e295] [cursor=pointer]:
+            - heading "Siti Jaleha" [level=4] [ref=f4e296]
+            - paragraph [ref=f4e297]:
+              - text: "No SPPD:"
+              - strong [ref=f4e298]: 27/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e299]: "NIP:"
+            - paragraph [ref=f4e300]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e301]: "Kelurahan/Desa: Galam"
+            - generic [ref=f4e302]: Cetak SPPD
+          - generic [ref=f4e308] [cursor=pointer]:
+            - heading "Maria Ulfah" [level=4] [ref=f4e309]
+            - paragraph [ref=f4e310]:
+              - text: "No SPPD:"
+              - strong [ref=f4e311]: 28/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e312]: "NIP:"
+            - paragraph [ref=f4e313]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e314]: "Kelurahan/Desa: Galam"
+            - generic [ref=f4e315]: Cetak SPPD
+          - generic [ref=f4e321] [cursor=pointer]:
+            - heading "Nurul Huda" [level=4] [ref=f4e322]
+            - paragraph [ref=f4e323]:
+              - text: "No SPPD:"
+              - strong [ref=f4e324]: 29/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e325]: "NIP:"
+            - paragraph [ref=f4e326]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e327]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=f4e328]: Cetak SPPD
+          - generic [ref=f4e334] [cursor=pointer]:
+            - heading "Rina Qurotul Aini" [level=4] [ref=f4e335]
+            - paragraph [ref=f4e336]:
+              - text: "No SPPD:"
+              - strong [ref=f4e337]: 30/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e338]: "NIP:"
+            - paragraph [ref=f4e339]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e340]: "Kelurahan/Desa: Ketapang"
+            - generic [ref=f4e341]: Cetak SPPD
+          - generic [ref=f4e347] [cursor=pointer]:
+            - heading "Sri Mulyanti" [level=4] [ref=f4e348]
+            - paragraph [ref=f4e349]:
+              - text: "No SPPD:"
+              - strong [ref=f4e350]: 31/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e351]: "NIP:"
+            - paragraph [ref=f4e352]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e353]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=f4e354]: Cetak SPPD
+          - generic [ref=f4e360] [cursor=pointer]:
+            - heading "Siti Khadijah" [level=4] [ref=f4e361]
+            - paragraph [ref=f4e362]:
+              - text: "No SPPD:"
+              - strong [ref=f4e363]: 32/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e364]: "NIP:"
+            - paragraph [ref=f4e365]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e366]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=f4e367]: Cetak SPPD
+          - generic [ref=f4e373] [cursor=pointer]:
+            - heading "Siti Sumarida" [level=4] [ref=f4e374]
+            - paragraph [ref=f4e375]:
+              - text: "No SPPD:"
+              - strong [ref=f4e376]: 33/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e377]: "NIP:"
+            - paragraph [ref=f4e378]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e379]: "Kelurahan/Desa: Kunyit"
+            - generic [ref=f4e380]: Cetak SPPD
+          - generic [ref=f4e386] [cursor=pointer]:
+            - heading "Junita Sari" [level=4] [ref=f4e387]
+            - paragraph [ref=f4e388]:
+              - text: "No SPPD:"
+              - strong [ref=f4e389]: 34/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e390]: "NIP:"
+            - paragraph [ref=f4e391]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e392]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=f4e393]: Cetak SPPD
+          - generic [ref=f4e399] [cursor=pointer]:
+            - heading "Halisah" [level=4] [ref=f4e400]
+            - paragraph [ref=f4e401]:
+              - text: "No SPPD:"
+              - strong [ref=f4e402]: 35/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e403]: "NIP:"
+            - paragraph [ref=f4e404]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e405]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=f4e406]: Cetak SPPD
+          - generic [ref=f4e412] [cursor=pointer]:
+            - heading "Arbainah" [level=4] [ref=f4e413]
+            - paragraph [ref=f4e414]:
+              - text: "No SPPD:"
+              - strong [ref=f4e415]: 36/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e416]: "NIP:"
+            - paragraph [ref=f4e417]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e418]: "Kelurahan/Desa: Pemalongan"
+            - generic [ref=f4e419]: Cetak SPPD
+          - generic [ref=f4e425] [cursor=pointer]:
+            - heading "Jahratun Nupus" [level=4] [ref=f4e426]
+            - paragraph [ref=f4e427]:
+              - text: "No SPPD:"
+              - strong [ref=f4e428]: 37/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e429]: "NIP:"
+            - paragraph [ref=f4e430]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e431]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=f4e432]: Cetak SPPD
+          - generic [ref=f4e438] [cursor=pointer]:
+            - heading "Yunita" [level=4] [ref=f4e439]
+            - paragraph [ref=f4e440]:
+              - text: "No SPPD:"
+              - strong [ref=f4e441]: 38/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e442]: "NIP:"
+            - paragraph [ref=f4e443]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e444]: "Kelurahan/Desa: Sungai Bakar"
+            - generic [ref=f4e445]: Cetak SPPD
+          - generic [ref=f4e451] [cursor=pointer]:
+            - heading "Hartati" [level=4] [ref=f4e452]
+            - paragraph [ref=f4e453]:
+              - text: "No SPPD:"
+              - strong [ref=f4e454]: 39/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e455]: "NIP:"
+            - paragraph [ref=f4e456]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e457]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e458]: Cetak SPPD
+          - generic [ref=f4e464] [cursor=pointer]:
+            - heading "Dewi Cris Natalia" [level=4] [ref=f4e465]
+            - paragraph [ref=f4e466]:
+              - text: "No SPPD:"
+              - strong [ref=f4e467]: 40/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e468]: "NIP:"
+            - paragraph [ref=f4e469]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e470]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e471]: Cetak SPPD
+          - generic [ref=f4e477] [cursor=pointer]:
+            - heading "Norpi Suharti" [level=4] [ref=f4e478]
+            - paragraph [ref=f4e479]:
+              - text: "No SPPD:"
+              - strong [ref=f4e480]: 41/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e481]: "NIP:"
+            - paragraph [ref=f4e482]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e483]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e484]: Cetak SPPD
+          - generic [ref=f4e490] [cursor=pointer]:
+            - heading "Jamilah" [level=4] [ref=f4e491]
+            - paragraph [ref=f4e492]:
+              - text: "No SPPD:"
+              - strong [ref=f4e493]: 42/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e494]: "NIP:"
+            - paragraph [ref=f4e495]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e496]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e497]: Cetak SPPD
+          - generic [ref=f4e503] [cursor=pointer]:
+            - heading "Dewi Mekarsari" [level=4] [ref=f4e504]
+            - paragraph [ref=f4e505]:
+              - text: "No SPPD:"
+              - strong [ref=f4e506]: 43/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e507]: "NIP:"
+            - paragraph [ref=f4e508]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e509]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e510]: Cetak SPPD
+          - generic [ref=f4e516] [cursor=pointer]:
+            - heading "Ardhani" [level=4] [ref=f4e517]
+            - paragraph [ref=f4e518]:
+              - text: "No SPPD:"
+              - strong [ref=f4e519]: 44/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e520]: "NIP:"
+            - paragraph [ref=f4e521]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e522]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e523]: Cetak SPPD
+          - generic [ref=f4e529] [cursor=pointer]:
+            - heading "Siti Fatimah" [level=4] [ref=f4e530]
+            - paragraph [ref=f4e531]:
+              - text: "No SPPD:"
+              - strong [ref=f4e532]: 45/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e533]: "NIP:"
+            - paragraph [ref=f4e534]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e535]: "Kelurahan/Desa: Tanjung"
+            - generic [ref=f4e536]: Cetak SPPD
+          - generic [ref=f4e542] [cursor=pointer]:
+            - heading "Salmiah" [level=4] [ref=f4e543]
+            - paragraph [ref=f4e544]:
+              - text: "No SPPD:"
+              - strong [ref=f4e545]: 46/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e546]: "NIP:"
+            - paragraph [ref=f4e547]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e548]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=f4e549]: Cetak SPPD
+          - generic [ref=f4e555] [cursor=pointer]:
+            - heading "Sri Wahyuni" [level=4] [ref=f4e556]
+            - paragraph [ref=f4e557]:
+              - text: "No SPPD:"
+              - strong [ref=f4e558]: 47/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e559]: "NIP:"
+            - paragraph [ref=f4e560]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e561]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=f4e562]: Cetak SPPD
+          - generic [ref=f4e568] [cursor=pointer]:
+            - heading "Desi Ratnawati" [level=4] [ref=f4e569]
+            - paragraph [ref=f4e570]:
+              - text: "No SPPD:"
+              - strong [ref=f4e571]: 48/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e572]: "NIP:"
+            - paragraph [ref=f4e573]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e574]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=f4e575]: Cetak SPPD
+          - generic [ref=f4e581] [cursor=pointer]:
+            - heading "Sri Susanti" [level=4] [ref=f4e582]
+            - paragraph [ref=f4e583]:
+              - text: "No SPPD:"
+              - strong [ref=f4e584]: 49/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e585]: "NIP:"
+            - paragraph [ref=f4e586]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e587]: "Kelurahan/Desa: Tebing Siring"
+            - generic [ref=f4e588]: Cetak SPPD
+          - generic [ref=f4e594] [cursor=pointer]:
+            - heading "Sukrisnawati" [level=4] [ref=f4e595]
+            - paragraph [ref=f4e596]:
+              - text: "No SPPD:"
+              - strong [ref=f4e597]: 50/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e598]: "NIP:"
+            - paragraph [ref=f4e599]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e600]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=f4e601]: Cetak SPPD
+          - generic [ref=f4e607] [cursor=pointer]:
+            - heading "Eka Anggraini" [level=4] [ref=f4e608]
+            - paragraph [ref=f4e609]:
+              - text: "No SPPD:"
+              - strong [ref=f4e610]: 51/DP3AP2KB/VIII/2026
+            - paragraph [ref=f4e611]: "NIP:"
+            - paragraph [ref=f4e612]: "Jabatan: Sub IMP Kecamatan Bajuin"
+            - paragraph [ref=f4e613]: "Kelurahan/Desa: Tirta Jaya"
+            - generic [ref=f4e614]: Cetak SPPD
+  - generic [ref=f4e620]:
+    - generic [ref=f4e621]:
+      - button "Kembali ke Daftar" [ref=f4e622] [cursor=pointer]
+      - button "Cetak PDF" [ref=f4e625] [cursor=pointer]
+    - generic [ref=f4e9955]:
+      - generic [ref=f4e9956]:
+        - table [ref=f4e9957]:
+          - rowgroup [ref=f4e9958]:
+            - row [ref=f4e9959]:
+              - cell [ref=f4e9960]:
+                - img "Logo Tanah Laut" [ref=f4e9961]
+              - cell [ref=f4e9962]:
+                - paragraph [ref=f4e9963]: PEMERINTAH KABUPATEN TANAH LAUT
+                - paragraph [ref=f4e9964]: DINAS PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK,PENGENDALIAN PENDUDUK DAN KELUARGA BERENCANA
+                - paragraph [ref=f4e9965]: "Jalan. A. Syairani Komplek Perkantoran Gagas Pelaihari 70814Email: dp3ap2kb@tanahlautkab.go.id"
+        - generic [ref=f4e9966]:
+          - paragraph [ref=f4e9967]: "Lembar ke :"
+          - paragraph [ref=f4e9968]: "Kode No. : 000.1.2.3"
+          - paragraph [ref=f4e9969]:
+            - text: "Nomor :"
+            - textbox [ref=f4e9970]: 2026-08
+            - text: 15/DP3AP2KB/VIII/2026
+        - heading "SURAT PERJALANAN DINAS (SPD)" [level=3] [ref=f4e9971]
+        - table [ref=f4e9972]:
+          - rowgroup [ref=f4e9973]:
+            - row [ref=f4e9974]:
+              - cell "1." [ref=f4e9975]
+              - cell "Pengguna Anggaran/Kuasa Pengguna Anggaran" [ref=f4e9976]
+              - cell "MARIA ULFAH, S.Psi.,MM. NIP. 19791113 200501 2 008" [ref=f4e9977]: MARIA ULFAH, S.Psi.,MM.NIP. 19791113 200501 2 008
+            - row [ref=f4e9978]:
+              - cell "2." [ref=f4e9979]
+              - cell "Nama pejabat/personil yang melaksanakan perjalanan dinas" [ref=f4e9980]
+              - cell "Isnawiyah NIP. -" [ref=f4e9981]: IsnawiyahNIP. -
+            - row [ref=f4e9982]:
+              - cell "3." [ref=f4e9983]
+              - cell "a. Pangkat dan Golongan b. Jabatan/Instansi c. Tingkat biaya perjalanan dinas" [ref=f4e9984]
+              - cell "a. - b. Kader IMP Kecamatan Bajuin c. -" [ref=f4e9985]
+            - row [ref=f4e9986]:
+              - cell "4." [ref=f4e9987]
+              - cell "Maksud Perjalanan dinas" [ref=f4e9988]
+              - cell "Melaksanakan tugas masing-masing seperti terlampir di surat tugas" [ref=f4e9989]
+            - row [ref=f4e9990]:
+              - cell "5." [ref=f4e9991]
+              - cell "Alat angkut yang digunakan" [ref=f4e9992]
+              - cell "Kendaraan Roda Dua" [ref=f4e9993]
+            - row [ref=f4e9994]:
+              - cell "6." [ref=f4e9995]
+              - cell "a. Tempat berangkat b. Tempat tujuan" [ref=f4e9996]: a. Tempat berangkatb. Tempat tujuan
+              - cell "a. Pelaihari b. Kecamatan Bajuin" [ref=f4e9997]: a. Pelaiharib. Kecamatan Bajuin
+            - row [ref=f4e9998]:
+              - cell "7." [ref=f4e9999]
+              - cell "a. Lamanya perjalanan b. Tanggal berangkat c. Tanggal harus kembali/tiba di tempat baru *" [ref=f4e10000]: a. Lamanya perjalananb. Tanggal berangkatc. Tanggal harus kembali/tiba di tempat baru *
+              - cell [ref=f4e10001]:
+                - text: a. 4 (empat) Hari Kerja b.
+                - textbox [ref=f4e10002]: 2026-08-07
+                - text: 7 Agustus 2026 c.
+                - textbox [ref=f4e10003]: 2026-08-12
+                - text: 12 Agustus 2026
+            - row [ref=f4e10004]:
+              - cell "8." [ref=f4e10005]
+              - 'cell "Nama Pengikut : 1 2 3" [ref=f4e10006]':
+                - paragraph [ref=f4e10007]: "Nama Pengikut :"
+                - generic [ref=f4e10008]:
+                  - generic [ref=f4e10009]: "1"
+                  - generic [ref=f4e10010]: "2"
+                  - generic [ref=f4e10011]: "3"
+              - cell [ref=f4e10012]:
+                - paragraph [ref=f4e10013]: Tanggal lahir
+              - cell [ref=f4e10014]:
+                - paragraph [ref=f4e10015]: Keterangan
+            - row [ref=f4e10016]:
+              - cell "9." [ref=f4e10017]
+              - cell "Pembebanan Anggaran a. Instansi b. Akun" [ref=f4e10018]: Pembebanan Anggarana. Instansib. Akun
+              - cell "a. Dinas P3AP2KB Kab. Tanah Laut b. 5.1.02.04.001.0003" [ref=f4e10019]: a. Dinas P3AP2KB Kab. Tanah Lautb. 5.1.02.04.001.0003
+            - row [ref=f4e10020]:
+              - cell "10." [ref=f4e10021]
+              - cell "Keterangan lain-lain" [ref=f4e10022]
+              - cell [ref=f4e10023]
+        - paragraph [ref=f4e10024]: "*Coret yang jika tidak perlu"
+        - generic [ref=f4e10025]:
+          - table [ref=f4e10026]:
+            - rowgroup [ref=f4e10027]:
+              - row [ref=f4e10028]:
+                - cell "Dikeluarkan di" [ref=f4e10029]
+                - cell ":" [ref=f4e10030]
+                - cell "Pelaihari" [ref=f4e10031]
+              - row [ref=f4e10032]:
+                - cell "Tanggal" [ref=f4e10033]
+                - cell ":" [ref=f4e10034]
+                - cell "7 Agustus 2026" [ref=f4e10035]
+          - generic [ref=f4e10036]: Pengguna Anggaran, MARIA ULFAH, S.Psi.,MM. NIP. 19791113 200501 2 008
+      - generic [ref=f4e10037]:
+        - table [ref=f4e10038]:
+          - rowgroup [ref=f4e10039]:
+            - row [ref=f4e10040]:
+              - cell [ref=f4e10041]
+              - cell [ref=f4e10042]
+              - cell [ref=f4e10043]:
+                - text: "I. Berangkat dari : Pelaihari Ke : Kecamatan Bajuin Pada Tanggal : 7, 10, 11, 12 Agustus 2026"
+                - generic [ref=f4e10044]:
+                  - generic [ref=f4e10045]: Kabid. Pengendalian Penduduk Data dan Informasi Selaku Pejabat Pelaksana Teknis Kegiatan
+                  - text: Jami'ah, S.Sos NIP. 19740510 199403 2 006
+            - row [ref=f4e10046]:
+              - cell "II." [ref=f4e10047]
+              - 'cell "Tiba di : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10048]':
+                - generic [ref=f4e10049]:
+                  - generic [ref=f4e10050]: Tiba di
+                  - generic [ref=f4e10051]: ":"
+                  - generic [ref=f4e10052]: ..................................
+                - generic [ref=f4e10053]:
+                  - generic [ref=f4e10054]: Pada tanggal
+                  - generic [ref=f4e10055]: ":"
+                  - generic [ref=f4e10056]: ..................................
+                - generic [ref=f4e10057]:
+                  - generic [ref=f4e10058]: Kepala
+                  - generic [ref=f4e10059]: ":"
+                  - generic [ref=f4e10060]: ..................................
+                - generic [ref=f4e10061]: ( ................................................. ) NIP
+              - 'cell "Berangkat dari : .................................. Ke : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10062]':
+                - generic [ref=f4e10063]:
+                  - generic [ref=f4e10064]: Berangkat dari
+                  - generic [ref=f4e10065]: ":"
+                  - generic [ref=f4e10066]: ..................................
+                - generic [ref=f4e10067]:
+                  - generic [ref=f4e10068]: Ke
+                  - generic [ref=f4e10069]: ":"
+                  - generic [ref=f4e10070]: ..................................
+                - generic [ref=f4e10071]:
+                  - generic [ref=f4e10072]: Pada tanggal
+                  - generic [ref=f4e10073]: ":"
+                  - generic [ref=f4e10074]: ..................................
+                - generic [ref=f4e10075]:
+                  - generic [ref=f4e10076]: Kepala
+                  - generic [ref=f4e10077]: ":"
+                  - generic [ref=f4e10078]: ..................................
+                - generic [ref=f4e10079]: ( ................................................. ) NIP
+            - row [ref=f4e10080]:
+              - cell "III." [ref=f4e10081]
+              - 'cell "Tiba di : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10082]':
+                - generic [ref=f4e10083]:
+                  - generic [ref=f4e10084]: Tiba di
+                  - generic [ref=f4e10085]: ":"
+                  - generic [ref=f4e10086]: ..................................
+                - generic [ref=f4e10087]:
+                  - generic [ref=f4e10088]: Pada tanggal
+                  - generic [ref=f4e10089]: ":"
+                  - generic [ref=f4e10090]: ..................................
+                - generic [ref=f4e10091]:
+                  - generic [ref=f4e10092]: Kepala
+                  - generic [ref=f4e10093]: ":"
+                  - generic [ref=f4e10094]: ..................................
+                - generic [ref=f4e10095]: ( ................................................. ) NIP
+              - 'cell "Berangkat dari : .................................. Ke : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10096]':
+                - generic [ref=f4e10097]:
+                  - generic [ref=f4e10098]: Berangkat dari
+                  - generic [ref=f4e10099]: ":"
+                  - generic [ref=f4e10100]: ..................................
+                - generic [ref=f4e10101]:
+                  - generic [ref=f4e10102]: Ke
+                  - generic [ref=f4e10103]: ":"
+                  - generic [ref=f4e10104]: ..................................
+                - generic [ref=f4e10105]:
+                  - generic [ref=f4e10106]: Pada tanggal
+                  - generic [ref=f4e10107]: ":"
+                  - generic [ref=f4e10108]: ..................................
+                - generic [ref=f4e10109]:
+                  - generic [ref=f4e10110]: Kepala
+                  - generic [ref=f4e10111]: ":"
+                  - generic [ref=f4e10112]: ..................................
+                - generic [ref=f4e10113]: ( ................................................. ) NIP
+            - row [ref=f4e10114]:
+              - cell "IV." [ref=f4e10115]
+              - 'cell "Tiba di : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10116]':
+                - generic [ref=f4e10117]:
+                  - generic [ref=f4e10118]: Tiba di
+                  - generic [ref=f4e10119]: ":"
+                  - generic [ref=f4e10120]: ..................................
+                - generic [ref=f4e10121]:
+                  - generic [ref=f4e10122]: Pada tanggal
+                  - generic [ref=f4e10123]: ":"
+                  - generic [ref=f4e10124]: ..................................
+                - generic [ref=f4e10125]:
+                  - generic [ref=f4e10126]: Kepala
+                  - generic [ref=f4e10127]: ":"
+                  - generic [ref=f4e10128]: ..................................
+                - generic [ref=f4e10129]: ( ................................................. ) NIP
+              - 'cell "Berangkat dari : .................................. Ke : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10130]':
+                - generic [ref=f4e10131]:
+                  - generic [ref=f4e10132]: Berangkat dari
+                  - generic [ref=f4e10133]: ":"
+                  - generic [ref=f4e10134]: ..................................
+                - generic [ref=f4e10135]:
+                  - generic [ref=f4e10136]: Ke
+                  - generic [ref=f4e10137]: ":"
+                  - generic [ref=f4e10138]: ..................................
+                - generic [ref=f4e10139]:
+                  - generic [ref=f4e10140]: Pada tanggal
+                  - generic [ref=f4e10141]: ":"
+                  - generic [ref=f4e10142]: ..................................
+                - generic [ref=f4e10143]:
+                  - generic [ref=f4e10144]: Kepala
+                  - generic [ref=f4e10145]: ":"
+                  - generic [ref=f4e10146]: ..................................
+                - generic [ref=f4e10147]: ( ................................................. ) NIP
+            - row [ref=f4e10148]:
+              - cell "V." [ref=f4e10149]
+              - 'cell "Tiba di : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10150]':
+                - generic [ref=f4e10151]:
+                  - generic [ref=f4e10152]: Tiba di
+                  - generic [ref=f4e10153]: ":"
+                  - generic [ref=f4e10154]: ..................................
+                - generic [ref=f4e10155]:
+                  - generic [ref=f4e10156]: Pada tanggal
+                  - generic [ref=f4e10157]: ":"
+                  - generic [ref=f4e10158]: ..................................
+                - generic [ref=f4e10159]:
+                  - generic [ref=f4e10160]: Kepala
+                  - generic [ref=f4e10161]: ":"
+                  - generic [ref=f4e10162]: ..................................
+                - generic [ref=f4e10163]: ( ................................................. ) NIP
+              - 'cell "Berangkat dari : .................................. Ke : .................................. Pada tanggal : .................................. Kepala : .................................. ( ................................................. ) NIP" [ref=f4e10164]':
+                - generic [ref=f4e10165]:
+                  - generic [ref=f4e10166]: Berangkat dari
+                  - generic [ref=f4e10167]: ":"
+                  - generic [ref=f4e10168]: ..................................
+                - generic [ref=f4e10169]:
+                  - generic [ref=f4e10170]: Ke
+                  - generic [ref=f4e10171]: ":"
+                  - generic [ref=f4e10172]: ..................................
+                - generic [ref=f4e10173]:
+                  - generic [ref=f4e10174]: Pada tanggal
+                  - generic [ref=f4e10175]: ":"
+                  - generic [ref=f4e10176]: ..................................
+                - generic [ref=f4e10177]:
+                  - generic [ref=f4e10178]: Kepala
+                  - generic [ref=f4e10179]: ":"
+                  - generic [ref=f4e10180]: ..................................
+                - generic [ref=f4e10181]: ( ................................................. ) NIP
+            - row [ref=f4e10182]:
+              - cell "VI." [ref=f4e10183]
+              - 'cell "Tiba di : Pelaihari Pada tanggal : 12 Agustus 2026 Kepala : Sekretaris DP3AP2KB Dila Arisanti, SE, M.A.P NIP. 198203222008012013" [ref=f4e10184]':
+                - generic [ref=f4e10185]:
+                  - generic [ref=f4e10186]: Tiba di
+                  - generic [ref=f4e10187]: ":"
+                  - generic [ref=f4e10188]: Pelaihari
+                - generic [ref=f4e10189]:
+                  - generic [ref=f4e10190]: Pada tanggal
+                  - generic [ref=f4e10191]: ":"
+                  - generic [ref=f4e10192]: 12 Agustus 2026
+                - generic [ref=f4e10193]:
+                  - generic [ref=f4e10194]: Kepala
+                  - generic [ref=f4e10195]: ":"
+                  - generic [ref=f4e10196]: Sekretaris DP3AP2KB
+                - generic [ref=f4e10197]: Dila Arisanti, SE, M.A.P NIP. 198203222008012013
+              - cell "Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas dilakukan atas perintahnya dan semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya." [ref=f4e10198]
+            - row [ref=f4e10199]:
+              - cell "VII." [ref=f4e10200]
+              - cell "Catatan lain-lain" [ref=f4e10201]
+            - row [ref=f4e10202]:
+              - cell "VIII." [ref=f4e10203]
+              - 'cell "PERHATIAN : PPK yang menerbitkan SPD, pejabat/pegawai/pihak lain yang melakukan perjalanan dinas, para pejabat yang mengesahkan tanggal berangkat/tiba, serta bendahara pengeluaran bertanggung jawab berdasarkan peraturan-peraturan Keuangan Negara apabila negara menderita rugi akibat kesalahan, kelalaian, dan kealpaannya." [ref=f4e10204]'
+        - generic [ref=f4e10205]: Pengguna Anggaran, MARIA ULFAH, S.Psi.,MM. NIP. 19791113 200501 2 008
