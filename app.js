@@ -1229,8 +1229,17 @@ function isiDataCetak(pegawai, prefix, container) {
     const lamaHari = hitungLamaHariDariJabatan(pegawai.jabatan);
     const lamaText = lamaPerjalananText(lamaHari);
 
-    // Pastikan tanggal berangkat jatuh di hari kerja
-    let tglBerangkat = new Date(today);
+    // Tanggal berangkat mengikuti tanggal batch terpilih (sync Firebase).
+    // Fallback ke hari ini bila belum ada tanggal terpilih.
+    let tglBerangkat;
+    const parts = selectedTanggalCetak ? String(selectedTanggalCetak).split('-') : [];
+    if (parts.length === 3) {
+        tglBerangkat = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    } else {
+        tglBerangkat = new Date(today);
+    }
+
+    // Pastikan tanggal berangkat jatuh di hari kerja (geser bila weekend)
     while (!isHariKerja(tglBerangkat)) {
         tglBerangkat.setDate(tglBerangkat.getDate() + 1);
     }
