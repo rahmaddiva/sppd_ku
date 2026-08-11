@@ -2352,6 +2352,41 @@ table.main-table td {
 /* ===========================
    PRINT STYLES
    =========================== */
+/* ===========================
+   TOMBOL TOGGLE PET KUCING NEKO
+   =========================== */
+#neko-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #00b894, #0984e3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#neko-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+#neko-toggle:active {
+  transform: scale(0.95);
+}
+
+#neko-toggle.active {
+  background: linear-gradient(135deg, #e17055, #d63031);
+}
+
 @media print {
   @page {
     size: A4 portrait;
@@ -2393,6 +2428,13 @@ table.main-table td {
 
   /* Sembunyikan tombol-tombol pada kertas (Tapi jangan di layar) */
   .cetak-controls {
+    display: none !important;
+  }
+
+  /* Pet kucing & tombol togglenya tidak boleh ikut tercetak */
+  #neko-toggle,
+  .neko,
+  .neko-anubis {
     display: none !important;
   }
 
