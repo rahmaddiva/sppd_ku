@@ -491,6 +491,11 @@ function highlightText(text, query) {
 let currentPegawai = null;
 let currentLamaHari = 1; // Variabel global untuk lama perjalanan
 
+// Mode halaman saat cetak batch: 'both' (1 & 2), 'page1', 'page2'
+let currentBatchMode = 'both';
+// Daftar pegawai terakhir yang dirender batch (untuk render ulang saat ganti mode)
+let currentBatchList = null;
+
 // ===========================
 // HELPER: Cek apakah hari kerja (Senin-Jumat)
 // ===========================
@@ -631,7 +636,9 @@ function showCetakPage(pegawai) {
     }
 
     // Tampilkan halaman cetak
-    document.getElementById('cetak-page').style.display = 'block';
+    const cetakPageEl = document.getElementById('cetak-page');
+    cetakPageEl.style.display = 'block';
+    cetakPageEl.classList.remove('batch-active'); // sembunyikan pilihan halaman (khusus batch)
     document.body.style.overflow = 'hidden';
     document.body.classList.add('is-printing-sppd'); // Tambahkan penanda print
 
@@ -657,6 +664,9 @@ function renderBatchPages(list) {
         return;
     }
 
+    // Simpan daftar terakhir agar bisa dirender ulang saat ganti mode halaman
+    currentBatchList = list;
+
     // Pastikan penomoran sesuai tanggal terpilih
     computeNoSpdForTanggal(selectedTanggalCetak);
 
@@ -678,22 +688,52 @@ function renderBatchPages(list) {
     batchContainer.innerHTML = '';
     batchContainer.style.display = '';
 
-    // Cloning tiap pejabat: wrapper .batch-set menampung halaman 1 & 2
+    // Cloning tiap pejabat sesuai mode halaman: 'both' (1 & 2), 'page1', 'page2'
+    const mode = currentBatchMode;
     list.forEach(pegawai => {
         const wrap = document.createElement('div');
         wrap.className = 'batch-set';
-        wrap.appendChild(tplPage1.cloneNode(true));
-        wrap.appendChild(tplPage2.cloneNode(true));
+        if (mode === 'page1') {
+            wrap.appendChild(tplPage1.cloneNode(true));
+        } else if (mode === 'page2') {
+            wrap.appendChild(tplPage2.cloneNode(true));
+        } else {
+            wrap.appendChild(tplPage1.cloneNode(true));
+            wrap.appendChild(tplPage2.cloneNode(true));
+        }
         isiDataCetak(pegawai, 'v', wrap);
         batchContainer.appendChild(wrap);
     });
 
-    // Tampilkan halaman cetak
-    document.getElementById('cetak-page').style.display = 'block';
+    // Tampilkan halaman cetak & aktifkan kontrol pilihan halaman
+    const cetakPage = document.getElementById('cetak-page');
+    cetakPage.style.display = 'block';
+    cetakPage.classList.add('batch-active');
+    const modeSel = document.getElementById('batch-page-mode');
+    if (modeSel) modeSel.value = currentBatchMode;
     document.body.style.overflow = 'hidden';
     document.body.classList.add('is-printing-sppd');
 
     return list.length;
+}
+
+// ===========================
+// GANTI MODE CETAK BATCH (halaman 1 saja / 2 saja / keduanya)
+// ===========================
+function setBatchPageMode(mode) {
+    if (mode !== 'both' && mode !== 'page1' && mode !== 'page2') {
+        mode = 'both';
+    }
+    currentBatchMode = mode;
+    const batchContainer = document.getElementById('cetak-batch-container');
+    if (
+        batchContainer &&
+        batchContainer.style.display !== 'none' &&
+        currentBatchList &&
+        currentBatchList.length
+    ) {
+        renderBatchPages(currentBatchList);
+    }
 }
 
 // ===========================

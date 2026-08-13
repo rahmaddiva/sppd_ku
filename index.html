@@ -442,6 +442,11 @@
         </svg>
         Cetak PDF
       </button>
+      <select id="batch-page-mode" onchange="setBatchPageMode(this.value)" aria-label="Pilih halaman cetak" title="Pilih halaman yang akan dicetak">
+        <option value="both">Halaman 1 &amp; 2</option>
+        <option value="page1">Halaman 1 saja</option>
+        <option value="page2">Halaman 2 saja</option>
+      </select>
       <!-- tombol ke isi spd untuk kie (disembunyikan, aktifkan bila diperlukan) -->
       <button class="btn btn-kie" onclick="cetakKIE()" style="display: none">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -1283,83 +1288,16 @@
     });
   </script>
 
-  <!-- Tombol toggle pet kucing neko -->
-  <button
-    id="neko-toggle"
-    type="button"
-    onclick="toggleNeko()"
-    title="Tampilkan / sembunyikan kucing"
-    aria-label="Tampilkan atau sembunyikan kucing"
-  >
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 5c-4 0-7 2.5-7 6 0 3 2 5 5 6l1 2h2l1-2c3-1 5-3 5-6 0-3.5-3-6-7-6Z" />
-      <path d="M9 10h.01M15 10h.01" />
-    </svg>
-  </button>
-
+  <script src="neko/neko.js"></script>
   <script>
     // ================================================
-    // PET KUCING NEKO (toggle)
+    // PET KUCING NEKO (auto-tampil saat aplikasi dibuka)
     // ================================================
-    (function () {
-      var nekoLoaded = false;
-      var nekoInstance = null;
-      var nekoActive = false;
-
-      window.toggleNeko = function () {
-        if (nekoActive) {
-          if (nekoInstance && typeof nekoInstance.destroy === "function") {
-            nekoInstance.destroy();
-          }
-          nekoInstance = null;
-          nekoActive = false;
-          return;
-        }
-
-        var reduced = false;
-        try {
-          reduced = window.matchMedia(
-            "(prefers-reduced-motion: reduce)",
-          ).matches;
-        } catch (e) {}
-
-        if (reduced) {
-          if (typeof showToast === "function") {
-            showToast(
-              "Kucing dimatikan (prefers-reduced-motion aktif)",
-              "",
-              3000,
-            );
-          }
-          return;
-        }
-
-        var onReady = function () {
-          if (typeof window.createNeko !== "function") return;
-          nekoInstance = window.createNeko();
-          nekoActive = true;
-          document.getElementById("neko-toggle").classList.add("active");
-        };
-
-        if (nekoLoaded) {
-          onReady();
-          return;
-        }
-
-        var s = document.createElement("script");
-        s.src = "neko/neko.js";
-        s.onload = function () {
-          nekoLoaded = true;
-          onReady();
-        };
-        s.onerror = function () {
-          if (typeof showToast === "function") {
-            showToast("Gagal memuat kucing", "error", 3000);
-          }
-        };
-        document.body.appendChild(s);
-      };
-    })();
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.createNeko === "function") {
+        window.neko = window.createNeko();
+      }
+    });
   </script>
 </body>
 

@@ -2352,39 +2352,26 @@ table.main-table td {
 /* ===========================
    PRINT STYLES
    =========================== */
-/* ===========================
-   TOMBOL TOGGLE PET KUCING NEKO
-   =========================== */
-#neko-toggle {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: none;
+#batch-page-mode {
+  display: none;
+  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #333;
+  font-size: 13px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: linear-gradient(135deg, #00b894, #0984e3);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#neko-toggle:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+.dark-mode #batch-page-mode {
+  background: #2a2a3a;
+  color: #e6e6f0;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-#neko-toggle:active {
-  transform: scale(0.95);
-}
-
-#neko-toggle.active {
-  background: linear-gradient(135deg, #e17055, #d63031);
+#cetak-page.batch-active #batch-page-mode {
+  display: inline-block;
 }
 
 @media print {
@@ -2431,8 +2418,7 @@ table.main-table td {
     display: none !important;
   }
 
-  /* Pet kucing & tombol togglenya tidak boleh ikut tercetak */
-  #neko-toggle,
+  /* Pet kucing tidak boleh ikut tercetak */
   .neko,
   .neko-anubis {
     display: none !important;
