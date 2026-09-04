@@ -19,7 +19,12 @@ const kecamatanList = [
 // KONFIGURASI NOMOR SPPD PER KECAMATAN (APRIL 2026)
 // ===========================
 let noSpdConfig = {};
-const DEFAULT_NOMOR_AWAL_SPPD = 4;
+
+// Kader IMP sudah habis kuota perjalanan dinasnya (Agustus lalu).
+// Sementara hanya Kader Sub IMP yang ditampilkan & diberi nomor SPPD berurutan.
+// Set ke false jika Kader IMP perlu ditampilkan lagi.
+const SEMBUNYIKAN_KADER_IMP = true;
+const DEFAULT_NOMOR_AWAL_SPPD = 1;
 const ADMIN_PIN = 'erniwati';
 let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
 
@@ -54,6 +59,10 @@ let TAHUN_SPPD = String(currentDate.getFullYear());
 // ===========================
 let pegawaiData = {};
 
+// Jumlah kader IMP & Sub IMP per kecamatan (dihitung dari data master,
+// tetap dihitung walau kader IMP disembunyikan)
+let kaderCountPerKec = {};
+
 function toTitleCase(str) {
     if(str.toUpperCase() === 'BATI-BATI') return 'Bati-Bati';
     return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
@@ -69,17 +78,23 @@ async function loadPegawaiData() {
         const subIMPData = jsonData.sub_IMP || [];
         
         pegawaiData = {};
+        kaderCountPerKec = {};
         
-        const processData = (list, jabatanPrefix) => {
+        // countKey: 'imp' | 'sub' — untuk kaderCountPerKec
+        // tampilkan: false = hanya hitung jumlah, tidak dimuat ke pegawaiData
+        const processData = (list, jabatanPrefix, countKey, tampilkan = true) => {
             list.forEach(k => {
                 let kecNameRaw = k.kecamatan;
                 let kecNameTitle = toTitleCase(kecNameRaw);
                 let kecId = kecNameRaw.toUpperCase() === 'BATI-BATI' ? 'bati_bati' : kecNameRaw.toLowerCase().replace(/\s+/g, '_');
                 
                 if (!pegawaiData[kecId]) pegawaiData[kecId] = [];
+                if (!kaderCountPerKec[kecId]) kaderCountPerKec[kecId] = { imp: 0, sub: 0 };
                 
                 k.kader.forEach(kd => {
                     if (!kd || !kd.nama_kader) return;
+                    kaderCountPerKec[kecId][countKey]++;
+                    if (!tampilkan) return;
                     pegawaiData[kecId].push({
                         no_spd: "..../DP3AP2KB/..../2026",
                         nama: kd.nama_kader,
@@ -93,10 +108,14 @@ async function loadPegawaiData() {
             });
         };
         
-        processData(kaderIMPData, "Kader IMP");
-        processData(subIMPData, "Sub IMP");
+        // Kader IMP disembunyikan: hanya Sub IMP yang dimuat ke pegawaiData,
+        // sehingga penomoran SPPD (rebuildNoSpdConfig) berurutan untuk Sub IMP saja.
+        // Jumlah kader IMP tetap dihitung untuk ditampilkan di kartu kecamatan.
+        processData(kaderIMPData, "Kader IMP", 'imp', !SEMBUNYIKAN_KADER_IMP);
+        processData(subIMPData, "Sub IMP", 'sub', true);
         
         rebuildNoSpdConfig();
+        updateKaderCountSummary();
 
     } catch (e) {
         console.error("Gagal memuat data pegawai:", e);
@@ -303,11 +322,17 @@ function renderKecamatan() {
     grid.innerHTML = '';
 
     kecamatanList.forEach(kec => {
+        const cnt = kaderCountPerKec[kec.id] || { imp: 0, sub: 0 };
         const card = document.createElement('div');
         card.className = 'kecamatan-card';
         card.innerHTML = `
             <h3>${kec.nama}</h3>
             <p>${kec.jumlahPegawai} pegawai</p>
+            <p class="kec-count-detail">
+                <span class="count-imp">IMP: ${cnt.imp}</span>
+                <span class="count-sep">·</span>
+                <span class="count-sub">Sub IMP: ${cnt.sub}</span>
+            </p>
         `;
         card.onclick = () => showPegawaiPage(kec.id, kec.nama);
         grid.appendChild(card);
@@ -315,6 +340,27 @@ function renderKecamatan() {
 
     // Trigger entrance + draggable animation
     if (typeof animateKecamatanEntrance === 'function') animateKecamatanEntrance();
+}
+
+// Ringkasan total kader IMP & Sub IMP untuk SEMUA kecamatan
+// (ditampilkan di atas grid kecamatan)
+function updateKaderCountSummary() {
+    const el = document.getElementById('kader-count-summary');
+    if (!el) return;
+
+    let totalImp = 0, totalSub = 0;
+    Object.values(kaderCountPerKec).forEach(c => {
+        totalImp += c.imp;
+        totalSub += c.sub;
+    });
+
+    el.innerHTML = `
+        <span class="sum-item"><strong>Total Kader IMP:</strong> ${totalImp} orang</span>
+        <span class="sum-sep">·</span>
+        <span class="sum-item"><strong>Total Kader Sub IMP:</strong> ${totalSub} orang</span>
+        <span class="sum-sep">·</span>
+        <span class="sum-item"><strong>Jumlah:</strong> ${totalImp + totalSub} orang</span>
+    `;
 }
 
 // ===========================
