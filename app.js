@@ -178,6 +178,19 @@ function formatNoSpd(num) {
     return `${String(num).padStart(2, '0')}/DP3AP2KB/${BULAN_SPPD}/${TAHUN_SPPD}`;
 }
 
+// Bulan & tahun nomor SPPD mengikuti tanggal batch terpilih
+// (menu Pengaturan -> Penomoran per Tanggal). Dipanggil setiap
+// penomoran dihitung ulang; override manual via input bulan
+// (updateBulanSppd) tetap dihormati sampai tanggal diganti.
+function terapkanBulanDariTanggal(tanggal) {
+    const parts = String(tanggal || '').split('-');
+    if (parts.length !== 3) return;
+    const monthIndex = parseInt(parts[1], 10) - 1;
+    if (monthIndex < 0 || monthIndex > 11) return;
+    BULAN_SPPD = BULAN_ROMAWI[monthIndex];
+    TAHUN_SPPD = parts[0];
+}
+
 // Normalisasi data tanggal batch dari Firebase/localStorage
 function normalizeTanggalBatch(val) {
     if (!Array.isArray(val)) return [];
@@ -252,7 +265,12 @@ function saveTanggalBatch() {
 
 // Hitung & tetapkan no_spd berurutan untuk SEMUA pegawai (semua kecamatan),
 // dimulai dari nomorAwal tanggal terpilih. Mengembalikan nomor terakhir.
-function computeNoSpdForTanggal(tanggal) {
+function computeNoSpdForTanggal(tanggal, opts) {
+    // Bulan & tahun Romawi mengikuti tanggal batch terpilih
+    // (tgl dari Pengaturan -> Penomoran per Tanggal).
+    // opts.ikutiTanggal === false: hormati override manual via
+    // input bulan (updateBulanSppd), jangan reset dari tanggal.
+    if (!opts || opts.ikutiTanggal !== false) terapkanBulanDariTanggal(tanggal);
     const entry = tanggalBatch.find(t => t.tanggal === tanggal);
     const start = entry ? entry.nomorAwal : nomorAwalSppd;
     let currentNo = start;
@@ -292,17 +310,21 @@ function renderTanggalSelector() {
     if (selectedTanggalCetak) select.value = selectedTanggalCetak;
 }
 
-// Terapkan penomoran untuk tanggal terpilih (dipakai saat ganti tanggal
-// maupun saat data Firebase real-time diterima)
 function applyTanggalChange() {
     computeNoSpdForTanggal(selectedTanggalCetak);
+    // Sinkronkan input bulan preview dengan bulan tanggal terpilih
+    const inputBulan = document.getElementById('v-input-bulan');
+    if (inputBulan && selectedTanggalCetak) {
+        const parts = String(selectedTanggalCetak).split('-');
+        if (parts.length === 3) inputBulan.value = `${parts[0]}-${parts[1]}`;
+    }
     const pegPage = document.getElementById('pegawai-page');
     if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
         renderPegawaiList(selectedKecamatan);
     }
 }
 
-// Event: user ganti tanggal di dropdown
+// Event: user ganti tanggal di dropdown navbar
 function onTanggalChange() {
     const select = document.getElementById('tanggal-select');
     if (!select) return;
@@ -310,9 +332,6 @@ function onTanggalChange() {
     applyTanggalChange();
 }
 
-// ===========================
-// VARIABEL GLOBAL
-// ===========================
 let selectedKecamatan = null;
 
 // ===========================
@@ -673,9 +692,13 @@ function showCetakPage(pegawai) {
     const inputTglKmbli = document.getElementById('v-input-tgl-kmbli');
     const inputBulan = document.getElementById('v-input-bulan');
     
-    if (inputTglBrkt) inputTglBrkt.value = toInputDateStr(tglBerangkat);
-    if (inputTglKmbli) inputTglKmbli.value = toInputDateStr(tglKembali);
-    
+    // Set input bulan mengikuti tanggal batch terpilih
+    // (tgl dari Pengaturan -> Penomoran per Tanggal)
+    if (inputBulan && selectedTanggalCetak) {
+        const parts = String(selectedTanggalCetak).split('-');
+        if (parts.length === 3) inputBulan.value = `${parts[0]}-${parts[1]}`;
+    }
+
     // Set default input bulan ke bulan sekarang jika belum diset
     if (inputBulan && !inputBulan.value) {
         const currentM = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -1281,8 +1304,9 @@ function updateBulanSppd() {
     BULAN_SPPD = BULAN_ROMAWI[monthIndex];
     TAHUN_SPPD = year;
 
-    // Update data di memory — pakai penomoran per tanggal terpilih
-    if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
+    // Update data di memory — pakai penomoran per tanggal terpilih.
+    // ikutiTanggal: false agar bulan manual tidak langsung direset dari tanggal.
+    if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak, { ikutiTanggal: false });
 
     // Update tampilan jika sedang preview
     if (currentPegawai) {
