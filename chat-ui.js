@@ -31,6 +31,8 @@ var chatPanelOpen   = false;
 var chatUnreadCount = 0;
 var isChatLoaded    = false; // Mencegah listener ganda
 var lastDateDivider = '';
+var chatInitialLoad = true;  // true selama payload awal (riwayat) dikirim, bukan pesan baru
+var chatBaseTitle   = '';    // judul tab asli, untuk prefix notifikasi (n)
 
 // ===========================
 // INIT
@@ -54,6 +56,12 @@ function initChatSystem() {
             if (e.key === 'Enter') saveNickname();
         });
     }
+
+    chatBaseTitle = document.title;
+
+    // Pasang listener real-time SEJAK AWAL (bukan hanya saat panel dibuka),
+    // supaya notifikasi pesan baru muncul untuk semua pengguna sejak load.
+    startFirebaseListener();
 
     updateNickDisplay();
 
@@ -209,16 +217,23 @@ function startFirebaseListener() {
 
     var container = document.getElementById('chat-messages');
     if (container) container.innerHTML = ''; // Kosongkan saat pertama kali
-    
-    // Ambil 200 pesan terakhir
+
+    // Ambil 200 pesan terakhir.
+    // Payload pertama (riwayat) tidak dihitung sebagai pesan baru.
     messagesRef.limitToLast(200).on('child_added', function(snapshot) {
         var msg = snapshot.val();
         appendMessage(snapshot.key, msg);
-        
-        // Tambah badge unread jika panel tertutup
-        if (!chatPanelOpen) {
+
+        // Notifikasi hanya untuk pesan BARU (panel tertutup),
+        // bukan riwayat awal yang dikirim saat listener terpasang.
+        if (!chatInitialLoad && !chatPanelOpen) {
             chatUnreadCount++;
             updateUnreadBadge();
+        }
+        if (chatInitialLoad) {
+            // child_added riwayat datang berurutan → payload dianggap
+            // selesai setelah jeda singkat tanpa event baru.
+            setTimeout(function() { chatInitialLoad = false; }, 500);
         }
     });
 
@@ -383,10 +398,10 @@ function autoresizeTextarea(el) {
 function updateUnreadBadge() {
     var badgeDesktop = document.getElementById('chat-unread-badge-desktop');
     var badgeMobile  = document.getElementById('chat-unread-badge-mobile');
-    
+
     var displayStyle = (chatUnreadCount > 0) ? 'inline-block' : 'none';
     var txt = (chatUnreadCount > 99) ? '99+' : String(chatUnreadCount);
-    
+
     if (badgeDesktop) {
         badgeDesktop.style.display = displayStyle;
         badgeDesktop.textContent   = txt;
@@ -394,6 +409,14 @@ function updateUnreadBadge() {
     if (badgeMobile) {
         badgeMobile.style.display = displayStyle;
         badgeMobile.textContent   = txt;
+    }
+
+    // Label judul tab: "(n) Sistem Cetak SPPD - ..." saat ada pesan baru,
+    // kembali normal saat sudah dibaca. Pengguna di tab lain ikut melihat.
+    if (typeof chatBaseTitle !== 'undefined' && chatBaseTitle) {
+        document.title = chatUnreadCount > 0
+            ? '(' + txt + ') ' + chatBaseTitle
+            : chatBaseTitle;
     }
 }
 
