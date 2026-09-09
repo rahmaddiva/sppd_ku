@@ -23,7 +23,8 @@ let noSpdConfig = {};
 // Kader IMP sudah habis kuota perjalanan dinasnya (Agustus lalu).
 // Sementara hanya Kader Sub IMP yang ditampilkan & diberi nomor SPPD berurutan.
 // Set ke false jika Kader IMP perlu ditampilkan lagi.
-const SEMBUNYIKAN_KADER_IMP = true;
+// Jika true berarti Kader IMP tetap dihitung jumlahnya untuk ringkasan kecamatan, tapi tidak dimuat ke pegawaiData.
+const SEMBUNYIKAN_KADER_IMP = false;
 const DEFAULT_NOMOR_AWAL_SPPD = 1;
 const ADMIN_PIN = 'erniwati';
 let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
