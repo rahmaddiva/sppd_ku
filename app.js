@@ -1310,7 +1310,6 @@ function isiDataCetak(pegawai, prefix, container) {
     const root = container || document;
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const tanggalCetak = today.toLocaleDateString('id-ID', options);
 
     // Hitung lama hari dari jabatan (berlaku untuk SPD & KIE)
     const lamaHari = hitungLamaHariDariJabatan(pegawai.jabatan);
@@ -1351,7 +1350,7 @@ function isiDataCetak(pegawai, prefix, container) {
     setEl('lama-perjalanan', lamaText);
     setEl('tgl-brkt', tglBerangkatStr);
     setEl('tgl-kmbli', tglKembaliStr);
-    setEl('tgl-cetak', tanggalCetak);
+    setEl('tgl-cetak', tglBerangkatStr);
 
     // Maksud: bisa dari field 'maksud' (SPD) atau 'maksud_kie' (KIE) atau fallback ke 'maksud'
     const maksud = pegawai.maksud_kie || pegawai.maksud || '';
@@ -1371,7 +1370,7 @@ function isiDataCetak(pegawai, prefix, container) {
     if (elTujuan2) elTujuan2.textContent = pegawai.tempat_tujuan || '-';
     if (elTglBrkt2) elTglBrkt2.textContent = formatTanggalRange(tglBerangkat, tglKembali);
     if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
-    if (elTglCetak2) elTglCetak2.textContent = tanggalCetak;
+    if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
 
     // Isi kolom VI halaman 2 SPD: pejabat aktif sebagai "Kepala" (hanya prefix 'v')
     if (prefix === 'v') {
