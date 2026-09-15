@@ -164,6 +164,15 @@ function rebuildNoSpdConfig() {
 // PENOMORAN PER TANGGAL BATCH (Tanpa backend — localStorage)
 // ===========================
 
+// Total pegawai yang terlihat untuk tanggal tertentu (untuk rentang nomor admin).
+function hitungTotalVisible(tanggal) {
+    let total = 0;
+    kecamatanList.forEach(kec => {
+        total += getVisiblePegawai(kec.id, tanggal).length;
+    });
+    return total;
+}
+
 // Total pegawai di SEMUA kecamatan (untuk menghitung rentang nomor)
 function hitungTotalPegawai() {
     let total = 0;
@@ -192,11 +201,21 @@ function terapkanBulanDariTanggal(tanggal) {
 }
 
 // Normalisasi data tanggal batch dari Firebase/localStorage
+// hanyaSub: true = tanggal ini hanya untuk Sub IMP (Kader IMP disembunyikan)
 function normalizeTanggalBatch(val) {
     if (!Array.isArray(val)) return [];
     return val
         .filter(t => t && t.tanggal && Number.isFinite(parseInt(t.nomorAwal, 10)))
-        .map(t => ({ tanggal: String(t.tanggal), nomorAwal: parseInt(t.nomorAwal, 10) }));
+        .map(t => ({ tanggal: String(t.tanggal), nomorAwal: parseInt(t.nomorAwal, 10), hanyaSub: t.hanyaSub === true }));
+}
+
+function isSubImpJabatan(jabatan) {
+    return String(jabatan || '').toLowerCase().includes('sub imp');
+}
+
+function isTanggalHanyaSub(tanggal) {
+    const entry = (tanggalBatch || []).find(t => t.tanggal === tanggal);
+    return !!(entry && entry.hanyaSub);
 }
 
 // Muat daftar tanggal batch. Sumber utama: Firebase RTDB (shared real-time).
@@ -263,8 +282,19 @@ function saveTanggalBatch() {
     }
 }
 
-// Hitung & tetapkan no_spd berurutan untuk SEMUA pegawai (semua kecamatan),
-// dimulai dari nomorAwal tanggal terpilih. Mengembalikan nomor terakhir.
+// Daftar pegawai yang terlihat untuk tanggal tertentu.
+// Tanggal bertanda hanyaSub hanya menampilkan Sub IMP (Kader IMP disembunyikan,
+// tidak ikut penomoran & cetak batch).
+function getVisiblePegawai(kecId, tanggal) {
+    const list = pegawaiData[kecId] || [];
+    const tgl = tanggal === undefined ? selectedTanggalCetak : tanggal;
+    if (!isTanggalHanyaSub(tgl)) return list;
+    return list.filter(p => isSubImpJabatan(p.jabatan));
+}
+
+// Hitung & tetapkan no_spd berurutan untuk pegawai yang terlihat pada tanggal
+// terpilih (semua kecamatan), dimulai dari nomorAwal tanggal tersebut.
+// Mengembalikan nomor terakhir.
 function computeNoSpdForTanggal(tanggal, opts) {
     // Bulan & tahun Romawi mengikuti tanggal batch terpilih
     // (tgl dari Pengaturan -> Penomoran per Tanggal).
@@ -273,10 +303,12 @@ function computeNoSpdForTanggal(tanggal, opts) {
     if (!opts || opts.ikutiTanggal !== false) terapkanBulanDariTanggal(tanggal);
     const entry = tanggalBatch.find(t => t.tanggal === tanggal);
     const start = entry ? entry.nomorAwal : nomorAwalSppd;
+    const hanyaSub = isTanggalHanyaSub(tanggal);
     let currentNo = start;
     kecamatanList.forEach(kec => {
         const list = pegawaiData[kec.id] || [];
         list.forEach(p => {
+            if (hanyaSub && !isSubImpJabatan(p.jabatan)) return;
             p.no_spd = formatNoSpd(currentNo);
             currentNo++;
         });
@@ -301,7 +333,8 @@ function renderTanggalSelector() {
     tanggalBatch.forEach(t => {
         const opt = document.createElement('option');
         opt.value = t.tanggal;
-        opt.textContent = `${formatTanggalTampil(t.tanggal)} · mulai ${t.nomorAwal}`;
+        const khusus = t.hanyaSub ? ' · khusus Sub IMP' : '';
+        opt.textContent = `${formatTanggalTampil(t.tanggal)} · mulai ${t.nomorAwal}${khusus}`;
         select.appendChild(opt);
     });
     if (selectedTanggalCetak && !tanggalBatch.some(t => t.tanggal === selectedTanggalCetak)) {
@@ -430,10 +463,9 @@ function showPegawaiPage(kecId, kecNama) {
 
 // ===========================
 // FUNGSI RENDER DAFTAR PEGAWAI
-// ===========================
 function renderPegawaiList(kecId, searchQuery) {
     const container = document.getElementById('pegawai-list-container');
-    const pegawaiList = pegawaiData[kecId] || [];
+    const pegawaiList = getVisiblePegawai(kecId);
     const resultCountEl = document.getElementById('search-result-count');
 
     container.innerHTML = '';
@@ -452,6 +484,9 @@ function renderPegawaiList(kecId, searchQuery) {
             } else {
                 resultCountEl.classList.remove('no-result');
             }
+        } else if (isTanggalHanyaSub(selectedTanggalCetak)) {
+            resultCountEl.textContent = `Khusus Sub IMP — ${formatTanggalTampil(selectedTanggalCetak)}`;
+            resultCountEl.classList.remove('no-result');
         } else {
             resultCountEl.textContent = '';
             resultCountEl.classList.remove('no-result');
@@ -810,7 +845,7 @@ function setBatchPageMode(mode) {
 // CETAK SEMUA PEGAWAI PER KECAMATAN
 // ===========================
 function printBatch() {
-    const list = (selectedKecamatan && pegawaiData[selectedKecamatan]) || [];
+    const list = (selectedKecamatan && getVisiblePegawai(selectedKecamatan)) || [];
     if (list.length === 0) {
         showToast('Tidak ada pegawai di kecamatan ini', 'error', 2500);
         return;
@@ -826,7 +861,7 @@ function printBatch() {
 function printBatchSemuaKecamatan() {
     const allPegawai = [];
     kecamatanList.forEach(kec => {
-        (pegawaiData[kec.id] || []).forEach(p => allPegawai.push(p));
+        getVisiblePegawai(kec.id).forEach(p => allPegawai.push(p));
     });
     if (allPegawai.length === 0) {
         showToast('Tidak ada data pegawai', 'error', 2500);
@@ -1172,7 +1207,6 @@ function verifyAdminPin() {
 function renderAdminTanggalList() {
     const container = document.getElementById('admin-tanggal-list');
     if (!container) return;
-    const total = hitungTotalPegawai();
     container.innerHTML = '';
 
     if (tanggalBatch.length === 0) {
@@ -1181,13 +1215,16 @@ function renderAdminTanggalList() {
     }
 
     tanggalBatch.forEach(t => {
+        const total = hitungTotalVisible(t.tanggal);
         const end = t.nomorAwal + total - 1;
+        const khusus = t.hanyaSub ? ' · khusus Sub IMP' : '';
         const row = document.createElement('div');
         row.className = 'admin-tanggal-row';
         row.innerHTML = `
             <div class="admin-tanggal-info">
                 <strong>${escapeHtml(formatTanggalTampil(t.tanggal))}</strong>
-                <span class="admin-tanggal-range">Mulai ${t.nomorAwal} → ${end} (${total} pegawai)</span>
+                <span class="admin-tanggal-range">Mulai ${t.nomorAwal} → ${end} (${total} pegawai${khusus})</span>
+                <label style="display:flex;align-items:center;gap:6px;font-size:0.78rem;cursor:pointer;"><input type="checkbox" ${t.hanyaSub ? 'checked' : ''} onchange="toggleTanggalHanyaSub('${t.tanggal}', this.checked)" style="width:auto;" /> Khusus Sub IMP</label>
             </div>
             <button class="admin-delete-btn" onclick="deleteTanggalBatch('${t.tanggal}')" title="Hapus tanggal">Hapus</button>
         `;
@@ -1195,19 +1232,35 @@ function renderAdminTanggalList() {
     });
 }
 
+function toggleTanggalHanyaSub(tanggal, hanyaSub) {
+    const entry = tanggalBatch.find(t => t.tanggal === tanggal);
+    if (!entry) return;
+    entry.hanyaSub = !!hanyaSub;
+    saveTanggalBatch();
+    renderTanggalSelector();
+    renderAdminTanggalList();
+    computeNoSpdForTanggal(selectedTanggalCetak);
+    const pegPage = document.getElementById('pegawai-page');
+    if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
+        renderPegawaiList(selectedKecamatan);
+    }
+}
+
 function addTanggalBatch() {
     const tanggalInput = document.getElementById('admin-tanggal-input');
     const nomorInput = document.getElementById('admin-nomor-awal-input');
+    const hanyaSubInput = document.getElementById('admin-hanya-sub-input');
     if (!tanggalInput || !nomorInput) return;
 
     const tanggal = tanggalInput.value;
     const nomorAwal = parseInt(nomorInput.value, 10);
+    const hanyaSub = !!(hanyaSubInput && hanyaSubInput.checked);
 
     if (!tanggal) { showToast('Pilih tanggal terlebih dahulu', 'error', 2500); return; }
     if (!Number.isInteger(nomorAwal) || nomorAwal < 1) { showToast('Isi nomor awal yang valid', 'error', 2500); return; }
     if (tanggalBatch.some(t => t.tanggal === tanggal)) { showToast('Tanggal sudah terdaftar', 'error', 2500); return; }
 
-    tanggalBatch.push({ tanggal, nomorAwal });
+    tanggalBatch.push({ tanggal, nomorAwal, hanyaSub });
     tanggalBatch.sort((a, b) => a.tanggal.localeCompare(b.tanggal));
     saveTanggalBatch();
     renderTanggalSelector();
@@ -1215,6 +1268,7 @@ function addTanggalBatch() {
     computeNoSpdForTanggal(selectedTanggalCetak);
     tanggalInput.value = '';
     nomorInput.value = '';
+    if (hanyaSubInput) hanyaSubInput.checked = false;
     showToast('Tanggal batch ditambahkan', 'success', 2500);
 }
 
