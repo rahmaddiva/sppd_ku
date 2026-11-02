@@ -1890,25 +1890,20 @@ body.dark-mode .navbar {
   font-weight: 600;
 }
 
-/* Daftar pegawai: gulir ke samping, bukan menumpuk panjang ke bawah */
+/* Daftar pegawai: grid rapi, bukan tumpukan satu kolom */
 #pegawai-list-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scroll-snap-type: x proximity;
-  scroll-behavior: smooth;
+  align-items: stretch;
 }
 
 #pegawai-list-container .pegawai-item {
-  flex: 0 0 300px;
-  max-width: 85vw;
   margin-bottom: 0;
-  scroll-snap-align: start;
 }
 
 #pegawai-list-container .pegawai-no-result {
-  flex: 1 0 100%;
+  grid-column: 1 / -1;
 }
 
 .pegawai-item {
