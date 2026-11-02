@@ -51,6 +51,14 @@ const DEFAULT_PEJABAT = {
 let pejabatList = [];
 let kepalaAktif = '';
 
+// Tampilkan blok tanda tangan Kepala (kolom VI halaman 2 SPD).
+// Bisa diatur user dari menu Admin; disimpan per browser.
+const TAMPIL_KEPALA_KEY = 'sppd_tampil_kepala';
+let tampilKepala = true;
+try {
+    tampilKepala = localStorage.getItem(TAMPIL_KEPALA_KEY) !== '0';
+} catch (e) { /* abaikan */ }
+
 // Bulan & tahun untuk format nomor SPPD
 const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 const currentDate = new Date();
@@ -150,6 +158,40 @@ function getKepalaAktif() {
         return pejabatList.find(p => p.jabatan === kepalaAktif) || pejabatList[0];
     }
     return DEFAULT_PEJABAT;
+}
+
+// ===========================
+// TAMPIL / SEMBUNYIKAN BLOK KEPALA (kolom VI halaman 2)
+// ===========================
+function applyTampilKepala(root) {
+    const scope = root || document;
+    scope.querySelectorAll('[data-kepala-block]').forEach(cell => {
+        if (tampilKepala) {
+            cell.style.visibility = '';
+            // Pastikan data kepala terisi kembali (bisa kosong bila template di-clone saat mode kosong)
+            const nama = cell.querySelector('[id$="kepala-nama"]');
+            const nip = cell.querySelector('[id$="kepala-nip"]');
+            const jabatan = cell.querySelector('[id$="kepala-jabatan"]');
+            if (jabatan && !jabatan.textContent.trim()) {
+                const kepala = getKepalaAktif();
+                jabatan.textContent = kepala.jabatan || '-';
+                if (nama) nama.textContent = kepala.nama || '.................................................';
+                if (nip) nip.textContent = kepala.nip || '';
+            }
+        } else {
+            cell.style.visibility = 'hidden';
+        }
+    });
+}
+
+function setTampilKepala(value) {
+    tampilKepala = !!value;
+    try {
+        localStorage.setItem(TAMPIL_KEPALA_KEY, tampilKepala ? '1' : '0');
+    } catch (e) { /* abaikan */ }
+    applyTampilKepala();
+    const cb = document.getElementById('admin-tampil-kepala');
+    if (cb) cb.checked = tampilKepala;
 }
 
 function rebuildNoSpdConfig() {
@@ -1223,6 +1265,9 @@ function verifyAdminPin() {
         kepalaInfo.textContent = `${kepala.jabatan} (${kepala.nama})`;
     }
 
+    const cbKepala = document.getElementById('admin-tampil-kepala');
+    if (cbKepala) cbKepala.checked = tampilKepala;
+
     renderAdminTanggalList();
 }
 
@@ -1484,6 +1529,7 @@ function isiDataCetak(pegawai, prefix, container) {
         if (elKepalaJabatan) elKepalaJabatan.textContent = kepala.jabatan || '-';
         if (elKepalaNama) elKepalaNama.textContent = kepala.nama || '.................................................';
         if (elKepalaNip) elKepalaNip.textContent = kepala.nip || '';
+        applyTampilKepala(root);
     }
 
     return { lamaHari, tglBerangkat, tglKembali };
@@ -1555,6 +1601,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
         renderTanggalSelector();
         renderKecamatan();
+        if (!tampilKepala) applyTampilKepala();
         // Tampilkan modal update setelah halaman siap (sedikit delay agar tampil paling atas)
         setTimeout(showUpdateModal, 400);
     }

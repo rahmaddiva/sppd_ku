@@ -112,7 +112,8 @@ Klik ikon gear di navbar → masukkan PIN (didefinisikan sebagai `ADMIN_PIN` di 
 
 - melihat nomor awal SPPD dan kepala aktif;
 - menambah/menghapus tanggal batch beserta nomor awal;
-- menandai tanggal sebagai khusus Sub IMP.
+- menandai tanggal sebagai khusus Sub IMP;
+- menampilkan/mengosongkan blok Kepala di kolom VI halaman 2 SPD (pilihan disimpan di `localStorage` per browser; tinggi sel tetap).
 
 PIN ini gate tampilan di sisi klien, bukan otentikasi server.
 

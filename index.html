@@ -186,6 +186,13 @@
           pada daftar <strong>pejabat</strong>).
         </div>
 
+        <label class="admin-kepala-toggle" style="display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;cursor:pointer;padding:12px 14px;background:var(--bg-input);border:1px dashed var(--border);border-radius:var(--radius-md);margin-bottom:16px;">
+          <input type="checkbox" id="admin-tampil-kepala" onchange="setTampilKepala(this.checked)" style="width:auto;margin-top:2px;" />
+          <span>Tampilkan nama &amp; NIP Kepala di kolom VI halaman 2 SPD.<br />
+            <span style="color:var(--text-secondary);">Jika dimatikan, kolom VI dibiarkan kosong (tinggi sel tetap sama).</span>
+          </span>
+        </label>
+
         <div class="admin-section">
           <div class="admin-section-head">
             <div>
@@ -994,7 +1001,7 @@
             <td class="col-num" style="vertical-align: top; padding-top: 12px">
               VI.
             </td>
-            <td style="
+            <td data-kepala-block style="
                   padding: 12px;
                   height: 160px;
                   vertical-align: top;
