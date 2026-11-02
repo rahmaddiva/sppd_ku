@@ -19,6 +19,8 @@ const kecamatanList = [
 // KONFIGURASI NOMOR SPPD PER KECAMATAN (APRIL 2026)
 // ===========================
 let noSpdConfig = {};
+// Rentang nomor SPPD per kecamatan untuk tanggal terpilih: { start, end }
+let noSpdRangePerKec = {};
 
 // Kader IMP sudah habis kuota perjalanan dinasnya (Agustus lalu).
 // Sementara hanya Kader Sub IMP yang ditampilkan & diberi nomor SPPD berurutan.
@@ -305,15 +307,37 @@ function computeNoSpdForTanggal(tanggal, opts) {
     const start = entry ? entry.nomorAwal : nomorAwalSppd;
     const hanyaSub = isTanggalHanyaSub(tanggal);
     let currentNo = start;
+    noSpdRangePerKec = {};
     kecamatanList.forEach(kec => {
         const list = pegawaiData[kec.id] || [];
+        let first = null;
+        let last = null;
         list.forEach(p => {
             if (hanyaSub && !isSubImpJabatan(p.jabatan)) return;
             p.no_spd = formatNoSpd(currentNo);
+            if (first === null) first = currentNo;
+            last = currentNo;
             currentNo++;
         });
+        noSpdRangePerKec[kec.id] = first === null ? null : { start: first, end: last };
     });
+    updateKecamatanRanges();
     return currentNo - 1;
+}
+
+// Teks rentang nomor SPPD satu kecamatan, mis. "01 – 37"
+function formatKecRange(kecId) {
+    const range = noSpdRangePerKec[kecId];
+    if (!range) return '';
+    const pad = n => String(n).padStart(2, '0');
+    return `No SPPD: ${pad(range.start)} – ${pad(range.end)}`;
+}
+
+// Perbarui teks rentang di kartu kecamatan yang sudah dirender
+function updateKecamatanRanges() {
+    document.querySelectorAll('.kec-range').forEach(el => {
+        el.textContent = formatKecRange(el.dataset.kec);
+    });
 }
 
 // Format 'YYYY-MM-DD' → tanggal Indonesia (ex: "Senin, 4 Agustus 2026")
@@ -386,6 +410,7 @@ function renderKecamatan() {
                 <span class="count-sep">·</span>
                 <span class="count-sub">Sub IMP: ${cnt.sub}</span>
             </p>
+            <p class="kec-range" data-kec="${kec.id}">${formatKecRange(kec.id)}</p>
         `;
         card.onclick = () => showPegawaiPage(kec.id, kec.nama);
         grid.appendChild(card);

@@ -1784,6 +1784,18 @@ body.dark-mode .navbar {
   font-size: 0.75rem;
 }
 
+/* Rentang nomor SPPD per kecamatan */
+.kecamatan-card p.kec-range {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.kecamatan-card p.kec-range:empty {
+  display: none;
+}
+
 /* Ringkasan total kader IMP & Sub IMP (di atas grid kecamatan) */
 .kader-count-summary {
   display: flex;
@@ -1876,6 +1888,27 @@ body.dark-mode .navbar {
   margin-bottom: 16px;
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* Daftar pegawai: gulir ke samping, bukan menumpuk panjang ke bawah */
+#pegawai-list-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+}
+
+#pegawai-list-container .pegawai-item {
+  flex: 0 0 300px;
+  max-width: 85vw;
+  margin-bottom: 0;
+  scroll-snap-align: start;
+}
+
+#pegawai-list-container .pegawai-no-result {
+  flex: 1 0 100%;
 }
 
 .pegawai-item {
