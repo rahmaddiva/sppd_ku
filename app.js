@@ -166,8 +166,12 @@ function getKepalaAktif() {
 function applyTampilKepala(root) {
     const scope = root || document;
     scope.querySelectorAll('[data-kepala-block]').forEach(cell => {
+        cell.style.visibility = '';
+        // Label "Tiba di", "Pada tanggal", "Kepala" + titik dua selalu tetap tercetak.
+        cell.querySelectorAll('[data-kepala-val]').forEach(val => {
+            val.style.visibility = tampilKepala ? '' : 'hidden';
+        });
         if (tampilKepala) {
-            cell.style.visibility = '';
             // Pastikan data kepala terisi kembali (bisa kosong bila template di-clone saat mode kosong)
             const nama = cell.querySelector('[id$="kepala-nama"]');
             const nip = cell.querySelector('[id$="kepala-nip"]');
@@ -178,8 +182,6 @@ function applyTampilKepala(root) {
                 if (nama) nama.textContent = kepala.nama || '.................................................';
                 if (nip) nip.textContent = kepala.nip || '';
             }
-        } else {
-            cell.style.visibility = 'hidden';
         }
     });
 }

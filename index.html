@@ -188,8 +188,8 @@
 
         <label class="admin-kepala-toggle" style="display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;cursor:pointer;padding:12px 14px;background:var(--bg-input);border:1px dashed var(--border);border-radius:var(--radius-md);margin-bottom:16px;">
           <input type="checkbox" id="admin-tampil-kepala" onchange="setTampilKepala(this.checked)" style="width:auto;margin-top:2px;" />
-          <span>Tampilkan nama &amp; NIP Kepala di kolom VI halaman 2 SPD.<br />
-            <span style="color:var(--text-secondary);">Jika dimatikan, kolom VI dibiarkan kosong (tinggi sel tetap sama).</span>
+          <span>Tampilkan isi kolom VI halaman 2 SPD (tujuan, tanggal, nama &amp; NIP Kepala).<br />
+            <span style="color:var(--text-secondary);">Jika dimatikan, hanya label "Tiba di :", "Pada tanggal :", dan "Kepala :" yang tercetak.</span>
           </span>
         </label>
 
@@ -1010,19 +1010,19 @@
               <div style="display: flex; margin-bottom: 5px">
                 <div style="width: 120px">Tiba di</div>
                 <div style="width: 15px">:</div>
-                <div>Pelaihari</div>
+                <div data-kepala-val>Pelaihari</div>
               </div>
               <div style="display: flex; margin-bottom: 5px">
                 <div style="width: 120px">Pada tanggal</div>
                 <div style="width: 15px">:</div>
-                <div><span id="v-tgl-kmbli2"></span></div>
+                <div data-kepala-val><span id="v-tgl-kmbli2"></span></div>
               </div>
               <div style="display: flex; margin-bottom: 5px">
                 <div style="width: 120px">Kepala</div>
                 <div style="width: 15px">:</div>
-                <div><span id="v-kepala-jabatan"></span></div>
+                <div data-kepala-val><span id="v-kepala-jabatan"></span></div>
               </div>
-              <div style="
+              <div data-kepala-val style="
                     position: absolute;
                     bottom: 12px;
                     left: 22px;
