@@ -148,6 +148,11 @@ body.cur-click #cursor-ring {
   box-sizing: border-box;
 }
 
+/* Dark mode transition - applied via JS class */
+body.theme-transitioning * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--bg-primary);
