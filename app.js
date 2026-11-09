@@ -1668,6 +1668,230 @@ async function loadAccessLogs() {
 window.loadAccessLogs = loadAccessLogs;
 
 // ===========================
+// USULAN PERUBAHAN - MODAL & SUBMIT
+// ===========================
+function openUsulanModal(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('modal-usulan');
+    if (!modal) return;
+    
+    // Populate kecamatan dropdown
+    const select = document.getElementById('usulan-kecamatan');
+    if (select && select.options.length <= 1) {
+        kecamatanList.forEach(kec => {
+            const option = document.createElement('option');
+            option.value = kec.id;
+            option.textContent = kec.nama;
+            select.appendChild(option);
+        });
+    }
+    
+    modal.style.display = 'flex';
+}
+
+function closeUsulanModal() {
+    const modal = document.getElementById('modal-usulan');
+    if (modal) modal.style.display = 'none';
+}
+
+async function submitUsulan() {
+    const nama = document.getElementById('usulan-nama').value.trim();
+    const kecamatan = document.getElementById('usulan-kecamatan').value;
+    const jenis = document.getElementById('usulan-jenis').value;
+    const detail = document.getElementById('usulan-detail').value.trim();
+    
+    // Validasi
+    if (!nama) {
+        alert('Nama pengusul harus diisi.');
+        return;
+    }
+    if (!kecamatan) {
+        alert('Kecamatan harus dipilih.');
+        return;
+    }
+    if (!jenis) {
+        alert('Jenis perubahan harus dipilih.');
+        return;
+    }
+    if (!detail) {
+        alert('Detail usulan harus diisi.');
+        return;
+    }
+    
+    const usulan = {
+        nama: nama,
+        kecamatan: kecamatan,
+        kecamatanNama: kecamatanList.find(k => k.id === kecamatan)?.nama || kecamatan,
+        jenis: jenis,
+        jenisLabel: document.getElementById('usulan-jenis').options[document.getElementById('usulan-jenis').selectedIndex].text,
+        detail: detail,
+        timestamp: new Date().toISOString(),
+        timestampLocal: new Date().toLocaleString('id-ID'),
+        status: 'pending', // pending, reviewed, approved, rejected
+        userAgent: navigator.userAgent
+    };
+    
+    try {
+        // Simpan ke Firebase
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            try {
+                const usulanRef = firebase.database().ref('usulan_perubahan');
+                const newUsulanRef = usulanRef.push();
+                await newUsulanRef.set(usulan);
+                console.log('Usulan submitted to Firebase:', usulan);
+            } catch (fbError) {
+                console.warn('Firebase write failed, using localStorage:', fbError.message || fbError);
+                saveUsulanToLocal(usulan);
+            }
+        } else {
+            saveUsulanToLocal(usulan);
+        }
+        
+        // Reset form
+        document.getElementById('usulan-nama').value = '';
+        document.getElementById('usulan-kecamatan').value = '';
+        document.getElementById('usulan-jenis').value = '';
+        document.getElementById('usulan-detail').value = '';
+        
+        closeUsulanModal();
+        alert('Usulan berhasil dikirim! Admin akan meninjau usulan Anda.');
+    } catch (error) {
+        console.error('Error submitting usulan:', error);
+        alert('Gagal mengirim usulan. Silakan coba lagi.');
+    }
+}
+
+function saveUsulanToLocal(usulan) {
+    try {
+        const usulanList = JSON.parse(localStorage.getItem('sppd_usulan_local') || '[]');
+        usulanList.push(usulan);
+        localStorage.setItem('sppd_usulan_local', JSON.stringify(usulanList));
+        console.log('Usulan saved to localStorage:', usulan);
+    } catch (e) {
+        console.warn('Gagal simpan usulan ke localStorage:', e);
+    }
+}
+
+// Expose to global scope
+window.openUsulanModal = openUsulanModal;
+window.closeUsulanModal = closeUsulanModal;
+window.submitUsulan = submitUsulan;
+
+// ===========================
+// USULAN REVIEW - ADMIN VIEW
+// ===========================
+async function loadUsulanList() {
+    const container = document.getElementById('admin-usulan-list');
+    if (!container) return;
+    
+    container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Memuat data...</p>';
+    
+    try {
+        let usulanList = [];
+        let source = '';
+        
+        // Coba baca dari Firebase dulu
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            try {
+                const usulanRef = firebase.database().ref('usulan_perubahan');
+                const snapshot = await usulanRef.orderByChild('timestamp').limitToLast(50).once('value');
+                const fbUsulan = snapshot.val();
+                
+                if (fbUsulan) {
+                    usulanList = Object.entries(fbUsulan).map(([id, data]) => ({ id, ...data }));
+                    source = 'Firebase';
+                }
+            } catch (fbError) {
+                console.warn('Firebase read failed:', fbError.message || fbError);
+            }
+        }
+        
+        // Jika Firebase kosong/gagal, baca dari localStorage fallback
+        if (usulanList.length === 0) {
+            try {
+                const localUsulan = JSON.parse(localStorage.getItem('sppd_usulan_local') || '[]');
+                if (localUsulan.length > 0) {
+                    usulanList = localUsulan.map((u, idx) => ({ id: `local_${idx}`, ...u }));
+                    source = 'LocalStorage (fallback)';
+                }
+            } catch (e) {
+                console.warn('LocalStorage read failed:', e);
+            }
+        }
+        
+        if (usulanList.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Belum ada usulan.</p>';
+            return;
+        }
+        
+        // Reverse (terbaru di atas)
+        usulanList.reverse();
+        
+        let html = `<p style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: 8px;">Sumber: ${source} · ${usulanList.length} usulan</p>`;
+        html += '<div style="display: flex; flex-direction: column; gap: 10px;">';
+        usulanList.forEach(u => {
+            const time = u.timestampLocal || new Date(u.timestamp).toLocaleString('id-ID');
+            const statusColor = u.status === 'approved' ? 'var(--mint)' : u.status === 'rejected' ? 'var(--tomato)' : 'var(--sunflower)';
+            const statusLabel = u.status === 'approved' ? 'Disetujui' : u.status === 'rejected' ? 'Ditolak' : 'Pending';
+            
+            html += `
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 0.82rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <strong style="color: var(--text-primary);">${u.nama}</strong>
+                        <span style="background: ${statusColor}; color: var(--ink); padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 700;">${statusLabel}</span>
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 4px;">
+                        📍 ${u.kecamatanNama} · ${u.jenisLabel}
+                    </div>
+                    <div style="color: var(--text-primary); font-size: 0.8rem; margin-bottom: 6px; padding: 8px; background: var(--bg-input); border-radius: 6px;">
+                        ${u.detail}
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted);">
+                        <span>🕐 ${time}</span>
+                        <div style="display: flex; gap: 6px;">
+                            <button onclick="updateUsulanStatus('${u.id}', 'approved')" style="background: var(--mint); color: var(--ink); border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; cursor: pointer;">✓ Setuju</button>
+                            <button onclick="updateUsulanStatus('${u.id}', 'rejected')" style="background: var(--tomato); color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; cursor: pointer;">✗ Tolak</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        
+        container.innerHTML = html;
+    } catch (error) {
+        console.error('Error loading usulan:', error);
+        container.innerHTML = `<p style="color: var(--danger);">Gagal memuat usulan: ${error.message}</p>`;
+    }
+}
+
+async function updateUsulanStatus(id, status) {
+    try {
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            try {
+                const usulanRef = firebase.database().ref(`usulan_perubahan/${id}`);
+                await usulanRef.update({ status: status });
+                console.log(`Usulan ${id} status updated to ${status}`);
+                // Reload list
+                loadUsulanList();
+                return;
+            } catch (fbError) {
+                console.warn('Firebase update failed:', fbError.message || fbError);
+            }
+        }
+        alert('Status usulan diupdate (local only).');
+        loadUsulanList();
+    } catch (error) {
+        console.error('Error updating usulan status:', error);
+        alert('Gagal update status usulan.');
+    }
+}
+
+// Expose to global scope
+window.loadUsulanList = loadUsulanList;
+window.updateUsulanStatus = updateUsulanStatus;
+
+// ===========================
 // INISIALISASI APLIKASI
 // ===========================
 document.addEventListener('DOMContentLoaded', async function() {
