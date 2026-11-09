@@ -153,7 +153,7 @@
 
   <!-- ===== MODAL USULAN PERUBAHAN ===== -->
   <div class="modal-overlay" id="modal-usulan" style="display: none">
-    <div class="modal-box" id="modal-usulan-box" style="max-width: 480px;">
+    <div class="modal-box modal-usulan-box">
       <div class="modal-icon" style="background: var(--electric);">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -165,37 +165,46 @@
       <p class="modal-desc">
         Sampaikan usulan perubahan data Kader IMP atau Sub IMP. Admin akan meninjau usulan Anda.
       </p>
-      <div class="modal-input-group">
-        <label class="admin-label" for="usulan-nama">Nama Pengusul</label>
-        <input type="text" id="usulan-nama" placeholder="Nama Anda" maxlength="50" />
+      
+      <div class="usulan-form-grid">
+        <div class="modal-input-group">
+          <label class="admin-label" for="usulan-nama">Nama Pengusul</label>
+          <input type="text" id="usulan-nama" placeholder="Nama Anda" maxlength="50" />
+        </div>
+        
+        <div class="modal-input-group">
+          <label class="admin-label" for="usulan-kecamatan">Kecamatan</label>
+          <select id="usulan-kecamatan" class="usulan-select">
+            <option value="">-- Pilih Kecamatan --</option>
+          </select>
+        </div>
+        
+        <div class="modal-input-group full-width">
+          <label class="admin-label" for="usulan-jenis">Jenis Perubahan</label>
+          <select id="usulan-jenis" class="usulan-select">
+            <option value="">-- Pilih Jenis --</option>
+            <option value="tambah_kader_imp">Tambah Kader IMP</option>
+            <option value="tambah_sub_imp">Tambah Sub IMP</option>
+            <option value="ubah_data">Ubah Data (Nama/NIP/Jabatan)</option>
+            <option value="hapus_data">Hapus Data</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+        
+        <div class="modal-input-group full-width">
+          <label class="admin-label" for="usulan-detail">Detail Usulan</label>
+          <textarea id="usulan-detail" rows="4" maxlength="500" placeholder="Jelaskan detail usulan perubahan..."></textarea>
+        </div>
       </div>
-      <div class="modal-input-group">
-        <label class="admin-label" for="usulan-kecamatan">Kecamatan</label>
-        <select id="usulan-kecamatan" class="tanggal-select" style="width: 100%; height: 44px;">
-          <option value="">-- Pilih Kecamatan --</option>
-        </select>
+      
+      <div class="usulan-actions">
+        <button class="modal-btn modal-btn-primary" onclick="submitUsulan()">
+          Kirim Usulan
+        </button>
+        <button class="modal-btn modal-btn-secondary" onclick="closeUsulanModal()">
+          Batal
+        </button>
       </div>
-      <div class="modal-input-group">
-        <label class="admin-label" for="usulan-jenis">Jenis Perubahan</label>
-        <select id="usulan-jenis" class="tanggal-select" style="width: 100%; height: 44px;">
-          <option value="">-- Pilih Jenis --</option>
-          <option value="tambah_kader_imp">Tambah Kader IMP</option>
-          <option value="tambah_sub_imp">Tambah Sub IMP</option>
-          <option value="ubah_data">Ubah Data (Nama/NIP/Jabatan)</option>
-          <option value="hapus_data">Hapus Data</option>
-          <option value="lainnya">Lainnya</option>
-        </select>
-      </div>
-      <div class="modal-input-group">
-        <label class="admin-label" for="usulan-detail">Detail Usulan</label>
-        <textarea id="usulan-detail" rows="4" maxlength="500" placeholder="Jelaskan detail usulan perubahan..." style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-size: 0.95rem; font-family: var(--font-sans); font-weight: 500; outline: none; resize: vertical; min-height: 100px;"></textarea>
-      </div>
-      <button class="modal-btn" onclick="submitUsulan()">
-        Kirim Usulan
-      </button>
-      <button class="modal-btn" onclick="closeUsulanModal()" style="background: var(--bg-card); color: var(--text-primary); margin-top: 8px;">
-        Batal
-      </button>
     </div>
   </div>
 

@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "messages": {
+      ".read": true,
+      ".write": true,
+      "$msgId": {
+        ".validate": "newData.hasChildren(['nickname', 'message', 'color', 'timestamp'])"
+      }
+    },
+    "sppd": {
+      "tanggalBatch": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "access_logs": {
+      ".read": true,
+      ".write": true,
+      "$logId": {
+        ".validate": "newData.hasChild('ip') && newData.hasChild('timestamp')"
+      }
+    },
+    "usulan_perubahan": {
+      ".read": true,
+      ".write": true,
+      "$usulanId": {
+        ".validate": "newData.hasChildren(['nama', 'kecamatan', 'jenis', 'detail', 'timestamp'])"
+      }
+    }
+  }
+}

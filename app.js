@@ -1702,19 +1702,19 @@ async function submitUsulan() {
     
     // Validasi
     if (!nama) {
-        alert('Nama pengusul harus diisi.');
+        showToast('Nama pengusul harus diisi.', 'error', 2500);
         return;
     }
     if (!kecamatan) {
-        alert('Kecamatan harus dipilih.');
+        showToast('Kecamatan harus dipilih.', 'error', 2500);
         return;
     }
     if (!jenis) {
-        alert('Jenis perubahan harus dipilih.');
+        showToast('Jenis perubahan harus dipilih.', 'error', 2500);
         return;
     }
     if (!detail) {
-        alert('Detail usulan harus diisi.');
+        showToast('Detail usulan harus diisi.', 'error', 2500);
         return;
     }
     
@@ -1754,10 +1754,10 @@ async function submitUsulan() {
         document.getElementById('usulan-detail').value = '';
         
         closeUsulanModal();
-        alert('Usulan berhasil dikirim! Admin akan meninjau usulan Anda.');
+        showToast('Usulan berhasil dikirim! Admin akan meninjau usulan Anda.', 'success', 3500);
     } catch (error) {
         console.error('Error submitting usulan:', error);
-        alert('Gagal mengirim usulan. Silakan coba lagi.');
+        showToast('Gagal mengirim usulan. Silakan coba lagi.', 'error', 3000);
     }
 }
 
