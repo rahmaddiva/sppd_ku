@@ -330,24 +330,96 @@
   <div class="container">
     <!-- Landing Page -->
     <section class="header landing-hero" aria-labelledby="landing-title">
-      <p class="landing-eyebrow">Dinas P3AP2KB Kabupaten Tanah Laut</p>
-      <h1 id="landing-title">
-        Cetak SPPD lebih cepat, rapi, dan siap digunakan.
-      </h1>
-      <p class="landing-lead">
-        Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan
-        dinas tanpa mengulang format manual.
-      </p>
-      <div class="landing-actions">
-        <a class="landing-primary" href="#kecamatan-page">Mulai pilih kecamatan</a>
-        <button class="landing-secondary" type="button" onclick="openChatPanel(event)">
-          Buka chat
-        </button>
-      </div>
-      <div class="landing-meta" aria-label="Ringkasan sistem">
-        <span>11 kecamatan</span>
-        <span>Data pegawai lokal</span>
-        <span>Format SPD & KIE</span>
+      <div class="landing-content">
+        <div class="landing-text">
+          <p class="landing-eyebrow">Dinas P3AP2KB Kabupaten Tanah Laut</p>
+          <h1 id="landing-title">
+            Cetak SPPD lebih cepat, rapi, dan siap digunakan.
+          </h1>
+          <p class="landing-lead">
+            Pilih kecamatan, temukan nama pegawai, lalu siapkan dokumen perjalanan
+            dinas tanpa mengulang format manual.
+          </p>
+          <div class="landing-actions">
+            <a class="landing-primary" href="#kecamatan-page">Mulai pilih kecamatan</a>
+            <button class="landing-secondary" type="button" onclick="openChatPanel(event)">
+              Buka chat
+            </button>
+          </div>
+          <div class="landing-meta" aria-label="Ringkasan sistem">
+            <span>11 kecamatan</span>
+            <span>Data pegawai lokal</span>
+            <span>Format SPD & KIE</span>
+          </div>
+        </div>
+        <div class="landing-mascot">
+          <!-- Mascot: Animated Paper Character -->
+          <svg class="mascot-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sparkles -->
+            <g class="sparkle sparkle-1">
+              <path d="M 30 40 L 33 47 L 40 50 L 33 53 L 30 60 L 27 53 L 20 50 L 27 47 Z" fill="#FFC93C"/>
+            </g>
+            <g class="sparkle sparkle-2">
+              <path d="M 170 60 L 172 65 L 177 67 L 172 69 L 170 74 L 168 69 L 163 67 L 168 65 Z" fill="#2FD6A8"/>
+            </g>
+            <g class="sparkle sparkle-3">
+              <path d="M 40 180 L 42 185 L 47 187 L 42 189 L 40 194 L 38 189 L 33 187 L 38 185 Z" fill="#FF5A36"/>
+            </g>
+            
+            <!-- Paper Body -->
+            <g class="mascot-body">
+              <!-- Main paper -->
+              <rect x="50" y="30" width="100" height="130" rx="8" fill="#FFFFFF" stroke="#241F3A" stroke-width="3"/>
+              <!-- Folded corner -->
+              <path d="M 130 30 L 150 30 L 150 50 Z" fill="#F5F5F7" stroke="#241F3A" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M 130 30 L 130 50 L 150 50" fill="none" stroke="#241F3A" stroke-width="2"/>
+              
+              <!-- Text lines on paper -->
+              <line x1="65" y1="55" x2="120" y2="55" stroke="#241F3A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="65" y1="70" x2="110" y2="70" stroke="#8C7B72" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="65" y1="82" x2="115" y2="82" stroke="#8C7B72" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="65" y1="94" x2="105" y2="94" stroke="#8C7B72" stroke-width="2.5" stroke-linecap="round"/>
+              
+              <!-- Stamp/Seal -->
+              <circle cx="125" cy="120" r="18" fill="#FF5A36" stroke="#241F3A" stroke-width="2.5"/>
+              <text x="125" y="125" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">SPPD</text>
+              
+              <!-- Checkmark -->
+              <path d="M 70 115 L 80 125 L 100 105" fill="none" stroke="#2FD6A8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            
+            <!-- Arms -->
+            <g class="mascot-arm-left">
+              <path d="M 50 80 Q 30 90 25 110" fill="none" stroke="#241F3A" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="25" cy="110" r="6" fill="#FFC93C" stroke="#241F3A" stroke-width="2.5"/>
+            </g>
+            <g class="mascot-arm-right">
+              <path d="M 150 80 Q 170 70 175 50" fill="none" stroke="#241F3A" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="175" cy="50" r="6" fill="#FFC93C" stroke="#241F3A" stroke-width="2.5"/>
+            </g>
+            
+            <!-- Face -->
+            <g class="mascot-face">
+              <!-- Eyes -->
+              <circle cx="85" cy="145" r="4" fill="#241F3A"/>
+              <circle cx="115" cy="145" r="4" fill="#241F3A"/>
+              <!-- Smile -->
+              <path d="M 90 155 Q 100 162 110 155" fill="none" stroke="#241F3A" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Blush -->
+              <ellipse cx="80" cy="152" rx="5" ry="3" fill="#FF5A36" opacity="0.3"/>
+              <ellipse cx="120" cy="152" rx="5" ry="3" fill="#FF5A36" opacity="0.3"/>
+            </g>
+            
+            <!-- Legs -->
+            <g class="mascot-legs">
+              <path d="M 80 160 L 75 185" stroke="#241F3A" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 120 160 L 125 185" stroke="#241F3A" stroke-width="4" stroke-linecap="round"/>
+              <!-- Shoes -->
+              <ellipse cx="73" cy="188" rx="8" ry="5" fill="#2E6BFF" stroke="#241F3A" stroke-width="2.5"/>
+              <ellipse cx="127" cy="188" rx="8" ry="5" fill="#2E6BFF" stroke="#241F3A" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </section>
 
