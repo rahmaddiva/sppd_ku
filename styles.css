@@ -1744,6 +1744,26 @@ body.dark-mode .navbar {
   box-shadow: var(--shadow-sm);
 }
 
+.dev {
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.dev a {
+  color: var(--electric);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1.5px solid transparent;
+  transition: all var(--transition);
+}
+
+.dev a:hover {
+  color: var(--tomato);
+  border-bottom-color: var(--tomato);
+}
+
 /* ===========================
    LANDING MASCOT
    =========================== */
