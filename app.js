@@ -1586,6 +1586,88 @@ function dismissUpdateModal() {
 }
 
 // ===========================
+// ACCESS LOGS - ADMIN VIEW
+// ===========================
+async function loadAccessLogs() {
+    const container = document.getElementById('admin-access-logs');
+    if (!container) return;
+    
+    container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Memuat data...</p>';
+    
+    try {
+        let logs = [];
+        let source = '';
+        
+        // Coba baca dari Firebase dulu
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            try {
+                const logsRef = firebase.database().ref('access_logs');
+                const snapshot = await logsRef.orderByChild('timestamp').limitToLast(50).once('value');
+                const fbLogs = snapshot.val();
+                
+                if (fbLogs) {
+                    logs = Object.values(fbLogs);
+                    source = 'Firebase';
+                }
+            } catch (fbError) {
+                console.warn('Firebase read failed:', fbError.message || fbError);
+            }
+        }
+        
+        // Jika Firebase kosong/gagal, baca dari localStorage fallback
+        if (logs.length === 0) {
+            try {
+                const localLogs = JSON.parse(localStorage.getItem('sppd_access_logs_local') || '[]');
+                if (localLogs.length > 0) {
+                    logs = localLogs;
+                    source = 'LocalStorage (fallback)';
+                }
+            } catch (e) {
+                console.warn('LocalStorage read failed:', e);
+            }
+        }
+        
+        if (logs.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Belum ada log akses.</p>';
+            return;
+        }
+        
+        // Reverse (terbaru di atas)
+        logs.reverse();
+        
+        let html = `<p style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: 8px;">Sumber: ${source} · ${logs.length} log</p>`;
+        html += '<div style="display: flex; flex-direction: column; gap: 8px;">';
+        logs.forEach(log => {
+            const time = log.timestampLocal || new Date(log.timestamp).toLocaleString('id-ID');
+            const location = [log.city, log.region, log.country].filter(Boolean).join(', ') || 'Unknown';
+            html += `
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 10px; font-size: 0.82rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <strong style="color: var(--tomato); font-family: var(--font-mono);">${log.ip}</strong>
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">${time}</span>
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.78rem;">
+                        📍 ${location} ${log.org ? `· ${log.org}` : ''}
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 0.72rem; margin-top: 4px; word-break: break-all;">
+                        🌐 ${log.page || '-'}
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        
+        container.innerHTML = html;
+    } catch (error) {
+        console.error('Error loading access logs:', error);
+        container.innerHTML = `<p style="color: var(--danger);">Gagal memuat log: ${error.message}</p>`;
+    }
+}
+
+// Expose to global scope for onclick handlers
+window.loadAccessLogs = loadAccessLogs;
+
+// ===========================
 // INISIALISASI APLIKASI
 // ===========================
 document.addEventListener('DOMContentLoaded', async function() {
