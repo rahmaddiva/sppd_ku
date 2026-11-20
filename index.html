@@ -263,9 +263,10 @@
             <div>
               <h3 class="admin-section-title">Penomoran per Tanggal</h3>
               <p class="admin-section-desc">
-                Tiap tanggal punya nomor awal sendiri. Nomor berjalan sampai
-                seluruh pegawai (semua kecamatan). Disimpan di
-                <strong>localStorage</strong> (per browser, tanpa backend).
+                Tiap tanggal punya nomor awal sendiri dan daftar kecamatan
+                yang dapat nomor (buka <strong>Atur kecamatan</strong>).
+                Tersinkron lewat <strong>Firebase</strong>, dengan cache
+                localStorage saat offline.
               </p>
             </div>
           </div>
@@ -558,6 +559,7 @@
     <div id="kecamatan-page">
       <div class="kader-count-summary" id="kader-count-summary"
         aria-label="Ringkasan jumlah kader IMP dan Sub IMP"></div>
+      <p class="kec-filter-note" id="kec-filter-note" style="display: none"></p>
       <div class="kecamatan-grid" id="kecamatan-grid"></div>
     </div>
 

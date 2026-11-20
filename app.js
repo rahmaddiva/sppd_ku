@@ -52,8 +52,9 @@ let pejabatList = [];
 let kepalaAktif = '';
 
 // Tampilkan blok tanda tangan Kepala (kolom VI halaman 2 SPD).
-// Bisa diatur user dari menu Admin; disimpan per browser.
+// Bisa diatur user dari menu Admin; disimpan di Firebase (shared) + cache localStorage.
 const TAMPIL_KEPALA_KEY = 'sppd_tampil_kepala';
+const TAMPIL_KEPALA_FB = 'sppd/tampilKepala';
 let tampilKepala = true;
 try {
     tampilKepala = localStorage.getItem(TAMPIL_KEPALA_KEY) !== '0';
@@ -191,9 +192,36 @@ function setTampilKepala(value) {
     try {
         localStorage.setItem(TAMPIL_KEPALA_KEY, tampilKepala ? '1' : '0');
     } catch (e) { /* abaikan */ }
+    // Simpan juga ke Firebase agar berlaku di semua perangkat/browser admin.
+    try {
+        if (typeof firebase !== 'undefined' && firebase.database) {
+            firebase.database().ref(TAMPIL_KEPALA_FB).set(tampilKepala)
+                .catch(err => console.warn('Gagal simpan tampil kepala ke Firebase:', err));
+        }
+    } catch (e) { /* abaikan */ }
     applyTampilKepala();
     const cb = document.getElementById('admin-tampil-kepala');
     if (cb) cb.checked = tampilKepala;
+}
+
+// Muat pengaturan tampil/sembunyi blok Kepala dari Firebase (shared).
+// Sebelumnya hanya disimpan di localStorage satu browser, sehingga
+// checkbox tampak "tercentang lagi" saat admin membuka dari browser/perangkat lain.
+function loadTampilKepala() {
+    try {
+        if (typeof firebase === 'undefined' || !firebase.database) return;
+        firebase.database().ref(TAMPIL_KEPALA_FB).on('value', snap => {
+            const val = snap.val();
+            if (typeof val !== 'boolean') return;
+            tampilKepala = val;
+            try {
+                localStorage.setItem(TAMPIL_KEPALA_KEY, val ? '1' : '0');
+            } catch (e) { /* abaikan */ }
+            applyTampilKepala();
+            const cb = document.getElementById('admin-tampil-kepala');
+            if (cb) cb.checked = val;
+        }, err => console.warn('Gagal baca tampil kepala dari Firebase:', err));
+    } catch (e) { /* abaikan */ }
 }
 
 function rebuildNoSpdConfig() {
@@ -248,11 +276,33 @@ function terapkanBulanDariTanggal(tanggal) {
 
 // Normalisasi data tanggal batch dari Firebase/localStorage
 // hanyaSub: true = tanggal ini hanya untuk Sub IMP (Kader IMP disembunyikan)
+// kecamatan: daftar id kecamatan yang mendapat nomor SPPD; kosong = semua
 function normalizeTanggalBatch(val) {
     if (!Array.isArray(val)) return [];
     return val
         .filter(t => t && t.tanggal && Number.isFinite(parseInt(t.nomorAwal, 10)))
-        .map(t => ({ tanggal: String(t.tanggal), nomorAwal: parseInt(t.nomorAwal, 10), hanyaSub: t.hanyaSub === true }));
+        .map(t => ({
+            tanggal: String(t.tanggal),
+            nomorAwal: parseInt(t.nomorAwal, 10),
+            hanyaSub: t.hanyaSub === true,
+            kecamatan: Array.isArray(t.kecamatan)
+                ? t.kecamatan.filter(id => kecamatanList.some(k => k.id === id))
+                : []
+        }));
+}
+
+// Filter kecamatan untuk satu tanggal batch.
+// null = semua kecamatan (belum diatur / semua dipilih).
+function getKecamatanFilter(tanggal) {
+    const entry = (tanggalBatch || []).find(t => t.tanggal === tanggal);
+    return entry && Array.isArray(entry.kecamatan) && entry.kecamatan.length > 0
+        ? entry.kecamatan
+        : null;
+}
+
+function isKecamatanAktif(kecId, tanggal) {
+    const filter = getKecamatanFilter(tanggal === undefined ? selectedTanggalCetak : tanggal);
+    return !filter || filter.includes(kecId);
 }
 
 function isSubImpJabatan(jabatan) {
@@ -331,9 +381,11 @@ function saveTanggalBatch() {
 // Daftar pegawai yang terlihat untuk tanggal tertentu.
 // Tanggal bertanda hanyaSub hanya menampilkan Sub IMP (Kader IMP disembunyikan,
 // tidak ikut penomoran & cetak batch).
+// Tanggal dengan daftar kecamatan terbatas mengosongkan kecamatan lain.
 function getVisiblePegawai(kecId, tanggal) {
-    const list = pegawaiData[kecId] || [];
     const tgl = tanggal === undefined ? selectedTanggalCetak : tanggal;
+    if (!isKecamatanAktif(kecId, tgl)) return [];
+    const list = pegawaiData[kecId] || [];
     if (!isTanggalHanyaSub(tgl)) return list;
     return list.filter(p => isSubImpJabatan(p.jabatan));
 }
@@ -349,15 +401,15 @@ function computeNoSpdForTanggal(tanggal, opts) {
     if (!opts || opts.ikutiTanggal !== false) terapkanBulanDariTanggal(tanggal);
     const entry = tanggalBatch.find(t => t.tanggal === tanggal);
     const start = entry ? entry.nomorAwal : nomorAwalSppd;
-    const hanyaSub = isTanggalHanyaSub(tanggal);
     let currentNo = start;
     noSpdRangePerKec = {};
     kecamatanList.forEach(kec => {
-        const list = pegawaiData[kec.id] || [];
+        // Sumber tunggal: getVisiblePegawai() menghormati filter hanyaSub
+        // dan daftar kecamatan per tanggal.
+        const list = getVisiblePegawai(kec.id, tanggal);
         let first = null;
         let last = null;
         list.forEach(p => {
-            if (hanyaSub && !isSubImpJabatan(p.jabatan)) return;
             p.no_spd = formatNoSpd(currentNo);
             if (first === null) first = currentNo;
             last = currentNo;
@@ -402,7 +454,9 @@ function renderTanggalSelector() {
         const opt = document.createElement('option');
         opt.value = t.tanggal;
         const khusus = t.hanyaSub ? ' · khusus Sub IMP' : '';
-        opt.textContent = `${formatTanggalTampil(t.tanggal)} · mulai ${t.nomorAwal}${khusus}`;
+        const filter = getKecamatanFilter(t.tanggal);
+        const kecTxt = filter ? ` · ${filter.length} kecamatan` : '';
+        opt.textContent = `${formatTanggalTampil(t.tanggal)} · mulai ${t.nomorAwal}${kecTxt}${khusus}`;
         select.appendChild(opt);
     });
     if (selectedTanggalCetak && !tanggalBatch.some(t => t.tanggal === selectedTanggalCetak)) {
@@ -419,6 +473,15 @@ function applyTanggalChange() {
         const parts = String(selectedTanggalCetak).split('-');
         if (parts.length === 3) inputBulan.value = `${parts[0]}-${parts[1]}`;
     }
+    // Kecamatan yang tidak lagi dapat nomor pada tanggal ini → kembali ke grid
+    if (selectedKecamatan && !isKecamatanAktif(selectedKecamatan, selectedTanggalCetak)) {
+        selectedKecamatan = null;
+        const kecPage = document.getElementById('kecamatan-page');
+        const pegPage = document.getElementById('pegawai-page');
+        if (kecPage) kecPage.style.display = 'block';
+        if (pegPage) pegPage.style.display = 'none';
+    }
+    renderKecamatan();
     const pegPage = document.getElementById('pegawai-page');
     if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
         renderPegawaiList(selectedKecamatan);
@@ -442,7 +505,12 @@ function renderKecamatan() {
     const grid = document.getElementById('kecamatan-grid');
     grid.innerHTML = '';
 
-    kecamatanList.forEach(kec => {
+    const filterKec = getKecamatanFilter(selectedTanggalCetak);
+    const aktifKec = filterKec
+        ? kecamatanList.filter(kec => filterKec.includes(kec.id))
+        : kecamatanList;
+
+    aktifKec.forEach(kec => {
         const cnt = kaderCountPerKec[kec.id] || { imp: 0, sub: 0 };
         const card = document.createElement('div');
         card.className = 'kecamatan-card';
@@ -459,6 +527,16 @@ function renderKecamatan() {
         card.onclick = () => showPegawaiPage(kec.id, kec.nama);
         grid.appendChild(card);
     });
+
+    const note = document.getElementById('kec-filter-note');
+    if (note) {
+        if (filterKec) {
+            note.textContent = `Tanggal ${formatTanggalTampil(selectedTanggalCetak)} hanya untuk ${aktifKec.map(k => k.nama).join(', ')}. Ubah di Pengaturan Admin.`;
+            note.style.display = 'block';
+        } else {
+            note.style.display = 'none';
+        }
+    }
 
     // Trigger entrance + draggable animation
     if (typeof animateKecamatanEntrance === 'function') animateKecamatanEntrance();
@@ -1290,18 +1368,83 @@ function renderAdminTanggalList() {
         const total = hitungTotalVisible(t.tanggal);
         const end = t.nomorAwal + total - 1;
         const khusus = t.hanyaSub ? ' · khusus Sub IMP' : '';
+        const filter = getKecamatanFilter(t.tanggal);
+        const aktifIds = filter || kecamatanList.map(k => k.id);
         const row = document.createElement('div');
         row.className = 'admin-tanggal-row';
+        row.dataset.tanggal = t.tanggal;
         row.innerHTML = `
             <div class="admin-tanggal-info">
                 <strong>${escapeHtml(formatTanggalTampil(t.tanggal))}</strong>
-                <span class="admin-tanggal-range">Mulai ${t.nomorAwal} → ${end} (${total} pegawai${khusus})</span>
+                <span class="admin-tanggal-range">Mulai ${t.nomorAwal} → ${end} (${total} pegawai, ${aktifIds.length} kecamatan${khusus})</span>
                 <label style="display:flex;align-items:center;gap:6px;font-size:0.78rem;cursor:pointer;"><input type="checkbox" ${t.hanyaSub ? 'checked' : ''} onchange="toggleTanggalHanyaSub('${t.tanggal}', this.checked)" style="width:auto;" /> Khusus Sub IMP</label>
+                <details class="admin-kec-details">
+                    <summary>Atur kecamatan (${aktifIds.length}/${kecamatanList.length})</summary>
+                    <div class="admin-kec-list">
+                        ${kecamatanList.map(kec => `<label><input type="checkbox" ${aktifIds.includes(kec.id) ? 'checked' : ''} onchange="toggleTanggalKecamatan('${t.tanggal}','${kec.id}',this.checked)" style="width:auto;" /> ${escapeHtml(kec.nama)}</label>`).join('')}
+                        <button type="button" class="admin-kec-all" onclick="setTanggalSemuaKecamatan('${t.tanggal}')">Semua kecamatan</button>
+                    </div>
+                </details>
             </div>
             <button class="admin-delete-btn" onclick="deleteTanggalBatch('${t.tanggal}')" title="Hapus tanggal">Hapus</button>
         `;
         container.appendChild(row);
     });
+}
+
+// Ringkasan satu baris tanggal di menu Admin (tanpa render ulang seluruh daftar,
+// agar checkbox kecamatan yang sedang dibuka tidak tertutup).
+function updateAdminTanggalRowSummary(tanggal) {
+    const row = document.querySelector(`.admin-tanggal-row[data-tanggal="${tanggal}"]`);
+    const t = tanggalBatch.find(x => x.tanggal === tanggal);
+    if (!row || !t) return;
+    const total = hitungTotalVisible(tanggal);
+    const end = t.nomorAwal + total - 1;
+    const filter = getKecamatanFilter(tanggal);
+    const aktifCount = filter ? filter.length : kecamatanList.length;
+    const khusus = t.hanyaSub ? ' · khusus Sub IMP' : '';
+    const range = row.querySelector('.admin-tanggal-range');
+    if (range) range.textContent = `Mulai ${t.nomorAwal} → ${end} (${total} pegawai, ${aktifCount} kecamatan${khusus})`;
+    const summ = row.querySelector('.admin-kec-details summary');
+    if (summ) summ.textContent = `Atur kecamatan (${aktifCount}/${kecamatanList.length})`;
+}
+
+// Aktif/nonaktifkan satu kecamatan untuk tanggal batch tertentu.
+// Hanya kecamatan terpilih yang mendapat nomor SPPD, tampil di grid, dan ikut cetak.
+function toggleTanggalKecamatan(tanggal, kecId, checked) {
+    const entry = tanggalBatch.find(t => t.tanggal === tanggal);
+    if (!entry) return;
+
+    const allIds = kecamatanList.map(k => k.id);
+    const current = new Set(Array.isArray(entry.kecamatan) && entry.kecamatan.length ? entry.kecamatan : allIds);
+    if (checked) current.add(kecId);
+    else current.delete(kecId);
+
+    if (current.size === 0) {
+        showToast('Minimal satu kecamatan harus dipilih', 'error', 2500);
+        renderAdminTanggalList();
+        return;
+    }
+
+    // Semua terpilih → simpan kosong (artinya semua kecamatan)
+    entry.kecamatan = current.size === allIds.length ? [] : allIds.filter(id => current.has(id));
+    saveTanggalBatch();
+    updateAdminTanggalRowSummary(tanggal);
+    if (tanggal === selectedTanggalCetak) applyTanggalChange();
+    renderTanggalSelector();
+    const select = document.getElementById('tanggal-select');
+    if (select) select.value = selectedTanggalCetak;
+}
+
+function setTanggalSemuaKecamatan(tanggal) {
+    const entry = tanggalBatch.find(t => t.tanggal === tanggal);
+    if (!entry) return;
+    entry.kecamatan = [];
+    saveTanggalBatch();
+    renderTanggalSelector();
+    renderAdminTanggalList();
+    if (tanggal === selectedTanggalCetak) applyTanggalChange();
+    showToast('Semua kecamatan diaktifkan untuk tanggal ini', 'success', 2500);
 }
 
 function toggleTanggalHanyaSub(tanggal, hanyaSub) {
@@ -1310,12 +1453,9 @@ function toggleTanggalHanyaSub(tanggal, hanyaSub) {
     entry.hanyaSub = !!hanyaSub;
     saveTanggalBatch();
     renderTanggalSelector();
-    renderAdminTanggalList();
-    computeNoSpdForTanggal(selectedTanggalCetak);
-    const pegPage = document.getElementById('pegawai-page');
-    if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
-        renderPegawaiList(selectedKecamatan);
-    }
+    updateAdminTanggalRowSummary(tanggal);
+    if (tanggal === selectedTanggalCetak) applyTanggalChange();
+    else computeNoSpdForTanggal(selectedTanggalCetak);
 }
 
 function addTanggalBatch() {
@@ -1332,7 +1472,8 @@ function addTanggalBatch() {
     if (!Number.isInteger(nomorAwal) || nomorAwal < 1) { showToast('Isi nomor awal yang valid', 'error', 2500); return; }
     if (tanggalBatch.some(t => t.tanggal === tanggal)) { showToast('Tanggal sudah terdaftar', 'error', 2500); return; }
 
-    tanggalBatch.push({ tanggal, nomorAwal, hanyaSub });
+    // kecamatan kosong = semua kecamatan (bisa diatur per tanggal sesudah ditambahkan)
+    tanggalBatch.push({ tanggal, nomorAwal, hanyaSub, kecamatan: [] });
     tanggalBatch.sort((a, b) => a.tanggal.localeCompare(b.tanggal));
     saveTanggalBatch();
     renderTanggalSelector();
@@ -1355,11 +1496,7 @@ function deleteTanggalBatch(tanggal) {
         const select = document.getElementById('tanggal-select');
         if (select) select.value = selectedTanggalCetak;
     }
-    computeNoSpdForTanggal(selectedTanggalCetak);
-    const pegPage = document.getElementById('pegawai-page');
-    if (selectedKecamatan && pegPage && pegPage.style.display === 'block') {
-        renderPegawaiList(selectedKecamatan);
-    }
+    applyTanggalChange();
     showToast('Tanggal dihapus', 'success', 2500);
 }
 
@@ -1903,6 +2040,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Halaman index.html — tampilkan skeleton dulu
         await loadSettings();
         loadTanggalBatch();
+        loadTampilKepala();
         showSkeleton(11);
         await loadPegawaiData();
         pegawaiLoaded = true;

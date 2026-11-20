@@ -11,6 +11,11 @@
       "tanggalBatch": {
         ".read": true,
         ".write": true
+      },
+      "tampilKepala": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.isBoolean()"
       }
     },
     "access_logs": {

@@ -103,6 +103,7 @@ Saat ini berisi 135 Kader IMP dan 421 Sub IMP (total 556) pada 11 kecamatan. Tam
 - Nomor dihitung ulang setiap tanggal batch dipilih, berurutan lintas kecamatan sesuai urutan `kecamatanList`, dimulai dari `nomorAwal` tanggal tersebut.
 - Bulan & tahun mengikuti tanggal batch; override manual lewat input bulan (`v-input-bulan`) dihormati sampai tanggal diganti.
 - Tanggal batch bertanda **Khusus Sub IMP** hanya menomori dan mencetak Sub IMP; Kader IMP tetap dihitung di ringkasan kecamatan.
+- Tanggal batch dengan daftar `kecamatan` terbatas hanya menomori kecamatan tersebut; nomor mulai dari `nomorAwal` pada kecamatan pertama yang aktif (`kecamatanList`).
 - Tanggal perjalanan hanya hari kerja (Sabtu/Minggu dilewati) dan lama hari diambil dari jabatan: **Kader IMP = 4**, **Sub IMP = 3**, lainnya 1.
 - Halaman 1 dan 2 disinkronkan oleh `updateTanggalKembali()` / `updateTanggalManual()` (`v-tgl-brkt2`, `v-tgl-kmbli2`, `formatTanggalRange`).
 
@@ -113,7 +114,8 @@ Klik ikon gear di navbar → masukkan PIN (didefinisikan sebagai `ADMIN_PIN` di 
 - melihat nomor awal SPPD dan kepala aktif;
 - menambah/menghapus tanggal batch beserta nomor awal;
 - menandai tanggal sebagai khusus Sub IMP;
-- menampilkan/mengosongkan blok Kepala di kolom VI halaman 2 SPD (pilihan disimpan di `localStorage` per browser; tinggi sel tetap).
+- memilih kecamatan mana yang mendapat nomor SPPD pada tanggal itu (`details` **Atur kecamatan**) — kecamatan yang tidak dipilih tidak tampil di grid, tidak dinomori, dan tidak ikut cetak batch; tombol **Semua kecamatan** mengembalikannya;
+- menampilkan/mengosongkan blok Kepala di kolom VI halaman 2 SPD (disimpan di Firebase `sppd/tampilKepala` + cache `localStorage`, jadi berlaku di semua perangkat; tinggi sel tetap).
 
 PIN ini gate tampilan di sisi klien, bukan otentikasi server.
 
@@ -123,10 +125,11 @@ Data yang dibagikan antar pengguna memakai Firebase Realtime Database:
 
 | Path | Isi |
 | --- | --- |
-| `sppd/tanggalBatch` | Daftar `{ tanggal, nomorAwal, hanyaSub }` |
+| `sppd/tanggalBatch` | Daftar `{ tanggal, nomorAwal, hanyaSub, kecamatan }` (`kecamatan: []` = semua) |
+| `sppd/tampilKepala` | `true`/`false` — tampil/sembunyi blok Kepala kolom VI halaman 2 |
 | `messages` | Pesan chat `{ nickname, message, color, timestamp }` |
 
-Config Firebase ada di `chat-ui.js` (client-side, public by design). Aturan keamanan RTDB dikelola di Firebase Console, **tidak** ada di repo ini. `localStorage` menyimpan cache tanggal batch, nickname/warna chat, preferensi tema, dan data sementara `cetak_kie_data`.
+Config Firebase ada di `chat-ui.js` (client-side, public by design). Salinan aturan RTDB ada di `firebase-rules.json` untuk referensi; aturan aktif dikelola di Firebase Console dan **harus** memuat `sppd/tampilKepala` agar pengaturan tampil/sembunyi blok Kepala tersinkron antar perangkat. `localStorage` menyimpan cache tanggal batch, nickname/warna chat, preferensi tema, dan data sementara `cetak_kie_data`.
 
 ## Cetak
 
@@ -138,6 +141,8 @@ Config Firebase ada di `chat-ui.js` (client-side, public by design). Aturan keam
 ## Deployment
 
 Hosting statis apa pun (saat ini Netlify). Tidak ada build command; publish directory = root repo. `.htaccess` hanya relevan bila disajikan lewat Apache.
+
+Catatan dev: `python -m http.server` tidak mengirim `Cache-Control`, jadi browser bisa memakai `app.js` lama setelah file diubah. Lakukan hard reload (Ctrl+Shift+R) atau jalankan server yang mengirim `Cache-Control: no-store`.
 
 ## Batasan yang Diketahui
 
