@@ -265,7 +265,7 @@
         <label class="admin-kepala-toggle" style="display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;cursor:pointer;padding:12px 14px;background:var(--bg-input);border:1px dashed var(--border);border-radius:var(--radius-md);margin-bottom:16px;">
           <input type="checkbox" id="admin-tampil-kepala" onchange="setTampilKepala(this.checked)" style="width:auto;margin-top:2px;" />
           <span>Tampilkan isi kolom VI halaman 2 SPD (tujuan, tanggal, nama &amp; NIP Kepala).<br />
-            <span style="color:var(--text-secondary);">Jika dimatikan, label "Tiba di :" dan "Pada tanggal :" tetap tercetak.</span>
+            <span style="color:var(--text-secondary);">Jika dimatikan, isian "Tiba di :" dan "Pada tanggal :" tetap tercetak; isian "Kepala :" serta nama &amp; NIP dikosongkan.</span>
           </span>
         </label>
 
@@ -1207,14 +1207,14 @@
               <div style="display: flex; margin-bottom: 5px">
                 <div data-kepala-label style="width: 120px">Tiba di</div>
                 <div data-kepala-label style="width: 15px">:</div>
-                <div data-kepala-val>Pelaihari</div>
+                <div>Pelaihari</div>
               </div>
               <div style="display: flex; margin-bottom: 5px">
                 <div data-kepala-label style="width: 120px">Pada tanggal</div>
                 <div data-kepala-label style="width: 15px">:</div>
-                <div data-kepala-val><span id="v-tgl-kmbli2"></span></div>
+                <div><span id="v-tgl-kmbli2"></span></div>
               </div>
-              <div data-kepala-row style="display: flex; margin-bottom: 5px">
+              <div style="display: flex; margin-bottom: 5px">
                 <div data-kepala-label style="width: 120px">Kepala</div>
                 <div data-kepala-label style="width: 15px">:</div>
                 <div data-kepala-val><span id="v-kepala-jabatan"></span></div>

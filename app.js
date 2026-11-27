@@ -178,11 +178,6 @@ function applyTampilKepala(root) {
             label.style.visibility = 'visible';
         });
 
-        // Baris "Kepala" ikut state toggle: tampil saat aktif, hilang saat kosong.
-        cell.querySelectorAll('[data-kepala-row]').forEach(row => {
-            row.style.display = tampilKepala ? 'flex' : 'none';
-        });
-
         const nilaiKepala = cell.querySelectorAll('[data-kepala-val]');
 
         if (tampilKepala) {
