@@ -167,7 +167,17 @@ function getKepalaAktif() {
 function applyTampilKepala(root) {
     const scope = root || document;
     scope.querySelectorAll('[data-kepala-block]').forEach(cell => {
+        // Blok itu sendiri (border sel tabel) harus selalu tercetak.
         cell.style.visibility = '';
+
+        // Label "Tiba di", "Pada tanggal", "Kepala" + titik dua WAJIB selalu
+        // tercetak, termasuk saat isian kolom VI disembunyikan. Atribut
+        // data-kepala-label menandainya agar tidak ikut tersembunyi bila ada
+        // aturan/versi lama yang menyembunyikan seluruh sel.
+        cell.querySelectorAll('[data-kepala-label]').forEach(label => {
+            label.style.visibility = 'visible';
+        });
+
         const nilaiKepala = cell.querySelectorAll('[data-kepala-val]');
 
         if (tampilKepala) {
@@ -187,8 +197,7 @@ function applyTampilKepala(root) {
                 if (nip) nip.textContent = kepala.nip || '';
             }
         } else {
-            // Label "Tiba di", "Pada tanggal", "Kepala" + titik dua tetap tercetak,
-            // hanya isiannya yang disembunyikan.
+            // Hanya isian yang disembunyikan; label tetap tercetak.
             nilaiKepala.forEach(val => {
                 val.style.visibility = 'hidden';
             });
