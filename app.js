@@ -178,6 +178,11 @@ function applyTampilKepala(root) {
             label.style.visibility = 'visible';
         });
 
+        // Baris "Kepala" ikut state toggle: tampil saat aktif, hilang saat kosong.
+        cell.querySelectorAll('[data-kepala-row]').forEach(row => {
+            row.style.display = tampilKepala ? 'flex' : 'none';
+        });
+
         const nilaiKepala = cell.querySelectorAll('[data-kepala-val]');
 
         if (tampilKepala) {
@@ -186,9 +191,11 @@ function applyTampilKepala(root) {
                 val.style.visibility = '';
             });
 
-            // Pastikan nama & NIP terisi kembali (bisa kosong bila template di-clone saat mode kosong)
+            // Pastikan data kepala terisi kembali (bisa kosong bila template di-clone saat mode kosong)
             const nama = cell.querySelector('[id$="kepala-nama"]');
             const nip = cell.querySelector('[id$="kepala-nip"]');
+            const jabatan = cell.querySelector('[id$="kepala-jabatan"]');
+            if (jabatan) jabatan.textContent = getKepalaAktif().jabatan || '-';
             if (nama && !nama.textContent.trim()) {
                 const kepala = getKepalaAktif();
                 nama.textContent = kepala.nama || '.................................................';
@@ -1781,11 +1788,13 @@ function isiDataCetak(pegawai, prefix, container) {
     if (elTglKmbli2) elTglKmbli2.textContent = tglKembaliStr;
     if (elTglCetak2) elTglCetak2.textContent = tglBerangkatStr;
 
-    // Isi kolom VI halaman 2 SPD: nama & NIP pejabat aktif (hanya prefix 'v')
+    // Isi kolom VI halaman 2 SPD: pejabat aktif sebagai "Kepala" (hanya prefix 'v')
     if (prefix === 'v') {
         const kepala = getKepalaAktif();
+        const elKepalaJabatan = root.querySelector('#v-kepala-jabatan');
         const elKepalaNama = root.querySelector('#v-kepala-nama');
         const elKepalaNip = root.querySelector('#v-kepala-nip');
+        if (elKepalaJabatan) elKepalaJabatan.textContent = kepala.jabatan || '-';
         if (elKepalaNama) elKepalaNama.textContent = kepala.nama || '.................................................';
         if (elKepalaNip) elKepalaNip.textContent = kepala.nip || '';
         applyTampilKepala(root);
