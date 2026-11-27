@@ -28,7 +28,7 @@ let noSpdRangePerKec = {};
 // Jika true berarti Kader IMP tetap dihitung jumlahnya untuk ringkasan kecamatan, tapi tidak dimuat ke pegawaiData.
 const SEMBUNYIKAN_KADER_IMP = false;
 const DEFAULT_NOMOR_AWAL_SPPD = 1;
-const ADMIN_PIN = 'erniwati';
+const ADMIN_PIN = 'PPDI';
 let nomorAwalSppd = DEFAULT_NOMOR_AWAL_SPPD;
 
 // Penomoran per tanggal batch
