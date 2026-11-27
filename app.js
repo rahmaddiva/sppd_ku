@@ -56,9 +56,9 @@ let kepalaAktif = '';
 const TAMPIL_KEPALA_KEY = 'sppd_tampil_kepala';
 const TAMPIL_KEPALA_FB = 'sppd/tampilKepala';
 let tampilKepala = true;
-try {
-    tampilKepala = localStorage.getItem(TAMPIL_KEPALA_KEY) !== '0';
-} catch (e) { /* abaikan */ }
+// Penanda perubahan lokal: mencegah hasil pembacaan Firebase yang terlambat
+// menimpa pilihan admin yang baru saja diubah di perangkat ini.
+let versiTampilKepalaLokal = 0;
 
 // Bulan & tahun untuk format nomor SPPD
 const BULAN_ROMAWI = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
@@ -168,11 +168,14 @@ function applyTampilKepala(root) {
     const scope = root || document;
     scope.querySelectorAll('[data-kepala-block]').forEach(cell => {
         cell.style.visibility = '';
-        // Label "Tiba di", "Pada tanggal", "Kepala" + titik dua selalu tetap tercetak.
-        cell.querySelectorAll('[data-kepala-val]').forEach(val => {
-            val.style.visibility = tampilKepala ? '' : 'hidden';
-        });
+        const nilaiKepala = cell.querySelectorAll('[data-kepala-val]');
+
         if (tampilKepala) {
+            // Tampilkan semua isian kolom VI.
+            nilaiKepala.forEach(val => {
+                val.style.visibility = '';
+            });
+
             // Pastikan data kepala terisi kembali (bisa kosong bila template di-clone saat mode kosong)
             const nama = cell.querySelector('[id$="kepala-nama"]');
             const nip = cell.querySelector('[id$="kepala-nip"]');
@@ -183,20 +186,63 @@ function applyTampilKepala(root) {
                 if (nama) nama.textContent = kepala.nama || '.................................................';
                 if (nip) nip.textContent = kepala.nip || '';
             }
+        } else {
+            // Label "Tiba di", "Pada tanggal", "Kepala" + titik dua tetap tercetak,
+            // hanya isiannya yang disembunyikan.
+            nilaiKepala.forEach(val => {
+                val.style.visibility = 'hidden';
+            });
         }
     });
 }
 
-function setTampilKepala(value) {
-    tampilKepala = !!value;
+// Simpan status tampil kepala ke cache localStorage (dipakai saat Firebase lambat/offline).
+function simpanCacheTampilKepala() {
     try {
-        localStorage.setItem(TAMPIL_KEPALA_KEY, tampilKepala ? '1' : '0');
+        if (tampilKepala) {
+            localStorage.setItem(TAMPIL_KEPALA_KEY, '1');
+        } else {
+            localStorage.setItem(TAMPIL_KEPALA_KEY, '0');
+        }
     } catch (e) { /* abaikan */ }
+}
+
+// Terapkan status dari cache lokal lebih dulu, supaya tampilan awal konsisten
+// dengan pilihan admin terakhir di perangkat ini.
+function bacaCacheTampilKepala() {
+    try {
+        const cached = localStorage.getItem(TAMPIL_KEPALA_KEY);
+        if (cached === '1') {
+            tampilKepala = true;
+        } else if (cached === '0') {
+            tampilKepala = false;
+        }
+    } catch (e) { /* abaikan */ }
+}
+
+// Jumlah penulisan lokal yang sedang berjalan. Selama > 0, listener real-time
+// diabaikan agar gema nilai lama dari server tidak menimpa pilihan admin.
+let penulisanTampilKepalaBerjalan = 0;
+
+function setTampilKepala(value) {
+    if (value === true) {
+        tampilKepala = true;
+    } else {
+        tampilKepala = false;
+    }
+
+    // Tandai perubahan lokal agar pembacaan Firebase yang lebih lama tidak menimpanya.
+    versiTampilKepalaLokal++;
+
+    simpanCacheTampilKepala();
+
     // Simpan juga ke Firebase agar berlaku di semua perangkat/browser admin.
     try {
         if (typeof firebase !== 'undefined' && firebase.database) {
+            penulisanTampilKepalaBerjalan++;
             firebase.database().ref(TAMPIL_KEPALA_FB).set(tampilKepala)
-                .catch(err => console.warn('Gagal simpan tampil kepala ke Firebase:', err));
+                .catch(err => console.warn('Gagal simpan tampil kepala ke Firebase:', err))
+                .finally(() => { penulisanTampilKepalaBerjalan--; });
         }
     } catch (e) { /* abaikan */ }
     applyTampilKepala();
@@ -204,24 +250,83 @@ function setTampilKepala(value) {
     if (cb) cb.checked = tampilKepala;
 }
 
+// Terapkan satu nilai dari Firebase/cache ke state + DOM.
+// Mengembalikan true bila nilainya valid (boolean), false bila bukan.
+function terapkanNilaiTampilKepala(val) {
+    if (val === true) {
+        tampilKepala = true;
+    } else if (val === false) {
+        tampilKepala = false;
+    } else {
+        return false; // null/undefined = belum diatur → pertahankan nilai sekarang
+    }
+
+    simpanCacheTampilKepala();
+    applyTampilKepala();
+    const cb = document.getElementById('admin-tampil-kepala');
+    if (cb) cb.checked = tampilKepala;
+    return true;
+}
+
+// Promise pembacaan Firebase pertama. Preview & cetak selalu menunggu promise ini
+// agar status kolom VI tidak memakai nilai cache lama di perangkat lain.
+let tampilKepalaSiapPromise = null;
+
+// Pastikan status kolom VI sudah tersinkron dengan Firebase.
+// Bila Firebase tidak tersedia, nilai cache lokal dipakai (mode offline).
+async function sinkronkanTampilKepala() {
+    if (tampilKepalaSiapPromise) {
+        await tampilKepalaSiapPromise;
+    }
+    return tampilKepala;
+}
+
 // Muat pengaturan tampil/sembunyi blok Kepala dari Firebase (shared).
-// Sebelumnya hanya disimpan di localStorage satu browser, sehingga
-// checkbox tampak "tercentang lagi" saat admin membuka dari browser/perangkat lain.
+// Nilai Firebase adalah sumber utama; cache localStorage hanya cadangan.
+// Dipanggil saat init (tanpa await) dan memasang listener real-time, sehingga
+// perubahan dari perangkat lain langsung ikut teraplikasi di sini.
 function loadTampilKepala() {
-    try {
-        if (typeof firebase === 'undefined' || !firebase.database) return;
-        firebase.database().ref(TAMPIL_KEPALA_FB).on('value', snap => {
-            const val = snap.val();
-            if (typeof val !== 'boolean') return;
-            tampilKepala = val;
-            try {
-                localStorage.setItem(TAMPIL_KEPALA_KEY, val ? '1' : '0');
-            } catch (e) { /* abaikan */ }
-            applyTampilKepala();
-            const cb = document.getElementById('admin-tampil-kepala');
-            if (cb) cb.checked = val;
-        }, err => console.warn('Gagal baca tampil kepala dari Firebase:', err));
-    } catch (e) { /* abaikan */ }
+    if (typeof firebase === 'undefined' || !firebase.database) {
+        return Promise.resolve(tampilKepala);
+    }
+
+    const refKepala = firebase.database().ref(TAMPIL_KEPALA_FB);
+    const versiAwal = versiTampilKepalaLokal;
+
+    tampilKepalaSiapPromise = new Promise(resolve => {
+        let selesai = false;
+        const selesaikan = () => {
+            if (selesai) return;
+            selesai = true;
+            resolve(tampilKepala);
+        };
+
+        // Batas tunggu agar halaman tidak macet bila Firebase tidak merespons.
+        // Setelah batas ini, nilai cache lokal dipakai sampai listener real-time tiba.
+        const timer = setTimeout(selesaikan, 2500);
+
+        refKepala.once('value').then(snap => {
+            // Abaikan hasil basi bila admin sudah mengubah toggle setelah permintaan ini dibuat.
+            if (versiTampilKepalaLokal === versiAwal) {
+                terapkanNilaiTampilKepala(snap.val());
+            }
+        }).catch(err => {
+            console.warn('Gagal baca tampil kepala dari Firebase:', err);
+        }).finally(() => {
+            clearTimeout(timer);
+            selesaikan();
+        });
+    });
+
+    // Sinkron real-time setelah pembacaan awal (perubahan dari perangkat lain).
+    refKepala.on('value', snap => {
+        if (penulisanTampilKepalaBerjalan > 0) {
+            return; // tunggu penulisan lokal selesai
+        }
+        terapkanNilaiTampilKepala(snap.val());
+    }, err => console.warn('Gagal baca tampil kepala dari Firebase:', err));
+
+    return tampilKepalaSiapPromise;
 }
 
 function rebuildNoSpdConfig() {
@@ -847,12 +952,16 @@ function formatTanggalRange(tglBerangkat, tglKembali) {
     }).join(', ');
 }
 
-function showCetakPage(pegawai) {
+async function showCetakPage(pegawai) {
     // Simpan pegawai yang sedang ditampilkan
     currentPegawai = pegawai;
 
     // Pastikan nomor SPPD sesuai tanggal terpilih
     if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
+
+    // Ambil status terbaru kolom VI dari Firebase sebelum preview dirender,
+    // agar hasil cetak di perangkat ini sama dengan pengaturan admin.
+    await sinkronkanTampilKepala();
 
     // Keluar dari mode batch (tampilkan preview-panel tunggal, sembunyikan batch)
     const batchContainer = document.getElementById('cetak-batch-container');
@@ -906,7 +1015,7 @@ function showCetakPage(pegawai) {
 // berjalan dari nomorAwal tanggal terpilih. Dipakai oleh printBatch()
 // (per kecamatan) dan printBatchSemuaKecamatan() (seluruh kecamatan).
 // ===========================
-function renderBatchPages(list) {
+async function renderBatchPages(list) {
     if (!selectedTanggalCetak && tanggalBatch.length > 0) {
         selectedTanggalCetak = tanggalBatch[tanggalBatch.length - 1].tanggal;
     }
@@ -921,6 +1030,10 @@ function renderBatchPages(list) {
 
     // Pastikan penomoran sesuai tanggal terpilih
     computeNoSpdForTanggal(selectedTanggalCetak);
+
+    // Ambil status terbaru kolom VI dari Firebase sebelum halaman di-clone,
+    // agar semua halaman batch memakai status yang sama dengan pengaturan admin.
+    await sinkronkanTampilKepala();
 
     const batchContainer = document.getElementById('cetak-batch-container');
     const previewPanel = document.querySelector('#cetak-page .preview-panel');
@@ -997,9 +1110,10 @@ function printBatch() {
         showToast('Tidak ada pegawai di kecamatan ini', 'error', 2500);
         return;
     }
-    const count = renderBatchPages(list);
-    const kecNama = (kecamatanList.find(k => k.id === selectedKecamatan) || {}).nama || selectedKecamatan;
-    showToast(`Print batch: ${count} pegawai — ${kecNama}`, 'success', 3000);
+    Promise.resolve(renderBatchPages(list)).then(count => {
+        const kecNama = (kecamatanList.find(k => k.id === selectedKecamatan) || {}).nama || selectedKecamatan;
+        showToast(`Print batch: ${count} pegawai — ${kecNama}`, 'success', 3000);
+    });
 }
 
 // ===========================
@@ -1014,9 +1128,10 @@ function printBatchSemuaKecamatan() {
         showToast('Tidak ada data pegawai', 'error', 2500);
         return;
     }
-    const count = renderBatchPages(allPegawai);
-    const tglLabel = formatTanggalTampil(selectedTanggalCetak);
-    showToast(`Print batch: ${count} pegawai (semua kecamatan) — ${tglLabel}`, 'success', 3000);
+    Promise.resolve(renderBatchPages(allPegawai)).then(count => {
+        const tglLabel = formatTanggalTampil(selectedTanggalCetak);
+        showToast(`Print batch: ${count} pegawai (semua kecamatan) — ${tglLabel}`, 'success', 3000);
+    });
 }
 
 // ===========================
@@ -2031,6 +2146,20 @@ window.updateUsulanStatus = updateUsulanStatus;
 // ===========================
 // INISIALISASI APLIKASI
 // ===========================
+// Terapkan cache tema kolom VI segera saat script dimuat (sebelum DOMContentLoaded
+// dan sebelum fetch settings.json), supaya tampilan awal tidak "berkedip"
+// menampilkan isian yang seharusnya disembunyikan.
+bacaCacheTampilKepala();
+if (tampilKepala === false) {
+    applyTampilKepala();
+}
+
+// Jaring pengaman terakhir: pastikan status kolom VI selalu diterapkan tepat
+// sebelum dialog cetak dibuka (Ctrl+P, menu browser, atau tombol Cetak PDF).
+window.addEventListener('beforeprint', function() {
+    applyTampilKepala();
+});
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Deteksi halaman aktif
     if (document.getElementById('kie-nama')) {
@@ -2038,16 +2167,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         initCetakKie();
     } else {
         // Halaman index.html — tampilkan skeleton dulu
+        // Mulai baca status kolom VI lebih awal (paralel dengan load settings),
+        // agar saat user membuka preview nilainya sudah siap.
+        loadTampilKepala();
         await loadSettings();
         loadTanggalBatch();
-        loadTampilKepala();
         showSkeleton(11);
         await loadPegawaiData();
         pegawaiLoaded = true;
         if (selectedTanggalCetak) computeNoSpdForTanggal(selectedTanggalCetak);
         renderTanggalSelector();
         renderKecamatan();
-        if (!tampilKepala) applyTampilKepala();
+        applyTampilKepala();
         // Tampilkan modal update setelah halaman siap (sedikit delay agar tampil paling atas)
         setTimeout(showUpdateModal, 400);
     }
